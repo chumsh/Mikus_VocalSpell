@@ -105,8 +105,7 @@ public abstract class AbstractCheckArea extends Entity implements TraceableEntit
         this.detectionRadius = 1;
     }
 
-    protected void discardLogic() {
-    }
+    protected void discardLogic() {}
 
     public void setMaxLifeTime(int maxLifeTime) {
         this.maxLifeTime = maxLifeTime;

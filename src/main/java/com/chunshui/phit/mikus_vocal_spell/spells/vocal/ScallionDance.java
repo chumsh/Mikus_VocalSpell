@@ -3,6 +3,7 @@ package com.chunshui.phit.mikus_vocal_spell.spells.vocal;
 import com.chunshui.phit.mikus_vocal_spell.MikusVocalSpellIronsSpellsAddon;
 import com.chunshui.phit.mikus_vocal_spell.entity.spells.scallion_dance.ScallionProjectile;
 import com.chunshui.phit.mikus_vocal_spell.registries.MVSSchoolRegistry;
+import com.chunshui.phit.mikus_vocal_spell.utils.NBTKeyHelper;
 import io.redspace.ironsspellbooks.api.config.DefaultConfig;
 import io.redspace.ironsspellbooks.api.magic.MagicData;
 import io.redspace.ironsspellbooks.api.spells.*;
@@ -20,7 +21,7 @@ import net.minecraft.world.level.Level;
 import java.util.List;
 
 @AutoSpellConfig
-public class ScallionDance extends AbstractSpell {
+public class ScallionDance extends AbstractSpell{
 
     @Override
     public List<MutableComponent> getUniqueInfo(int spellLevel, LivingEntity caster) {
@@ -58,6 +59,12 @@ public class ScallionDance extends AbstractSpell {
                 && entityCastData.getCastingEntity() instanceof AbstractConeProjectile cone) {
             cone.setDealDamageActive();
         } else {
+            int count = entity.getPersistentData().getInt(NBTKeyHelper.CASTING_COUNT);
+            if(count == 2 || count < 1) {
+                entity.getPersistentData().putInt(NBTKeyHelper.CASTING_COUNT, 1);
+            } else {
+                entity.getPersistentData().putInt(NBTKeyHelper.CASTING_COUNT, 2);
+            }
             ScallionProjectile scallionProjectile = new ScallionProjectile(world, entity);
             scallionProjectile.setPos(entity.position().add(0, entity.getEyeHeight() * .7, 0));
             scallionProjectile.setDamage(getDamage(spellLevel, entity));

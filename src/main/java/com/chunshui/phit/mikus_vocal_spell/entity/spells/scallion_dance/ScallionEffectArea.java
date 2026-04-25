@@ -1,6 +1,5 @@
 package com.chunshui.phit.mikus_vocal_spell.entity.spells.scallion_dance;
 
-import com.chunshui.phit.mikus_vocal_spell.MikusVocalSpellIronsSpellsAddon;
 import com.chunshui.phit.mikus_vocal_spell.entity.spells.AbstractCheckArea;
 import com.chunshui.phit.mikus_vocal_spell.registries.EntityRegistry;
 import com.chunshui.phit.mikus_vocal_spell.registries.MVSEffectRegistry;
@@ -11,32 +10,24 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.Level;
 
+import java.util.Objects;
+
 public class ScallionEffectArea extends AbstractCheckArea {
 
     public static final String SPAWN = "scallion_spawned";
 
-    public ScallionEffectArea(EntityType<?> entityType, Level level) {
-        super(entityType, level);
-    }
+    public ScallionEffectArea(EntityType<?> entityType, Level level) { super(entityType, level); }
 
     public ScallionEffectArea(Level level, Entity owner) {
         super(EntityRegistry.SCALLION_AREA.get(), level);
         setMaxLifeTime(400);
         this.setOwner(owner);
-    }
 
-    @Override
-    public void tick() {
-        super.tick();
-        
-        if (level().isClientSide) {
-            return;
-        }
-        
         if (getOwner() != null) {
             getOwner().getPersistentData().putBoolean(SPAWN, true);
         }
     }
+
 
     @Override
     protected void applyEffectToEntity(LivingEntity entity, int duration, int amplifier) {
@@ -60,8 +51,7 @@ public class ScallionEffectArea extends AbstractCheckArea {
 
     @Override
     protected void discardLogic() {
-        if (getOwner() != null) {
-            getOwner().getPersistentData().putBoolean(SPAWN, false);
-        }
+        Objects.requireNonNull(getOwner()).getPersistentData().putBoolean(SPAWN, false);
+        Objects.requireNonNull(getOwner()).getPersistentData().putInt("casting_count", 0);
     }
 }

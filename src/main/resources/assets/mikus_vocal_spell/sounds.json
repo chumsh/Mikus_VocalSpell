@@ -1,0 +1,16 @@
+{
+  "vocal_spell_cast": {
+    "subtitle": "sounds.mikus_vocal_spell.vocal_spell_cast",
+    "sounds": [
+      "mikus_vocal_spell:vocal_spell_cast_1",
+      "mikus_vocal_spell:vocal_spell_cast_2",
+      "mikus_vocal_spell:vocal_spell_cast_3"
+    ]
+  },
+  "eat_apple": {
+    "subtitle": "sounds.mikus_vocal_spell.eat_apple",
+    "sounds": [
+      "mikus_vocal_spell:eat_apple"
+    ]
+  }
+}

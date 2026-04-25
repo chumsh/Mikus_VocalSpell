@@ -1,0 +1,48 @@
+{
+  "item.mikus_vocal_spell.vocal_upgrade_orb": "Vocal Upgrade Orb",
+  "item.mikus_vocal_spell.miku_staff": "Miku Staff",
+  "item.mikus_vocal_spell.revive_talisman": "Revive Talisman",
+  "item.mikus_vocal_spell.revive_talisman.use": "✨ Activated Revive Talisman! Gained ",
+
+  "school.mikus_vocalspell.vocal": "Vocal",
+  "attribute.mikus_vocal_spell.vocal_spell_power" : "Vocal Spell Power",
+  "ui.mikus_vocal_spell.damage": "%d Damage",
+  "mikus_vocal_spell.configuration.title": "Miku's VocalSpell - Iron's Spells Addon Configs",
+  "mikus_vocal_spell.configuration.section.mikus_vocal_spell.common.toml": "Miku's VocalSpell - Iron's Spells Addon Configs",
+  "mikus_vocal_spell.configuration.section.mikus_vocal_spell.common.toml.title": "Miku's VocalSpell - Iron's Spells Addon Configs",
+  "mikus_vocal_spell.configuration.items": "Item List",
+  "mikus_vocal_spell.configuration.logDirtBlock": "Log Dirt Block",
+  "mikus_vocal_spell.configuration.magicNumberIntroduction": "Magic Number Text",
+  "mikus_vocal_spell.configuration.magicNumber": "Magic Number",
+
+
+  "death.attack.vocal_magic": "%1$s was slain by vocal magic",
+  "death.attack.vocal_magic.player": "%1$s was slain by vocal magic whilst fighting %2$s",
+  
+  "spell.mikus_vocal_spell.reincarnation_seed": "Reincarnation Seed",
+  "spell.mikus_vocal_spell.scallion_dance": "Scallion Dance",
+
+  "death.mikus_vocal_spell.revived": "Ugh, failed again.Let's reincarnate",
+  "death.mikus_vocal_spell.revived.last": "Returned to my ordinary self",
+
+  "effect.mikus_vocal_spell.revive_buff": "Reincarnation",
+  "effect.mikus_vocal_spell.performer_effect": "Arrogant Performer",
+  "effect.mikus_vocal_spell.inventor_effect": "Betrayed Inventor",
+  "effect.mikus_vocal_spell.messiah_effect": "Deceived Messiah",
+  "effect.mikus_vocal_spell.revolutionary_effect": "Fallen Revolutionary",
+  "effect.mikus_vocal_spell.adventurer_effect": "Selfish Adventurer",
+
+  "message.mikus_vocal_spell.performer_effect.effect": "The beloved comrades have departed",
+  "message.mikus_vocal_spell.inventor_effect.effect": "A cruel rain of blood fell",
+  "message.mikus_vocal_spell.messiah_effect.effect": "Too pure for his own good, easily deceived by evil",
+  "message.mikus_vocal_spell.revolutionary_effect.effect": "Drowning in the power I've obtained",
+  "message.mikus_vocal_spell.adventurer_effect.effect": "Innocent people fell victim",
+  "message.mikus_vocal_spell.scallion_area.spawn": "Scallion Domain Cannot Be Regenerated",
+
+  "ui.mikus_vocal_spell.reincarnation": "3 Revive Times",
+  "ui.mikus_vocal_spell.vsinger.reincarnation": "Blesser: Miku"
+
+
+
+
+}

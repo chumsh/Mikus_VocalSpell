@@ -1,0 +1,43 @@
+{
+  "item.mikus_vocal_spell.vocal_upgrade_orb": "声之法术升级球",
+  "item.mikus_vocal_spell.miku_staff": "未来法杖",
+  "item.mikus_vocal_spell.revive_talisman": "重生护身符",
+  "item.mikus_vocal_spell.revive_talisman.use": "✨ 激活重生护身符！获得",
+
+  "attribute.mikus_vocal_spell.vocal_spell_power" : "声之法术强度",
+
+  "mikus_vocal_spell.configuration.title": "Miku's VocalSpell - Iron's Spells Addon Configs",
+  "mikus_vocal_spell.configuration.section.mikus_vocal_spell.common.toml": "Miku's VocalSpell - Iron's Spells Addon Configs",
+  "mikus_vocal_spell.configuration.section.mikus_vocal_spell.common.toml.title": "Miku's VocalSpell - Iron's Spells Addon Configs",
+  "mikus_vocal_spell.configuration.items": "Item List",
+  "mikus_vocal_spell.configuration.logDirtBlock": "Log Dirt Block",
+  "mikus_vocal_spell.configuration.magicNumberIntroduction": "Magic Number Text",
+  "mikus_vocal_spell.configuration.magicNumber": "Magic Number",
+
+  "death.attack.vocal_magic": "%1$s was slain by vocal magic",
+  "death.attack.vocal_magic.player": "%1$s was slain by vocal magic whilst fighting %2$s",
+  
+  "spell.mikus_vocal_spell.reincarnation_seed": "转生之果",
+  "spell.mikus_vocal_spell.scallion_dance": "葱之舞",
+
+  "death.mikus_vocal_spell.revived.last": "又变回了平凡的自己",
+  "death.mikus_vocal_spell.revived": "啊，又搞砸了，转生吧",
+
+  "effect.mikus_vocal_spell.revive_buff": "转生",
+  "effect.mikus_vocal_spell.performer_effect": "孤傲的表演者",
+  "effect.mikus_vocal_spell.inventor_effect": "被背叛的发明家",
+  "effect.mikus_vocal_spell.messiah_effect": "被欺骗的救世主",
+  "effect.mikus_vocal_spell.revolutionary_effect": "堕落的革命家",
+  "effect.mikus_vocal_spell.adventurer_effect": "自私的冒险者",
+
+  "message.mikus_vocal_spell.performer_effect.effect":"所爱的伙伴离我而去了",
+  "message.mikus_vocal_spell.inventor_effect.effect": "卷起了残酷的血雨腥风",
+  "message.mikus_vocal_spell.messiah_effect.effect": "因为过于纯真而被邪恶欺骗",
+  "message.mikus_vocal_spell.revolutionary_effect.effect": "沉溺于自己得到的权力",
+  "message.mikus_vocal_spell.adventurer_effect.effect": "牺牲了许多无辜的人",
+  "message.mikus_vocal_spell.scallion_area.spawn": "葱之领域无法重复生成",
+
+  "ui.mikus_vocal_spell.reincarnation": "转生次数：3",
+  "ui.mikus_vocal_spell.vsinger.reincarnation": "祝福者：初音"
+
+}

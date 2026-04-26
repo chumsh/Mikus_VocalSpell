@@ -24,13 +24,16 @@ public abstract class AbstractCheckArea extends Entity implements TraceableEntit
     @Nullable
     private UUID ownerUUID;
 
-    public int maxLifeTime = -1;
     private int tickCounter = 0;
     public int duration;
     public int amplifier;
     public boolean isShowIcon;
     public boolean isSpawnParticle;
-    public double detectionRadius;
+    protected final EntityDataAccesstor<Double> detectionRadius;
+    protected final EntityDataAccesstor<Integer> maxLifeTime = -1;
+
+    SynchedEntityData.defineId(AbstractCheckArea.class, EntityDataSerializers.INT);
+SynchedEntityData.defineId(AbstractCheckArea.class, EntityDataSerializers.DOUBLE);
 
     public AbstractCheckArea(EntityType<?> entityType, Level level) {
         super(entityType, level);

@@ -20,8 +20,10 @@ import java.util.UUID;
 public abstract class AbstractCheckArea extends Entity implements TraceableEntity {
 
     private static final int CHECK_INTERVAL = 10;
-    private static final EntityDataAccessor<Double> DETECTION_RADIUS = SynchedEntityData.defineId(AbstractCheckArea.class, EntityDataSerializers.DOUBLE);
-    private static final EntityDataAccessor<Integer> MAX_LIFE_TIME = SynchedEntityData.defineId(AbstractCheckArea.class, EntityDataSerializers.INT);
+    private static final EntityDataAccessor<Double> DETECTION_RADIUS =
+            SynchedEntityData.defineId(AbstractCheckArea.class, EntityDataSerializers.DOUBLE);
+    private static final EntityDataAccessor<Integer> MAX_LIFE_TIME =
+            SynchedEntityData.defineId(AbstractCheckArea.class, EntityDataSerializers.INT);
 
     @Nullable
     protected Entity owner;
@@ -43,7 +45,7 @@ public abstract class AbstractCheckArea extends Entity implements TraceableEntit
         setEffectAmplifier();
         setSpawnParticle();
         setRadius();
-        setMaxLifeTime( -1 );
+        setMaxLifeTime(-1);
     }
 
     @Override
@@ -156,13 +158,6 @@ public abstract class AbstractCheckArea extends Entity implements TraceableEntit
                         "Failed to restore owner from UUID {} for area {}",
                         ownerUUID,
                         this.getUUID()
-                );
-            }
-        } else {
-            if (this.owner != null) {
-                MikusVocalSpellIronsSpellsAddon.LOGGER.warn(
-                        "Owner exists but is removed: {}",
-                        this.owner.getName().getString()
                 );
             }
         }

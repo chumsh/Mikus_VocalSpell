@@ -19,6 +19,7 @@ import java.util.UUID;
 
 public abstract class AbstractCheckArea extends Entity implements TraceableEntity {
 
+    /*一个用于为特定区域添加自定义效果的抽象类*/
     private static final int CHECK_INTERVAL = 10;
     private static final EntityDataAccessor<Double> DETECTION_RADIUS =
             SynchedEntityData.defineId(AbstractCheckArea.class, EntityDataSerializers.DOUBLE);
@@ -68,6 +69,9 @@ public abstract class AbstractCheckArea extends Entity implements TraceableEntit
         }
     }
 
+    /**
+     * 检测区域内的实体并施加效果
+     */
     private void checkEntitiesInArea() {
         double radius = getDetectionRadius();
         double radiusSq = radius * radius;
@@ -85,14 +89,17 @@ public abstract class AbstractCheckArea extends Entity implements TraceableEntit
 
     protected abstract void applyEffectToEntity(LivingEntity entity, int duration, int amplifier);
 
+    /*获取效果时间*/
     protected void setEffectDuration() {
         this.duration = 20;
     }
 
+    /* 获取效果等级 */
     protected void setEffectAmplifier() {
         this.amplifier = 0;
     }
 
+    /*是否显示效果图标*/
     protected void setShowIcon() {
         this.isShowIcon = false;
     }
@@ -158,6 +165,13 @@ public abstract class AbstractCheckArea extends Entity implements TraceableEntit
                         "Failed to restore owner from UUID {} for area {}",
                         ownerUUID,
                         this.getUUID()
+                );
+            }
+        } else {
+            if (this.owner != null) {
+                MikusVocalSpellIronsSpellsAddon.LOGGER.warn(
+                    "Owner exists but is removed: {}",
+                    this.owner.getName().getString()
                 );
             }
         }

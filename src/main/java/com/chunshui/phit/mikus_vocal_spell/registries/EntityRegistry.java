@@ -27,7 +27,8 @@ public class EntityRegistry {
     public static final DeferredHolder<EntityType<?>, EntityType<ScallionEffectArea>> SCALLION_AREA =
         ENTITIES.register("scallion_area", () -> EntityType.Builder.<ScallionEffectArea>of(ScallionEffectArea::new, MobCategory.MISC)
                 .sized(1.0F, 1.0F)
-                .clientTrackingRange(10)
+                .clientTrackingRange(128)
+                .setUpdateInterval(20)
                 .build("scallion_area")
         );
 

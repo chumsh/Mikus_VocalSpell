@@ -1,6 +1,8 @@
 package com.chunshui.phit.mikus_vocal_spell;
 
+import com.chunshui.phit.mikus_vocal_spell.entity.spells.scallion_dance.ScallionRender;
 import com.chunshui.phit.mikus_vocal_spell.particle.ReincarnationParticle;
+import com.chunshui.phit.mikus_vocal_spell.particle.ScallionParticle;
 import com.chunshui.phit.mikus_vocal_spell.registries.EntityRegistry;
 import com.chunshui.phit.mikus_vocal_spell.registries.ParticleRegistries;
 import net.minecraft.client.Minecraft;
@@ -36,10 +38,10 @@ public class MikusVocalSpellIronsSpellsAddonClient {
 
     private static void registerParticles(RegisterParticleProvidersEvent event) {
         event.registerSpriteSet(ParticleRegistries.REINCARNATION_PARTICLE.get(), ReincarnationParticle.Provider::new);
-        MikusVocalSpellIronsSpellsAddon.LOGGER.info("Particle provider registered for REINCARNATION!");
+        event.registerSpriteSet(ParticleRegistries.SCALLION_PARTICLE.get(), ScallionParticle.Provider::new);
     }
     private static void renderRegister(EntityRenderersEvent.RegisterRenderers event){
         event.registerEntityRenderer(EntityRegistry.SCALLION.get(), NoopRenderer::new);
-        event.registerEntityRenderer(EntityRegistry.SCALLION_AREA.get(), NoopRenderer::new);
+        event.registerEntityRenderer(EntityRegistry.SCALLION_AREA.get(), ScallionRender::new);
     }
 }

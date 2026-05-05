@@ -18,4 +18,7 @@ public class ParticleRegistries {
     }
 
     public static final Supplier<SimpleParticleType> REINCARNATION_PARTICLE = PARTICLE_TYPES.register("reincarnation", () -> new SimpleParticleType(false));
+
+    public static final Supplier<SimpleParticleType> SCALLION_PARTICLE = PARTICLE_TYPES.register("scallion", () -> new SimpleParticleType(false));
+
 }

@@ -43,13 +43,14 @@ public class ReviveEventHandler {
         player.setHealth(player.getMaxHealth());
         player.invulnerableTime = 20;
 
+        int remainingCharges = ReviveCapabilityManager.getReviveCapability(player).getCharges();
+        
         PacketDistributor.sendToPlayer(player, new SyncReviveDataPacket(
-                player.getPersistentData().getInt("charges"),
+                remainingCharges,
                 true
         ));
 
-        int remaining = ReviveCapabilityManager.getReviveCapability(player).getCharges();
-        if (remaining > 0) {
+        if (remainingCharges > 0) {
             player.sendSystemMessage(
                     Component.translatable("death.mikus_vocal_spell.revived").withColor(16711680));
         } else {

@@ -5,4 +5,5 @@ import net.minecraft.core.particles.ParticleOptions;
 
 public class ParticleHelper {
     public static final ParticleOptions REINCARNATION = ParticleRegistries.REINCARNATION_PARTICLE.get();
+    public static final ParticleOptions SCALLION = ParticleRegistries.SCALLION_PARTICLE.get();
 }

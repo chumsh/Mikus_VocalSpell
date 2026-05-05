@@ -20,9 +20,11 @@ import java.util.UUID;
 public abstract class AbstractCheckArea extends Entity implements TraceableEntity {
 
     /*一个用于为特定区域添加自定义效果的抽象类*/
+
+    protected int spellLevel = 0;
     private static final int CHECK_INTERVAL = 10;
-    private static final EntityDataAccessor<Double> DETECTION_RADIUS =
-            SynchedEntityData.defineId(AbstractCheckArea.class, EntityDataSerializers.DOUBLE);
+    private static final EntityDataAccessor<Float> DETECTION_RADIUS =
+            SynchedEntityData.defineId(AbstractCheckArea.class, EntityDataSerializers.FLOAT);
     private static final EntityDataAccessor<Integer> MAX_LIFE_TIME =
             SynchedEntityData.defineId(AbstractCheckArea.class, EntityDataSerializers.INT);
 
@@ -109,25 +111,30 @@ public abstract class AbstractCheckArea extends Entity implements TraceableEntit
     }
 
     protected void setRadius() {
-        setDetectionRadius(1.0D);
+        setDetectionRadius(1.0F);
     }
 
+    /*销毁逻辑*/
     protected void discardLogic() {}
 
-    public void setMaxLifeTime(int maxLifeTime) {
+    /*设置最大生命周期*/
+    protected void setMaxLifeTime(int maxLifeTime) {
         this.entityData.set(MAX_LIFE_TIME, maxLifeTime);
     }
 
-    public int getMaxLifeTime() {
-        return this.entityData.get(MAX_LIFE_TIME);
-    }
-
-    public void setDetectionRadius(double radius) {
+    /*设置检测半径*/
+    protected void setDetectionRadius(float radius) {
         this.entityData.set(DETECTION_RADIUS, radius);
     }
 
-    public double getDetectionRadius() {
+    /*客户端获取检测半径*/
+    public float getDetectionRadius() {
         return this.entityData.get(DETECTION_RADIUS);
+    }
+
+    /*客户端获取生命周期*/
+    public int getMaxLifeTime() {
+        return this.entityData.get(MAX_LIFE_TIME);
     }
 
     public void setOwner(@Nullable Entity entity) {
@@ -180,14 +187,14 @@ public abstract class AbstractCheckArea extends Entity implements TraceableEntit
 
     @Override
     protected void defineSynchedData(SynchedEntityData.@NotNull Builder builder) {
-        builder.define(DETECTION_RADIUS, 1.0D);
+        builder.define(DETECTION_RADIUS, 1.0F);
         builder.define(MAX_LIFE_TIME, -1);
     }
 
     @Override
     protected void readAdditionalSaveData(@NotNull CompoundTag compound) {
         if (compound.contains("DetectionRadius")) {
-            setDetectionRadius(compound.getDouble("DetectionRadius"));
+            setDetectionRadius(compound.getFloat("DetectionRadius"));
         }
         if (compound.contains("MaxLifeTime")) {
             setMaxLifeTime(compound.getInt("MaxLifeTime"));
@@ -198,5 +205,10 @@ public abstract class AbstractCheckArea extends Entity implements TraceableEntit
     protected void addAdditionalSaveData(@NotNull CompoundTag compound) {
         compound.putDouble("DetectionRadius", getDetectionRadius());
         compound.putInt("MaxLifeTime", getMaxLifeTime());
+    }
+
+    @Override
+    public boolean shouldRenderAtSqrDistance(double distance) {
+        return distance < 64 * 64;
     }
 }

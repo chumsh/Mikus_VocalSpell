@@ -29,5 +29,5 @@ public class MVSCreativeTab {
                         output.accept(MVSItemRegistry.VOCAL_ESSENCE.get());
                     }))
                     .build()
-            );
-    }
+    );
+}

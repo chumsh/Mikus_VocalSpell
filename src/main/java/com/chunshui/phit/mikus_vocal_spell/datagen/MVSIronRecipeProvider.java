@@ -25,8 +25,8 @@ public class MVSIronRecipeProvider extends RecipeProvider {
 
     @Override
     protected void buildRecipes(@NotNull RecipeOutput recipeOutput) {
-      new EmptyAlchemistCauldronRecipe.Builder()
-              .withInput(MVSItemRegistry.EMPTY_MANA_POTION.get())
+        new EmptyAlchemistCauldronRecipe.Builder()
+                .withInput(MVSItemRegistry.EMPTY_MANA_POTION.get())
                 .withReturnItem(MVSItemRegistry.MANA_POTION.get())
                 .withFluid(new net.neoforged.neoforge.fluids.FluidStack(MVSFluidRegistry.POTION_FLUID.get(), 250))
                 .withSound(SoundEvents.BUCKET_FILL)

@@ -1,6 +1,5 @@
 package com.chunshui.phit.mikus_vocal_spell.item;
 
-import com.chunshui.phit.mikus_vocal_spell.MikusVocalSpellIronsSpellsAddon;
 import com.chunshui.phit.mikus_vocal_spell.registries.MVSEffectRegistry;
 import com.chunshui.phit.mikus_vocal_spell.registries.MVSItemRegistry;
 import com.chunshui.phit.mikus_vocal_spell.registries.MVSSoundRegistry;
@@ -25,7 +24,7 @@ public class ManaPotion extends Item {
         ItemStack itemStack = player.getItemInHand(usedHand);
         if (!level.isClientSide) {
             boolean has_melody = player.getPersistentData().getBoolean(NBTKeyHelper.HAS_MELODY);
-            MikusVocalSpellIronsSpellsAddon.LOGGER.info("has_melody = :{}", has_melody);
+//            MikusVocalSpellIronsSpellsAddon.LOGGER.info("has_melody = :{}", has_melody);
             int mana_change = player.getPersistentData().getInt(NBTKeyHelper.MANA_CHANGE);
             if (mana_change < 15 || has_melody) {
                 MagicData magicData = MagicData.getPlayerMagicData(player);

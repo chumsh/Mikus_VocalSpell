@@ -16,6 +16,6 @@ public class MVSUpgradeOrbTypeRegistry {
 
     public static void bootStrap(BootstrapContext<UpgradeOrbType> bootStrap){
         bootStrap.register(VOCAL_SPELL_POWER,
-            new UpgradeOrbType(MVSAttributeRegistry.VOCAL_SPELL_POWER, 0.05, AttributeModifier.Operation.ADD_MULTIPLIED_BASE, ItemRegistry.VOCAL_UPGRADE_ORB));
+            new UpgradeOrbType(MVSAttributeRegistry.VOCAL_SPELL_POWER, 0.05, AttributeModifier.Operation.ADD_MULTIPLIED_BASE, MVSItemRegistry.VOCAL_UPGRADE_ORB));
     }
 }

@@ -1,6 +1,8 @@
 package com.chunshui.phit.mikus_vocal_spell.registries;
 
 import com.chunshui.phit.mikus_vocal_spell.MikusVocalSpellIronsSpellsAddon;
+import com.chunshui.phit.mikus_vocal_spell.effects.ManaDazeEffect;
+import com.chunshui.phit.mikus_vocal_spell.effects.vocal.mana_munch_melody.MelodyEffect;
 import com.chunshui.phit.mikus_vocal_spell.effects.vocal.reincarnation.*;
 import com.chunshui.phit.mikus_vocal_spell.effects.vocal.scallon.ScallionEffect;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -37,25 +39,39 @@ public class MVSEffectRegistry {
             ));
     public static final DeferredHolder<MobEffect, MobEffect>  MESSIAH_EFFECT =
             EFFECTS.register("messiah_effect", () -> new MessiahEffect(
-            MobEffectCategory.HARMFUL,
+                    MobEffectCategory.HARMFUL,
             0x000000
     ));
     public static final DeferredHolder<MobEffect, MobEffect> REVOLUTIONARY_EFFECT =
             EFFECTS.register("revolutionary_effect", () -> new RevolutionaryEffect(
-            MobEffectCategory.HARMFUL,
+                    MobEffectCategory.HARMFUL,
             0x000000
     ));
 
     public static final DeferredHolder<MobEffect, MobEffect> ADVENTURER_EFFECT =
             EFFECTS.register("adventurer_effect", () -> new AdventurerEffect(
-            MobEffectCategory.HARMFUL,
+                    MobEffectCategory.HARMFUL,
             0x000000
     ));
 
     /*Scallion*/
     public static final DeferredHolder<MobEffect, MobEffect> SCALLION_EFFECT =
             EFFECTS.register("scallion_effect", ()-> new ScallionEffect(
-            MobEffectCategory.BENEFICIAL,
+                    MobEffectCategory.BENEFICIAL,
             0x000000
     ));
+
+    /*ManaMunchMelody*/
+    public static final DeferredHolder<MobEffect, MobEffect> MELODY_EFFECT =
+            EFFECTS.register("melody_effect", () -> new MelodyEffect(
+                    MobEffectCategory.BENEFICIAL,
+                    0x000000
+            ));
+
+    //其他效果
+    public static final DeferredHolder<MobEffect, MobEffect> MANA_DAZE_EFFECT =
+            EFFECTS.register("mana_daze_effect", ()-> new ManaDazeEffect(
+                    MobEffectCategory.HARMFUL,
+                    0x000000
+            ));
 }

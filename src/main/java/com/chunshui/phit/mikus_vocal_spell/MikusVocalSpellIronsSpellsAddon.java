@@ -26,14 +26,16 @@ public class MikusVocalSpellIronsSpellsAddon {
         modEventBus.addListener(this::commonSetup);
         modEventBus.addListener(MikusVocalSpellIronsSpellsAddon::registerPayloadHandlers);
 
-        ItemRegistry.register(modEventBus);
+        MVSItemRegistry.register(modEventBus);
         MVSAttributeRegistry.register(modEventBus);
         MVSSchoolRegistry.register(modEventBus);
         VocalSpellRegistry.register(modEventBus);
         MVSEffectRegistry.register(modEventBus);
         MVSSoundRegistry.register(modEventBus);
         ParticleRegistries.register(modEventBus);
-        EntityRegistry.register(modEventBus);
+        MVSEntityRegistry.register(modEventBus);
+        MVSCreativeTab.register(modEventBus);
+        MVSFluidRegistry.register(modEventBus);
 
         NeoForge.EVENT_BUS.register(this);
     }

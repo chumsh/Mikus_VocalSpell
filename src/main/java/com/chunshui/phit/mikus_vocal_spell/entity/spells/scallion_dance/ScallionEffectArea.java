@@ -1,7 +1,7 @@
 package com.chunshui.phit.mikus_vocal_spell.entity.spells.scallion_dance;
 
 import com.chunshui.phit.mikus_vocal_spell.entity.spells.AbstractCheckArea;
-import com.chunshui.phit.mikus_vocal_spell.registries.EntityRegistry;
+import com.chunshui.phit.mikus_vocal_spell.registries.MVSEntityRegistry;
 import com.chunshui.phit.mikus_vocal_spell.registries.MVSEffectRegistry;
 import com.chunshui.phit.mikus_vocal_spell.utils.NBTKeyHelper;
 import net.minecraft.server.level.ServerPlayer;
@@ -15,7 +15,7 @@ public class ScallionEffectArea extends AbstractCheckArea {
     public ScallionEffectArea(EntityType<?> entityType, Level level) { super(entityType, level); }
 
     public ScallionEffectArea(Level level, Entity owner, int spellLevel) {
-        super(EntityRegistry.SCALLION_AREA.get(), level);
+        super(MVSEntityRegistry.SCALLION_AREA.get(), level);
         setMaxLifeTime(400);
         setDetectionRadius(7.0F);
         this.setOwner(owner);

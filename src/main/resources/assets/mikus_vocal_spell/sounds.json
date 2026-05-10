@@ -12,5 +12,11 @@
     "sounds": [
       "mikus_vocal_spell:eat_apple"
     ]
+  },
+  "drink": {
+    "subtitle": "sounds.mikus_vocal_spell.drink",
+    "sounds": [
+      "mikus_vocal_spell:drink"
+    ]
   }
 }

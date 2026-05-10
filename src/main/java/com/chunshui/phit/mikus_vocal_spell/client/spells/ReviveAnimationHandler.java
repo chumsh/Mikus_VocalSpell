@@ -1,6 +1,6 @@
 package com.chunshui.phit.mikus_vocal_spell.client.spells;
 
-import com.chunshui.phit.mikus_vocal_spell.registries.ItemRegistry;
+import com.chunshui.phit.mikus_vocal_spell.registries.MVSItemRegistry;
 import com.chunshui.phit.mikus_vocal_spell.registries.MVSSoundRegistry;
 import net.minecraft.client.Minecraft;
 import net.minecraft.world.entity.player.Player;
@@ -22,13 +22,13 @@ public class ReviveAnimationHandler {
     private static void playCustomAnimation(int charges) {
         // TODO: 客户端动画逻辑
         if(charges == 2){
-            ItemStack apple = new ItemStack(ItemRegistry.REINCARNATION_APPLE.get());
+            ItemStack apple = new ItemStack(MVSItemRegistry.REINCARNATION_APPLE.get());
             Minecraft.getInstance().gameRenderer.displayItemActivation(new ItemStack(apple.getItem()));
         }else if(charges == 1){
-            ItemStack apple2 = new ItemStack(ItemRegistry.REINCARNATION_APPLE_TWO.get());
+            ItemStack apple2 = new ItemStack(MVSItemRegistry.REINCARNATION_APPLE_TWO.get());
             Minecraft.getInstance().gameRenderer.displayItemActivation(new ItemStack(apple2.getItem()));
         }else if(charges == 0){
-            ItemStack apple3 = new ItemStack(ItemRegistry.REINCARNATION_APPLE_THREE.get());
+            ItemStack apple3 = new ItemStack(MVSItemRegistry.REINCARNATION_APPLE_THREE.get());
             Minecraft.getInstance().gameRenderer.displayItemActivation(new ItemStack(apple3.getItem()));
         }
     }

@@ -196,37 +196,6 @@ public class PixelCircleGenerate {
     }
 
     /**
-     * 快速计算周长公式（近似）
-     * 公式：周长 ≈ 8*radius - 4
-     * 对于大半径精度较高
-     */
-    public static int quickPerimeterEstimate(int radius) {
-        if (radius <= 0) {
-            return 0;
-        }
-        return 8 * radius - 4;
-    }
-
-    /**
-     * 打印边界点（用于调试）
-     */
-    public static void printPerimeterPoints(int[][] points) {
-        if (points == null || points.length == 0) {
-            System.out.println("没有边界点");
-            return;
-        }
-
-        System.out.println("像素圆边界点 (" + points.length + " 个点):");
-        for (int i = 0; i < points.length; i++) {
-            if (i > 0 && i % 8 == 0) {
-                System.out.println();
-            }
-            System.out.printf("(%3d,%3d) ", points[i][0], points[i][1]);
-        }
-        System.out.println();
-    }
-
-    /**
      * 结果封装类
      */
     public static class PerimeterResult {
@@ -237,29 +206,5 @@ public class PixelCircleGenerate {
             this.pointCount = pointCount;
             this.points = points;
         }
-    }
-
-    /**
-     * 测试示例
-     */
-    public static void main(String[] args) {
-        // 测试不同半径
-        int[] testRadii = {1, 2, 3, 5, 8, 10};
-
-        System.out.println("半径\t精确周长\t快速估算\t理论周长");
-        System.out.println("========================================");
-
-        for (int radius : testRadii) {
-            int exact = calculateExactly(radius);
-            int estimate = quickPerimeterEstimate(radius);
-            double theoretical = 2 * Math.PI * radius;
-
-            System.out.printf("%d\t%d\t\t%d\t\t%.2f%n",
-                    radius, exact, estimate, theoretical);
-        }
-
-        // 输出边界点示例
-        int[][] points = calculatePerimeterPoints(5);
-        printPerimeterPoints(points);
     }
 }

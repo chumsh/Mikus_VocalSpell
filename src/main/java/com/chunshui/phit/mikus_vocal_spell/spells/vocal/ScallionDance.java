@@ -29,8 +29,9 @@ public class ScallionDance extends AbstractSpell{
     @Override
     public List<MutableComponent> getUniqueInfo(int spellLevel, LivingEntity caster) {
         return List.of(
-                Component.translatable("ui.mikus_vocal_spell.damage", Utils.stringTruncation(getSpellPower(spellLevel, caster), 2)),
-                Component.translatable("ui.mikus_vocal_spell.vsinger.reincarnation").withColor(3786171)
+                Component.translatable("ui.mikus_vocal_spell.damage", Utils.stringTruncation(getDamage(spellLevel, caster), 2)),
+                Component.translatable("ui.mikus_vocal_spell.remaining", 20),
+                Component.translatable("ui.mikus_vocal_spell.vsinger.miku").withColor(3786171)
         );
     }
 

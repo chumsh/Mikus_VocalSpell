@@ -3,10 +3,13 @@ package com.chunshui.phit.mikus_vocal_spell;
 import com.chunshui.phit.mikus_vocal_spell.entity.spells.scallion_dance.ScallionRender;
 import com.chunshui.phit.mikus_vocal_spell.particle.ReincarnationParticle;
 import com.chunshui.phit.mikus_vocal_spell.particle.ScallionParticle;
-import com.chunshui.phit.mikus_vocal_spell.registries.EntityRegistry;
+import com.chunshui.phit.mikus_vocal_spell.registries.MVSEntityRegistry;
+import com.chunshui.phit.mikus_vocal_spell.registries.MVSFluidRegistry;
 import com.chunshui.phit.mikus_vocal_spell.registries.ParticleRegistries;
+import io.redspace.ironsspellbooks.fluids.SimpleClientFluidType;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.entity.NoopRenderer;
+import net.minecraft.resources.ResourceLocation;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -15,6 +18,7 @@ import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
+import net.neoforged.neoforge.client.extensions.common.RegisterClientExtensionsEvent;
 import net.neoforged.neoforge.client.gui.ConfigurationScreen;
 import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
 
@@ -22,11 +26,12 @@ import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
 public class MikusVocalSpellIronsSpellsAddonClient {
     public MikusVocalSpellIronsSpellsAddonClient(ModContainer container) {
         container.registerExtensionPoint(IConfigScreenFactory.class, ConfigurationScreen::new);
-        
+
         IEventBus modEventBus = container.getEventBus();
         if (modEventBus != null) {
             modEventBus.addListener(MikusVocalSpellIronsSpellsAddonClient::registerParticles);
             modEventBus.addListener(MikusVocalSpellIronsSpellsAddonClient::renderRegister);
+            modEventBus.addListener(MikusVocalSpellIronsSpellsAddonClient::registerClientExtensions);
         }
     }
 
@@ -40,8 +45,18 @@ public class MikusVocalSpellIronsSpellsAddonClient {
         event.registerSpriteSet(ParticleRegistries.REINCARNATION_PARTICLE.get(), ReincarnationParticle.Provider::new);
         event.registerSpriteSet(ParticleRegistries.SCALLION_PARTICLE.get(), ScallionParticle.Provider::new);
     }
-    private static void renderRegister(EntityRenderersEvent.RegisterRenderers event){
-        event.registerEntityRenderer(EntityRegistry.SCALLION.get(), NoopRenderer::new);
-        event.registerEntityRenderer(EntityRegistry.SCALLION_AREA.get(), ScallionRender::new);
+
+    private static void renderRegister(EntityRenderersEvent.RegisterRenderers event) {
+        event.registerEntityRenderer(MVSEntityRegistry.SCALLION.get(), NoopRenderer::new);
+        event.registerEntityRenderer(MVSEntityRegistry.SCALLION_AREA.get(), ScallionRender::new);
+    }
+
+    private static void registerClientExtensions(RegisterClientExtensionsEvent event) {
+        event.registerFluidType(
+                new SimpleClientFluidType(
+                        ResourceLocation.fromNamespaceAndPath(MikusVocalSpellIronsSpellsAddon.MODID, "block/potion_fluid")
+                ),
+                MVSFluidRegistry.POTION_TYPE
+        );
     }
 }

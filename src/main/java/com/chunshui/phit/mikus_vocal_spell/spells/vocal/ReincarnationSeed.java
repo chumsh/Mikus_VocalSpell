@@ -26,7 +26,7 @@ public class ReincarnationSeed extends AbstractSpell {
     public List<MutableComponent> getUniqueInfo(int spellLevel, LivingEntity caster) {
         return List.of(
                 Component.translatable("ui.mikus_vocal_spell.reincarnation").withColor(16777215),
-                Component.translatable("ui.mikus_vocal_spell.vsinger.reincarnation").withColor(3786171)
+                Component.translatable("ui.mikus_vocal_spell.vsinger.miku").withColor(3786171)
         );
     }
 

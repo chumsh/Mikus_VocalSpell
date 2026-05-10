@@ -1,7 +1,7 @@
 package com.chunshui.phit.mikus_vocal_spell.entity.spells.scallion_dance;
 
 import com.chunshui.phit.mikus_vocal_spell.entity.spells.AbstractGroundProjectile;
-import com.chunshui.phit.mikus_vocal_spell.registries.EntityRegistry;
+import com.chunshui.phit.mikus_vocal_spell.registries.MVSEntityRegistry;
 import com.chunshui.phit.mikus_vocal_spell.registries.VocalSpellRegistry;
 import com.chunshui.phit.mikus_vocal_spell.utils.MVSUtils;
 import com.chunshui.phit.mikus_vocal_spell.utils.ParticleHelper;
@@ -22,9 +22,9 @@ public class ScallionProjectile extends AbstractGroundProjectile implements NoKn
     }
 
     public ScallionProjectile(Level level, LivingEntity entity) {
-        super(EntityRegistry.SCALLION.get(), level, entity);
+        super(MVSEntityRegistry.SCALLION.get(), level, entity);
         this.setExpire_time(20 * 20);
-        this.setCheck_interval(10);
+        this.setCheck_interval(30);
     }
 
     @Override

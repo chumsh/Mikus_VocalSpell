@@ -29,5 +29,11 @@ public class MVSSoundRegistry {
                             MikusVocalSpellIronsSpellsAddon.MODID, "eat_apple"))
             );
 
+    public static final DeferredHolder<SoundEvent, SoundEvent> DRINK =
+            SOUND_EVENTS.register("drink", () ->
+                    SoundEvent.createVariableRangeEvent(ResourceLocation.fromNamespaceAndPath(
+                            MikusVocalSpellIronsSpellsAddon.MODID, "drink"
+                    ))
+            );
 
 }

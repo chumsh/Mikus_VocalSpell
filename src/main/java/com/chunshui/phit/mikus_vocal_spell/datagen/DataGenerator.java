@@ -1,7 +1,6 @@
 package com.chunshui.phit.mikus_vocal_spell.datagen;
 
 import com.chunshui.phit.mikus_vocal_spell.MikusVocalSpellIronsSpellsAddon;
-import io.redspace.ironsspellbooks.datagen.IronRecipeProvider;
 import net.minecraft.DetectedVersion;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
@@ -35,7 +34,7 @@ public class DataGenerator {
 
         generator.addProvider(event.includeServer(), new MVSDamageTypeTagGenerator(packOutput, lookupProvider, helper));
 
-        generator.addProvider(event.includeServer(), new IronRecipeProvider(output, lookupProvider));
+        generator.addProvider(event.includeServer(), new MVSIronRecipeProvider(output, lookupProvider));
 
         generator.addProvider(true, new PackMetadataGenerator(output).add(PackMetadataSection.TYPE, new PackMetadataSection(
                 Component.literal("Resources for Miku's VocalSpell"),

@@ -1,26 +1,21 @@
 {
   "item.mikus_vocal_spell.vocal_upgrade_orb": "Vocal Upgrade Orb",
   "item.mikus_vocal_spell.miku_staff": "Miku Staff",
-  "item.mikus_vocal_spell.revive_talisman": "Revive Talisman",
-  "item.mikus_vocal_spell.revive_talisman.use": "✨ Activated Revive Talisman! Gained ",
+  "item.mikus_vocal_spell.mana_potion": "Mana Potion",
+  "item.mikus_vocal_spell.empty_mana_potion": "Empty Mana Potion",
+  "item.mikus_vocal_spell.vocal_essence": "Vocal Essence",
+  "fluid.mikus_vocal_spell.potion_fluid": "Mana Potion",
+  "itemgroup.mikus_vocal_spell.main": "Miku's VocalSpell",
 
   "school.mikus_vocalspell.vocal": "Vocal",
   "attribute.mikus_vocal_spell.vocal_spell_power" : "Vocal Spell Power",
-  "ui.mikus_vocal_spell.damage": "%d Damage",
-  "mikus_vocal_spell.configuration.title": "Miku's VocalSpell - Iron's Spells Addon Configs",
-  "mikus_vocal_spell.configuration.section.mikus_vocal_spell.common.toml": "Miku's VocalSpell - Iron's Spells Addon Configs",
-  "mikus_vocal_spell.configuration.section.mikus_vocal_spell.common.toml.title": "Miku's VocalSpell - Iron's Spells Addon Configs",
-  "mikus_vocal_spell.configuration.items": "Item List",
-  "mikus_vocal_spell.configuration.logDirtBlock": "Log Dirt Block",
-  "mikus_vocal_spell.configuration.magicNumberIntroduction": "Magic Number Text",
-  "mikus_vocal_spell.configuration.magicNumber": "Magic Number",
-
 
   "death.attack.vocal_magic": "%1$s was slain by vocal magic",
   "death.attack.vocal_magic.player": "%1$s was slain by vocal magic whilst fighting %2$s",
   
   "spell.mikus_vocal_spell.reincarnation_seed": "Reincarnation Seed",
   "spell.mikus_vocal_spell.scallion_dance": "Scallion Dance",
+  "spell.mikus_vocal_spell.mana_munch_melody": "Mana Munch Melody",
 
   "death.mikus_vocal_spell.revived": "Ugh, failed again.Let's reincarnate",
   "death.mikus_vocal_spell.revived.last": "Returned to my ordinary self",
@@ -32,6 +27,8 @@
   "effect.mikus_vocal_spell.revolutionary_effect": "Fallen Revolutionary",
   "effect.mikus_vocal_spell.adventurer_effect": "Selfish Adventurer",
   "effect.mikus_vocal_spell.scallion_effect": "Scallion Carnival",
+  "effect.mikus_vocal_spell.mana_daze_effect": "Mana Daze",
+  "effect.mikus_vocal_spell.melody_effect": "Mana Munch Melody",
 
   "message.mikus_vocal_spell.performer_effect.effect": "The beloved comrades have departed",
   "message.mikus_vocal_spell.inventor_effect.effect": "A cruel rain of blood fell",
@@ -40,10 +37,13 @@
   "message.mikus_vocal_spell.adventurer_effect.effect": "Innocent people fell victim",
   "message.mikus_vocal_spell.scallion_area.spawn": "Scallion Domain Cannot Be Regenerated",
 
+  "ui.mikus_vocal_spell.damage": "%d Damage",
   "ui.mikus_vocal_spell.reincarnation": "3 Revive Times",
-  "ui.mikus_vocal_spell.vsinger.reincarnation": "Blesser: Miku"
+  "ui.mikus_vocal_spell.remaining": "Remaining Time: %d s",
+  "ui.mikus_vocal_spell.vsinger.luotianyi": "Blesser: LuoTianyi",
+  "ui.mikus_vocal_spell.vsinger.miku": "Blesser: Miku",
 
-
-
+  "sounds.mikus_vocal_spell.eat_apple": "Reincarnation Start",
+  "sounds.mikus_vocal_spell.drink": "Restore Mana"
 
 }

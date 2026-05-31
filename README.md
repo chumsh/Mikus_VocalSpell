@@ -1,33 +1,33 @@
-# 项目名称
+# Miku's VocalSpell - Iron's Spells Addon
 
 [![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
 [![Build](https://img.shields.io/badge/build-passing-yellow)]()
 ![Java](https://img.shields.io/badge/Java-21+-orange)
 
 
-> ❗❗❗注意本模组尚处于初期构建状态
+> ❗❗❗Note: This Mod is currently in early construction.
 
 ---
 
-## ✨ 模组特色
+## ✨ Mod's Feature
 
-- 添加了多形态法术
-- 法术脱胎于多位虚拟歌姬演唱的曲目
-- 添加了新的法术流派：Vocal
+- Polymorphic Spells Added  
+- Spells are inspired by songs performed by multiple virtual singers.
+- Added a new spell school: Vocal.
 
-## 📸 截图
+## 📸 Screenshot
 
 ---
 
-- ~💀-暂无-💀~
+- ~💀-Coming Soon !-💀~
 
-## 🚀 快速开始
+## 🚀 Quick Start
 
-### 环境要求
+### Requirements
 
-| 依赖                          | 版本                        |
-|-----------------------------|---------------------------|
-| Iron's SpellBook & Patchouli| Minecraft Neoforge 1.21.1 |
+| Dependencies                 | Version                   |
+|------------------------------|---------------------------|
+| Iron's SpellBook & Patchouli | Minecraft Neoforge 1.21.1 |
 
 
 

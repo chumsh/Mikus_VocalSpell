@@ -1,25 +1,33 @@
+# 项目名称
 
-Installation information
-=======
+[![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
+[![Build](https://img.shields.io/badge/build-passing-yellow)]()
+![Java](https://img.shields.io/badge/Java-21+-orange)
 
-This template repository can be directly cloned to get you started with a new
-mod. Simply create a new repository cloned from this one, by following the
-instructions provided by [GitHub](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template).
 
-Once you have your clone, simply open the repository in the IDE of your choice. The usual recommendation for an IDE is either IntelliJ IDEA or Eclipse.
+> ❗❗❗注意本模组尚处于初期构建状态
 
-If at any point you are missing libraries in your IDE, or you've run into problems you can
-run `gradlew --refresh-dependencies` to refresh the local cache. `gradlew clean` to reset everything 
-{this does not affect your code} and then start the process again.
+---
 
-Mapping Names:
-============
-By default, the MDK is configured to use the official mapping names from Mojang for methods and fields 
-in the Minecraft codebase. These names are covered by a specific license. All modders should be aware of this
-license. For the latest license text, refer to the mapping file itself, or the reference copy here:
-https://github.com/NeoForged/NeoForm/blob/main/Mojang.md
+## ✨ 模组特色
 
-Additional Resources: 
-==========
-Community Documentation: https://docs.neoforged.net/  
-NeoForged Discord: https://discord.neoforged.net/
+- 添加了多形态法术
+- 法术脱胎于多位虚拟歌姬演唱的曲目
+- 添加了新的法术流派：Vocal
+
+## 📸 截图
+
+---
+
+- ~💀-暂无-💀~
+
+## 🚀 快速开始
+
+### 环境要求
+
+| 依赖                          | 版本                        |
+|-----------------------------|---------------------------|
+| Iron's SpellBook & Patchouli| Minecraft Neoforge 1.21.1 |
+
+
+

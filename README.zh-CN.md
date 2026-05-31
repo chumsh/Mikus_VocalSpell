@@ -4,7 +4,9 @@
 [![Build](https://img.shields.io/badge/build-passing-yellow)]()
 ![Java](https://img.shields.io/badge/Java-21+-orange)
 
-
+🌐 **Language / 语言:**  
+[🇺🇸 English](README.md) | [🇨🇳 简体中文](README.zh-CN.md)
+---
 > ❗❗❗注意本模组尚处于初期构建状态
 
 ---

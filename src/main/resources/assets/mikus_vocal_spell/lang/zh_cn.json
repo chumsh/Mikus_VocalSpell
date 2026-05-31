@@ -35,12 +35,16 @@
   "message.mikus_vocal_spell.messiah_effect.effect": "因为过于纯真而被邪恶欺骗",
   "message.mikus_vocal_spell.revolutionary_effect.effect": "沉溺于自己得到的权力",
   "message.mikus_vocal_spell.adventurer_effect.effect": "牺牲了许多无辜的人",
-  "message.mikus_vocal_spell.scallion_area.spawn": "葱之领域无法重复生成",
+  "message.mikus_vocal_spell.change_spell_form.core_melt_form1": "稚心融解",
+  "message.mikus_vocal_spell.change_spell_form.core_melt_form2": "里昂奇点",
+  "message.mikus_vocal_spell.change_spell_form.core_melt_form3": "预言之心",
+  "message.mikus_vocal_spell.change_spell_form.base": "当前形态:",
 
   "ui.mikus_vocal_spell.damage": "伤害：%d",
   "ui.mikus_vocal_spell.reincarnation": "转生次数：3",
   "ui.mikus_vocal_spell.remaining": "持续时间: %d s",
   "ui.mikus_vocal_spell.vsinger.miku": "祝福者：初音",
+  "ui.mikus_vocal_spell.vsinger.rin": "祝福者：铃",
   "ui.mikus_vocal_spell.vsinger.luotianyi": "祝福者：洛天依",
 
   "sounds.mikus_vocal_spell.eat_apple": "转生开始",

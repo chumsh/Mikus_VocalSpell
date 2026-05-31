@@ -16,7 +16,6 @@ public class MVSSoundRegistry {
         SOUND_EVENTS.register(eventBus);
     }
 
-    // 注册音效 - 使用你需要的音效名称
     public static final DeferredHolder<SoundEvent, SoundEvent> VOCAL_SPELL_CAST =
             SOUND_EVENTS.register("vocal_spell_cast", () ->
                     SoundEvent.createVariableRangeEvent(ResourceLocation.fromNamespaceAndPath(
@@ -36,4 +35,10 @@ public class MVSSoundRegistry {
                     ))
             );
 
+    public static final DeferredHolder<SoundEvent, SoundEvent> FALL_DOWN =
+            SOUND_EVENTS.register("fall_down", () ->
+                    SoundEvent.createVariableRangeEvent(ResourceLocation.fromNamespaceAndPath(
+                            MikusVocalSpellIronsSpellsAddon.MODID, "fall_down"
+                    ))
+            );
 }

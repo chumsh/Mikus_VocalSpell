@@ -35,15 +35,20 @@
   "message.mikus_vocal_spell.messiah_effect.effect": "Too pure for his own good, easily deceived by evil",
   "message.mikus_vocal_spell.revolutionary_effect.effect": "Drowning in the power I've obtained",
   "message.mikus_vocal_spell.adventurer_effect.effect": "Innocent people fell victim",
-  "message.mikus_vocal_spell.scallion_area.spawn": "Scallion Domain Cannot Be Regenerated",
+  "message.mikus_vocal_spell.change_spell_form.core_melt_form1": "Melting Innocence",
+  "message.mikus_vocal_spell.change_spell_form.core_melt_form2": "Leon Singularity",
+  "message.mikus_vocal_spell.change_spell_form.core_melt_form3": "Prophetic Heart",
+  "message.mikus_vocal_spell.change_spell_form.base": "Current Form:",
 
   "ui.mikus_vocal_spell.damage": "%d Damage",
   "ui.mikus_vocal_spell.reincarnation": "3 Revive Times",
   "ui.mikus_vocal_spell.remaining": "Remaining Time: %d s",
   "ui.mikus_vocal_spell.vsinger.luotianyi": "Blesser: LuoTianyi",
   "ui.mikus_vocal_spell.vsinger.miku": "Blesser: Miku",
+  "ui.mikus_vocal_spell.vsinger.rin": "Blesser: Rin",
 
   "sounds.mikus_vocal_spell.eat_apple": "Reincarnation Start",
   "sounds.mikus_vocal_spell.drink": "Restore Mana"
+
 
 }

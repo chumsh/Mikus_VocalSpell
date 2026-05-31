@@ -18,5 +18,11 @@
     "sounds": [
       "mikus_vocal_spell:drink"
     ]
+  },
+  "fall_down": {
+    "subtitle": "sounds.mikus_vocal_spell.fall_down",
+    "sounds": [
+      "mikus_vocal_spell:falldown"
+      ]
   }
 }

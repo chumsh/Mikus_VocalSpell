@@ -18,7 +18,7 @@ public class ScallionEffectArea extends AbstractCheckArea {
         super(MVSEntityRegistry.SCALLION_AREA.get(), level);
         setMaxLifeTime(400);
         setDetectionRadius(7.0F);
-        this.setOwner(owner);
+        setOwner(owner);
         this.spellLevel = spellLevel;
         owner.getPersistentData().putBoolean(NBTKeyHelper.SCALLION_SPAWN, true);
     }

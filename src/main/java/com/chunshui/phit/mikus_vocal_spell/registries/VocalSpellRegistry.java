@@ -2,6 +2,7 @@ package com.chunshui.phit.mikus_vocal_spell.registries;
 
 
 import com.chunshui.phit.mikus_vocal_spell.MikusVocalSpellIronsSpellsAddon;
+import com.chunshui.phit.mikus_vocal_spell.spells.vocal.CoreMelt;
 import com.chunshui.phit.mikus_vocal_spell.spells.vocal.ManaMunchMelody;
 import com.chunshui.phit.mikus_vocal_spell.spells.vocal.ReincarnationSeed;
 import com.chunshui.phit.mikus_vocal_spell.spells.vocal.ScallionDance;
@@ -35,5 +36,7 @@ public class VocalSpellRegistry {
 
     public static final Supplier<AbstractSpell> SCALLION_DANCE = registerSpell(new ScallionDance());
 
-    public static final Supplier<AbstractSpell> MANA_MUNCH_MELODY =registerSpell(new ManaMunchMelody());
+    public static final Supplier<AbstractSpell> MANA_MUNCH_MELODY = registerSpell(new ManaMunchMelody());
+
+    public static final Supplier<AbstractSpell> CORE_MELT = registerSpell(new CoreMelt());
 }

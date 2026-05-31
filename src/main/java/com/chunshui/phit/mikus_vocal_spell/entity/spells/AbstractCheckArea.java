@@ -17,13 +17,13 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 import java.util.UUID;
 
-public abstract class AbstractCheckArea extends Entity implements TraceableEntity {
+public abstract class AbstractCheckArea extends Entity implements TraceableEntity{
 
     /*一个用于为特定区域添加自定义效果的抽象类*/
 
     protected int spellLevel = 0;
     private static final int CHECK_INTERVAL = 10;
-    private static final EntityDataAccessor<Float> DETECTION_RADIUS =
+    protected static final EntityDataAccessor<Float> DETECTION_RADIUS =
             SynchedEntityData.defineId(AbstractCheckArea.class, EntityDataSerializers.FLOAT);
     private static final EntityDataAccessor<Integer> MAX_LIFE_TIME =
             SynchedEntityData.defineId(AbstractCheckArea.class, EntityDataSerializers.INT);
@@ -141,12 +141,6 @@ public abstract class AbstractCheckArea extends Entity implements TraceableEntit
         this.owner = entity;
         if (entity != null) {
             this.ownerUUID = entity.getUUID();
-            MikusVocalSpellIronsSpellsAddon.LOGGER.info(
-                    "setOwner called: owner={}, UUID={}, areaUUID={}",
-                    entity.getName().getString(),
-                    this.ownerUUID,
-                    this.getUUID()
-            );
         } else {
             MikusVocalSpellIronsSpellsAddon.LOGGER.warn("setOwner called with null entity for area {}", this.getUUID());
         }
@@ -163,10 +157,6 @@ public abstract class AbstractCheckArea extends Entity implements TraceableEntit
             if (restoredOwner != null) {
                 this.owner = restoredOwner;
                 result = restoredOwner;
-                MikusVocalSpellIronsSpellsAddon.LOGGER.info(
-                        "Restored owner from UUID: {}",
-                        restoredOwner.getName().getString()
-                );
             } else {
                 MikusVocalSpellIronsSpellsAddon.LOGGER.warn(
                         "Failed to restore owner from UUID {} for area {}",
@@ -192,23 +182,16 @@ public abstract class AbstractCheckArea extends Entity implements TraceableEntit
     }
 
     @Override
-    protected void readAdditionalSaveData(@NotNull CompoundTag compound) {
-        if (compound.contains("DetectionRadius")) {
-            setDetectionRadius(compound.getFloat("DetectionRadius"));
-        }
-        if (compound.contains("MaxLifeTime")) {
-            setMaxLifeTime(compound.getInt("MaxLifeTime"));
-        }
-    }
+    protected void readAdditionalSaveData(@NotNull CompoundTag compound) {}
 
     @Override
-    protected void addAdditionalSaveData(@NotNull CompoundTag compound) {
-        compound.putDouble("DetectionRadius", getDetectionRadius());
-        compound.putInt("MaxLifeTime", getMaxLifeTime());
-    }
+    protected void addAdditionalSaveData(@NotNull CompoundTag compound) {}
 
     @Override
     public boolean shouldRenderAtSqrDistance(double distance) {
         return distance < 64 * 64;
     }
+
+    @Override
+    public boolean shouldBeSaved(){ return false; }
 }

@@ -1,6 +1,8 @@
 package com.chunshui.phit.mikus_vocal_spell.registries;
 
 import com.chunshui.phit.mikus_vocal_spell.MikusVocalSpellIronsSpellsAddon;
+import com.chunshui.phit.mikus_vocal_spell.entity.spells.core_melt.CoreMeltEntity;
+import com.chunshui.phit.mikus_vocal_spell.entity.spells.core_melt.CoreMeltRing;
 import com.chunshui.phit.mikus_vocal_spell.entity.spells.scallion_dance.ScallionEffectArea;
 import com.chunshui.phit.mikus_vocal_spell.entity.spells.scallion_dance.ScallionProjectile;
 import net.minecraft.core.registries.Registries;
@@ -31,5 +33,19 @@ public class MVSEntityRegistry {
                 .setUpdateInterval(20)
                 .build("scallion_area")
         );
+
+    public static final DeferredHolder<EntityType<?>, EntityType<CoreMeltEntity>> CORE_MELT =
+            ENTITIES.register("core_melt", ()-> EntityType.Builder.<CoreMeltEntity>of(CoreMeltEntity::new, MobCategory.MISC)
+                    .sized(1.5F, 1.5F)
+                    .clientTrackingRange(32)
+                    .build(ResourceLocation.fromNamespaceAndPath(MikusVocalSpellIronsSpellsAddon.MODID, "core_melt").toString())
+            );
+
+    public static final DeferredHolder<EntityType<?>, EntityType<CoreMeltRing>> CORE_MELT_RING =
+            ENTITIES.register("core_melt_ring", ()-> EntityType.Builder.<CoreMeltRing>of(CoreMeltRing::new, MobCategory.MISC)
+                    .sized(1.0F, 1.0F)
+                    .clientTrackingRange(32)
+                    .build(ResourceLocation.fromNamespaceAndPath(MikusVocalSpellIronsSpellsAddon.MODID, "core_melt_ring").toString())
+            );
 
 }

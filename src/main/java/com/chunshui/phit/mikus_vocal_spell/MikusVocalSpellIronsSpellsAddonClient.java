@@ -1,5 +1,8 @@
 package com.chunshui.phit.mikus_vocal_spell;
 
+import com.chunshui.phit.mikus_vocal_spell.entity.spells.core_melt.CMRingRender;
+import com.chunshui.phit.mikus_vocal_spell.entity.spells.core_melt.CoreMeltModel;
+import com.chunshui.phit.mikus_vocal_spell.entity.spells.core_melt.CoreMeltRender;
 import com.chunshui.phit.mikus_vocal_spell.entity.spells.scallion_dance.ScallionRender;
 import com.chunshui.phit.mikus_vocal_spell.particle.ReincarnationParticle;
 import com.chunshui.phit.mikus_vocal_spell.particle.ScallionParticle;
@@ -49,6 +52,8 @@ public class MikusVocalSpellIronsSpellsAddonClient {
     private static void renderRegister(EntityRenderersEvent.RegisterRenderers event) {
         event.registerEntityRenderer(MVSEntityRegistry.SCALLION.get(), NoopRenderer::new);
         event.registerEntityRenderer(MVSEntityRegistry.SCALLION_AREA.get(), ScallionRender::new);
+        event.registerEntityRenderer(MVSEntityRegistry.CORE_MELT.get(), (context) -> new CoreMeltRender(context, CoreMeltModel::new));
+        event.registerEntityRenderer(MVSEntityRegistry.CORE_MELT_RING.get(), CMRingRender::new);
     }
 
     private static void registerClientExtensions(RegisterClientExtensionsEvent event) {

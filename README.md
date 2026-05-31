@@ -4,7 +4,7 @@
 [![Build](https://img.shields.io/badge/build-passing-yellow)]()
 ![Java](https://img.shields.io/badge/Java-21+-orange)
 
-🌐 **Language / 语言:**  
+🌐 **语言 / Language:**  
 [🇺🇸 English](README.md) | [🇨🇳 简体中文](README.zh-CN.md)
 ---
 > ❗❗❗Note: This Mod is currently in early construction.

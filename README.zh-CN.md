@@ -1,4 +1,4 @@
-# 项目名称
+# Miku's VocalSpell - Iron's Spells Addon
 
 [![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
 [![Build](https://img.shields.io/badge/build-passing-yellow)]()

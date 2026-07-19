@@ -2,6 +2,7 @@ package com.chunshui.phit.mikus_vocal_spell.registries;
 
 import com.chunshui.phit.mikus_vocal_spell.MikusVocalSpellIronsSpellsAddon;
 import com.chunshui.phit.mikus_vocal_spell.effects.ManaDazeEffect;
+import com.chunshui.phit.mikus_vocal_spell.effects.vocal.core_melt.InnocenceEffect;
 import com.chunshui.phit.mikus_vocal_spell.effects.vocal.mana_munch_melody.MelodyEffect;
 import com.chunshui.phit.mikus_vocal_spell.effects.vocal.reincarnation.*;
 import com.chunshui.phit.mikus_vocal_spell.effects.vocal.scallon.ScallionEffect;
@@ -67,7 +68,12 @@ public class MVSEffectRegistry {
                     MobEffectCategory.BENEFICIAL,
                     0x000000
             ));
-
+   /*CoreMelt*/
+    public static final DeferredHolder<MobEffect, MobEffect> INNOCENCE_EFFECT =
+            EFFECTS.register("innocence_effect", () -> new InnocenceEffect(
+                    MobEffectCategory.BENEFICIAL,
+                    0x000000
+            ));
     //其他效果
     public static final DeferredHolder<MobEffect, MobEffect> MANA_DAZE_EFFECT =
             EFFECTS.register("mana_daze_effect", ()-> new ManaDazeEffect(

@@ -41,4 +41,10 @@ public class MVSSoundRegistry {
                             MikusVocalSpellIronsSpellsAddon.MODID, "fall_down"
                     ))
             );
+    public static final DeferredHolder<SoundEvent, SoundEvent> BREAK =
+            SOUND_EVENTS.register("break", () ->
+                    SoundEvent.createVariableRangeEvent(ResourceLocation.fromNamespaceAndPath(
+                            MikusVocalSpellIronsSpellsAddon.MODID, "break"
+                    ))
+            );
 }

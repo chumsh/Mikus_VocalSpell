@@ -20,12 +20,11 @@ import java.util.UUID;
 public abstract class AbstractCheckArea extends Entity implements TraceableEntity{
 
     /*一个用于为特定区域添加自定义效果的抽象类*/
-
     protected int spellLevel = 0;
-    private static final int CHECK_INTERVAL = 10;
+    protected static final int CHECK_INTERVAL = 20;
     protected static final EntityDataAccessor<Float> DETECTION_RADIUS =
             SynchedEntityData.defineId(AbstractCheckArea.class, EntityDataSerializers.FLOAT);
-    private static final EntityDataAccessor<Integer> MAX_LIFE_TIME =
+    protected static final EntityDataAccessor<Integer> MAX_LIFE_TIME =
             SynchedEntityData.defineId(AbstractCheckArea.class, EntityDataSerializers.INT);
 
     @Nullable
@@ -33,7 +32,6 @@ public abstract class AbstractCheckArea extends Entity implements TraceableEntit
     @Nullable
     private UUID ownerUUID;
 
-    private int tickCounter = 0;
     public int duration;
     public int amplifier;
     public boolean isShowIcon;
@@ -55,26 +53,21 @@ public abstract class AbstractCheckArea extends Entity implements TraceableEntit
     public void tick() {
         super.tick();
 
-        if (level().isClientSide) {
-            return;
-        }
-
-        tickCounter++;
-        if (tickCounter >= CHECK_INTERVAL) {
-            tickCounter = 0;
-            checkEntitiesInArea();
-        }
-
         if (getMaxLifeTime() > 0 && this.tickCount > getMaxLifeTime()) {
             discardLogic();
             this.discard();
         }
-    }
 
+        if (this.tickCount % CHECK_INTERVAL == 0) {
+            if (!(this instanceof AbstractWaveRing))
+                checkEntitiesInArea();
+        }
+    }
     /**
      * 检测区域内的实体并施加效果
      */
-    private void checkEntitiesInArea() {
+    protected void checkEntitiesInArea() {
+        MikusVocalSpellIronsSpellsAddon.LOGGER.info("AbstractCheckArea.location{}", this.position());
         double radius = getDetectionRadius();
         double radiusSq = radius * radius;
 
@@ -134,7 +127,7 @@ public abstract class AbstractCheckArea extends Entity implements TraceableEntit
 
     /*客户端获取生命周期*/
     public int getMaxLifeTime() {
-        return this.entityData.get(MAX_LIFE_TIME);
+        return entityData.get(MAX_LIFE_TIME);
     }
 
     public void setOwner(@Nullable Entity entity) {

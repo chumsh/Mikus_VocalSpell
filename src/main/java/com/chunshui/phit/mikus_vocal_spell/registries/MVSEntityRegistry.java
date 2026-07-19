@@ -1,8 +1,11 @@
 package com.chunshui.phit.mikus_vocal_spell.registries;
 
 import com.chunshui.phit.mikus_vocal_spell.MikusVocalSpellIronsSpellsAddon;
+import com.chunshui.phit.mikus_vocal_spell.entity.spells.NoneCheckArea;
+import com.chunshui.phit.mikus_vocal_spell.entity.spells.core_melt.CMRAreaEffectCloud;
 import com.chunshui.phit.mikus_vocal_spell.entity.spells.core_melt.CoreMeltEntity;
 import com.chunshui.phit.mikus_vocal_spell.entity.spells.core_melt.CoreMeltRing;
+import com.chunshui.phit.mikus_vocal_spell.entity.spells.core_melt.InnocenceShellEntity;
 import com.chunshui.phit.mikus_vocal_spell.entity.spells.scallion_dance.ScallionEffectArea;
 import com.chunshui.phit.mikus_vocal_spell.entity.spells.scallion_dance.ScallionProjectile;
 import net.minecraft.core.registries.Registries;
@@ -36,7 +39,7 @@ public class MVSEntityRegistry {
 
     public static final DeferredHolder<EntityType<?>, EntityType<CoreMeltEntity>> CORE_MELT =
             ENTITIES.register("core_melt", ()-> EntityType.Builder.<CoreMeltEntity>of(CoreMeltEntity::new, MobCategory.MISC)
-                    .sized(1.5F, 1.5F)
+                    .sized(1.0F, 1.0F)
                     .clientTrackingRange(32)
                     .build(ResourceLocation.fromNamespaceAndPath(MikusVocalSpellIronsSpellsAddon.MODID, "core_melt").toString())
             );
@@ -48,4 +51,24 @@ public class MVSEntityRegistry {
                     .build(ResourceLocation.fromNamespaceAndPath(MikusVocalSpellIronsSpellsAddon.MODID, "core_melt_ring").toString())
             );
 
+    public static final DeferredHolder<EntityType<?>, EntityType<NoneCheckArea>> NONE_CHECK_AREA =
+            ENTITIES.register("none_check_area", ()-> EntityType.Builder.<NoneCheckArea>of(NoneCheckArea::new, MobCategory.MISC)
+                    .sized(1.0F, 1.0F)
+                    .clientTrackingRange(32)
+                    .build(ResourceLocation.fromNamespaceAndPath(MikusVocalSpellIronsSpellsAddon.MODID, "none_check_area").toString())
+            );
+
+    public static  final DeferredHolder<EntityType<?>, EntityType<InnocenceShellEntity>> INNOCENCE_SHELL=
+            ENTITIES.register("innocence_shell", ()-> EntityType.Builder.<InnocenceShellEntity>of(InnocenceShellEntity::new, MobCategory.MISC)
+                    .sized(1.0F, 1.0F)
+                    .clientTrackingRange(32)
+                    .build(ResourceLocation.fromNamespaceAndPath(MikusVocalSpellIronsSpellsAddon.MODID, "innocence_shell").toString())
+            );
+
+    public static final DeferredHolder<EntityType<?>, EntityType<CMRAreaEffectCloud>> CMR_AREA_EFFECT_CLOUD =
+            ENTITIES.register("cmr_area_effect_cloud", ()-> EntityType.Builder.<CMRAreaEffectCloud>of(CMRAreaEffectCloud::new, MobCategory.MISC)
+                    .sized(0.4F, 0.2F)
+                    .clientTrackingRange(64)
+                    .build(ResourceLocation.fromNamespaceAndPath(MikusVocalSpellIronsSpellsAddon.MODID,  "cmr_area_effect_cloud").toString())
+            );
 }

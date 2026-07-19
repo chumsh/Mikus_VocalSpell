@@ -114,6 +114,7 @@ dependencies {
     // Iron's SPELL ***********************************************************************************************
     compileOnly "io.redspace:irons_spellbooks:${minecraft_version}-${irons_spells_version}"
     localRuntime "io.redspace:irons_spellbooks:${minecraft_version}-${irons_spells_version}"
+
 }
 
 var generateModMetadata = tasks.register("generateModMetadata", ProcessResources) {

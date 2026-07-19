@@ -26,14 +26,12 @@ public class CoreMeltEntity extends Entity implements GeoEntity{
     private static final EntityDataAccessor<Integer> LIFE_TIME =
             SynchedEntityData.defineId(CoreMeltEntity.class, EntityDataSerializers.INT);
 
-    public CoreMeltEntity(EntityType<?> entityType, Level level) {
-        super(entityType, level);
-        this.noPhysics = true;
-        this.isNoGravity();
-    }
+    public CoreMeltEntity(EntityType<?> entityType, Level level) { super(entityType, level); }
 
     public CoreMeltEntity(Level level) {
        super(MVSEntityRegistry.CORE_MELT.get(), level);
+       this.noPhysics = true;
+       this.isNoGravity();
     }
 
 
@@ -46,8 +44,6 @@ public class CoreMeltEntity extends Entity implements GeoEntity{
                 discard();
             }
         }
-
-
     }
 
     @Override

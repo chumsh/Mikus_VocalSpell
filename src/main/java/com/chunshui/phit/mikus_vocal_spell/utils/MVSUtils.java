@@ -1,5 +1,9 @@
 package com.chunshui.phit.mikus_vocal_spell.utils;
 
+import net.minecraft.client.Minecraft;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec2;
 import net.minecraft.world.phys.Vec3;
 
@@ -83,5 +87,21 @@ public class MVSUtils {
             }
         }
         return points;
+    }
+
+    //获取多态法术的当前形态
+    public static int getCurrentForm() {
+        Player player = Minecraft.getInstance().player;
+        return player.getPersistentData().getInt(NBTKeyHelper.FORM_INDEX);
+    }
+
+    //获取玩家周围的实体
+    public static List<LivingEntity> getEntitiesAroundPlayer(Player player, int radius) {
+        if (player != null) {
+            Vec3 pos = player.position();
+            AABB boundingBox = AABB.ofSize(pos, radius, radius, radius);
+            return player.level().getEntitiesOfClass(LivingEntity.class,  boundingBox);
+        }
+        return  null;
     }
 }

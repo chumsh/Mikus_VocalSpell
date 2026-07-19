@@ -6,4 +6,6 @@ public class AnimationHelper {
     //CORE_MELT实体
     public static final RawAnimation CM_START = RawAnimation.begin().thenPlay("start");
     public static final RawAnimation CM_END = RawAnimation.begin().thenPlay("end");
+    public static final RawAnimation IN_ROTATE = RawAnimation.begin().thenPlay("rotate");
+    public static final RawAnimation IN_EXPLOSION = RawAnimation.begin().thenPlay("explosion");
 }

@@ -9,6 +9,7 @@ import org.jetbrains.annotations.NotNull;
 
 public abstract class AbstractWaveRing extends AbstractCheckArea{
     private float expansionSpeed = 0.5F;
+    protected int cooldownTime = 20;
 
     private static final EntityDataAccessor<Float> EXPANSION_SPEED =
             SynchedEntityData.defineId(AbstractWaveRing.class, EntityDataSerializers.FLOAT);
@@ -40,6 +41,14 @@ public abstract class AbstractWaveRing extends AbstractCheckArea{
         builder.define(CREATION_TICK, 0L);
     }
 
+    @Override
+    public void tick() {
+        super.tick();
+
+        if (this.getMaxLifeTime() < tickCount)
+            discard();
+    }
+
     private float calculateCurrentRadius(float particleTicks) {
         float speed = entityData.get(EXPANSION_SPEED);
         float origin = getOriginalRadius();
@@ -49,6 +58,10 @@ public abstract class AbstractWaveRing extends AbstractCheckArea{
         int time = (int) (age / eachTimeCost);
 
         return origin + speed * (age -  time * eachTimeCost);
+    }
+
+    protected void setCooldownTime(int cooldownTime) {
+        this.cooldownTime = cooldownTime;
     }
 
     public float getOriginalRadius() { return 0; }

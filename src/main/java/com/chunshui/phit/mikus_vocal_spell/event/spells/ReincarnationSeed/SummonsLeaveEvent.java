@@ -1,4 +1,4 @@
-package com.chunshui.phit.mikus_vocal_spell.event.spells;
+package com.chunshui.phit.mikus_vocal_spell.event.spells.ReincarnationSeed;
 
 import com.chunshui.phit.mikus_vocal_spell.MikusVocalSpellIronsSpellsAddon;
 import com.chunshui.phit.mikus_vocal_spell.registries.MVSEffectRegistry;

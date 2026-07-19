@@ -21,4 +21,5 @@ public class ParticleRegistries {
 
     public static final Supplier<SimpleParticleType> SCALLION_PARTICLE = PARTICLE_TYPES.register("scallion", () -> new SimpleParticleType(false));
 
+
 }

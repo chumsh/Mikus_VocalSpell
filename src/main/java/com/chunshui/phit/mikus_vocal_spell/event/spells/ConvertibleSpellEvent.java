@@ -14,6 +14,7 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.ClientTickEvent;
 
+
 @EventBusSubscriber(modid = MikusVocalSpellIronsSpellsAddon.MODID)
 public class ConvertibleSpellEvent {
     private static boolean isConvertible;
@@ -37,10 +38,12 @@ public class ConvertibleSpellEvent {
 
         Player player = Minecraft.getInstance().player;
         if (player == null) {
+            MikusVocalSpellIronsSpellsAddon.LOGGER.info("player is null");
             return;
         }
 
         int index = cachedManager.getCurrentSelection().index;
+        if  (index < 0) { index = 0; }
         AbstractSpell spell = cachedManager.getSpellData(index).getSpell();
 
         if (spell instanceof ConvertibleSpell convertibleSpell) {
@@ -61,6 +64,7 @@ public class ConvertibleSpellEvent {
             return;
         }
 
+
         updateConvertibleState();
 
         if (!isConvertible) {
@@ -68,12 +72,11 @@ public class ConvertibleSpellEvent {
             return;
         }
 
-        int index = player.getPersistentData().getInt(NBTKeyHelper.FORM_INDEX);
-        if (index >= currentConvertibleSpell.getChangeableTime()) {
-            player.getPersistentData().putInt(NBTKeyHelper.FORM_INDEX, 0);
-        }
-
         if (MVSKeyBindings.CHANGE_FORM.consumeClick()) {
+            int index = player.getPersistentData().getInt(NBTKeyHelper.FORM_INDEX);
+            if (index >= currentConvertibleSpell.getChangeableTime()) {
+                player.getPersistentData().putInt(NBTKeyHelper.FORM_INDEX, 0);
+            }
             int currentFormIndex = player.getPersistentData().getInt(NBTKeyHelper.FORM_INDEX) + 1;
             player.getPersistentData().putInt(NBTKeyHelper.FORM_INDEX, currentFormIndex);
             currentMessageKey = currentConvertibleSpell.getMessageKey(currentFormIndex);

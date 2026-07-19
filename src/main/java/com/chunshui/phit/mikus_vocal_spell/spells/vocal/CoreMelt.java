@@ -1,10 +1,12 @@
 package com.chunshui.phit.mikus_vocal_spell.spells.vocal;
 
 import com.chunshui.phit.mikus_vocal_spell.MikusVocalSpellIronsSpellsAddon;
-import com.chunshui.phit.mikus_vocal_spell.entity.spells.core_melt.CoreMeltEntity;
-import com.chunshui.phit.mikus_vocal_spell.entity.spells.core_melt.CoreMeltRing;
+import com.chunshui.phit.mikus_vocal_spell.entity.spells.NoneCheckArea;
+import com.chunshui.phit.mikus_vocal_spell.entity.spells.core_melt.*;
+import com.chunshui.phit.mikus_vocal_spell.registries.MVSEffectRegistry;
 import com.chunshui.phit.mikus_vocal_spell.registries.MVSSchoolRegistry;
 import com.chunshui.phit.mikus_vocal_spell.utils.ConvertibleSpell;
+import com.chunshui.phit.mikus_vocal_spell.utils.MVSUtils;
 import com.chunshui.phit.mikus_vocal_spell.utils.NBTKeyHelper;
 import io.redspace.ironsspellbooks.api.config.DefaultConfig;
 import io.redspace.ironsspellbooks.api.magic.MagicData;
@@ -14,6 +16,8 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
@@ -55,6 +59,20 @@ public class CoreMelt extends AbstractSpell implements ConvertibleSpell {
 
     @Override
     public void onCast(Level world, int spellLevel, LivingEntity entity, CastSource castSource, MagicData playerMagicData) {
+        int index = MVSUtils.getCurrentForm();
+        if (index == 1) {
+            entity.addEffect(new MobEffectInstance(MVSEffectRegistry.INNOCENCE_EFFECT, 400));
+            MobEffectInstance  effectInstance = new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN);
+            NoneCheckArea noneCheckArea = new NoneCheckArea(world, effectInstance);
+            noneCheckArea.setOwner(entity);
+            noneCheckArea.setAmplifier(spellLevel - 1);
+            noneCheckArea.setDuration(400);
+            noneCheckArea.setPos(entity.position());
+            world.addFreshEntity(noneCheckArea);
+        }
+        if (index == 3) {
+            boolean hasCoreMelt = entity.getPersistentData().getBoolean(NBTKeyHelper.CORE_MELT_SPAWN);
+            MikusVocalSpellIronsSpellsAddon.LOGGER.debug("CoreMelt: {}", hasCoreMelt);
             if (!entity.getPersistentData().getBoolean(NBTKeyHelper.CORE_MELT_SPAWN)) {
                 Vec3 angel = new Vec3(entity.getLookAngle().x(), 0, entity.getLookAngle().z());
                 float angelRange = 25 * Mth.DEG_TO_RAD;
@@ -64,9 +82,11 @@ public class CoreMelt extends AbstractSpell implements ConvertibleSpell {
                 CoreMeltRing coreMeltRing = new CoreMeltRing(world, entity, spellLevel);
                 coreMelt.setPos(position);
                 coreMeltRing.setPos(position);
+                coreMeltRing.setOwner(entity);
                 world.addFreshEntity(coreMelt);
                 world.addFreshEntity(coreMeltRing);
             }
+        }
     }
 
     @Override

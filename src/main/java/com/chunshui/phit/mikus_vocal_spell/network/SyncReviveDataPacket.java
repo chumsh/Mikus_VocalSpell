@@ -9,6 +9,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.neoforged.neoforge.network.handling.IPayloadContext;
 import org.jetbrains.annotations.NotNull;
 
+//以后会优化为最简化形式
 public class SyncReviveDataPacket implements CustomPacketPayload {
     
     public static final Type<SyncReviveDataPacket> TYPE = 
@@ -27,7 +28,7 @@ public class SyncReviveDataPacket implements CustomPacketPayload {
 
     }
     
-    public SyncReviveDataPacket(RegistryFriendlyByteBuf buf) {
+    private SyncReviveDataPacket(RegistryFriendlyByteBuf buf) {
         this.charges = buf.readInt();
         this.isActive = buf.readBoolean();
 
@@ -39,6 +40,7 @@ public class SyncReviveDataPacket implements CustomPacketPayload {
     }
     
     public static void handle(SyncReviveDataPacket packet, IPayloadContext context) {
+//        MikusVocalSpellIronsSpellsAddon.LOGGER.info("SyncReviveDataPacket");
         context.enqueueWork(() -> {
             if (context.flow().getReceptionSide().isClient()) {
                 ReviveAnimationHandler.playReviveAnimation(

@@ -23,24 +23,22 @@ public class CMRAreaEffectCloud extends AbstractAreaEffectCloud {
     @Override
     public void tick() {
         super.tick();
-        if (tickCount % INTERVAL == 0) {
-            aabb = this.getBoundingBox().inflate(4);
-            checkEntitiesInArea();
-
+        aabb = this.getBoundingBox().inflate(tickCount * 0.4);
+        checkEntitiesInArea();
+        if (tickCount >= 20)
             discard();
-        }
-
 //        MikusVocalSpellIronsSpellsAddon.LOGGER.debug("CMRAreaEffectCloud.tick():{}Side:{}", this.position(), level().isClientSide);
     }
 
     @Override
     protected void addEffect(LivingEntity entity) {
         boolean flag = entity.getPersistentData().getBoolean(NBTKeyHelper.AREA_EFFECT_FLAG);
-        if (flag)
-            entity.addEffect(new MobEffectInstance(MobEffects.WITHER, 400, spellLevel, false, true));
-        entity.getPersistentData().putBoolean(NBTKeyHelper.AREA_EFFECT_FLAG, true);
+        if (!flag) {
+            entity.addEffect(new MobEffectInstance(MobEffects.DIG_SLOWDOWN, 400, spellLevel - 1, false, true));
+            entity.addEffect(new MobEffectInstance(MobEffects.WITHER, 400, spellLevel - 1, false, true));
+            entity.getPersistentData().putBoolean(NBTKeyHelper.AREA_EFFECT_FLAG, true);
+        }
     }
-
     @Override
     protected void setAmplifier() {}
 

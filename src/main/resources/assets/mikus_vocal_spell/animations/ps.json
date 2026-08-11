@@ -1,0 +1,66 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"fission": {
+			"animation_length": 0.5,
+			"bones": {
+				"center": {
+					"position": {
+						"vector": [0, 0, 0]
+					}
+				},
+				"left": {
+					"position": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"0.125": {
+							"vector": [0, 1, -7]
+						}
+					}
+				},
+				"right": {
+					"position": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"0.125": {
+							"vector": [0, 1, 7]
+						}
+					}
+				},
+				"bone": {
+					"position": {
+						"vector": [0, 0, 0]
+					},
+					"scale": {
+						"0.0": {
+							"vector": [1, 1, 1]
+						},
+						"0.0417": [1.05153, 1.05153, 1.05153],
+						"0.0833": [1.44847, 1.44847, 1.44847],
+						"0.125": {
+							"vector": [1.5, 1.5, 1.5]
+						}
+					}
+				}
+			},
+			"particle_effects": {}
+		},
+		"fly": {
+			"loop": "hold_on_last_frame",
+			"bones": {
+				"left": {
+					"position": {
+						"vector": [0, 1, -7]
+					}
+				},
+				"right": {
+					"position": {
+						"vector": [0, 1, 7]
+					}
+				}
+			}
+		}
+	}
+}

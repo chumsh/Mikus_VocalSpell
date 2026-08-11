@@ -5,12 +5,15 @@ import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import org.jetbrains.annotations.NotNull;
 import software.bernie.geckolib.model.GeoModel;
 import software.bernie.geckolib.renderer.GeoEntityRenderer;
+import software.bernie.geckolib.renderer.layer.AutoGlowingGeoLayer;
 
 import java.util.function.Supplier;
 
 public class CoreMeltRender extends GeoEntityRenderer<CoreMeltEntity> {
     public CoreMeltRender(EntityRendererProvider.Context renderManager, Supplier<GeoModel<CoreMeltEntity>> model) {
         super(renderManager, model.get());
+
+        addRenderLayer(new AutoGlowingGeoLayer<>(this));
     }
 
     @Override

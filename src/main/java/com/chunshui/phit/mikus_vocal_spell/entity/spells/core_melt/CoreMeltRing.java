@@ -4,11 +4,8 @@ import com.chunshui.phit.mikus_vocal_spell.MikusVocalSpellIronsSpellsAddon;
 import com.chunshui.phit.mikus_vocal_spell.entity.spells.AbstractWaveRing;
 import com.chunshui.phit.mikus_vocal_spell.registries.MVSEntityRegistry;
 import com.chunshui.phit.mikus_vocal_spell.utils.NBTKeyHelper;
-import net.minecraft.world.effect.MobEffectInstance;
-import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.Level;
 
 
@@ -28,35 +25,17 @@ public class CoreMeltRing extends AbstractWaveRing{
 
     public static int getLocalMaxLifeTime() { return MAX_lIFE_TIME; }
 
-    @Override
-    protected void applyEffectToEntity(LivingEntity entity, int duration, int amplifier) {
-//        if (! (entity instanceof Player)) {
-            entity.addEffect(new MobEffectInstance(
-                    MobEffects.WEAKNESS,
-                    duration,
-                    amplifier));
-            entity.addEffect(new MobEffectInstance(
-                    MobEffects.MOVEMENT_SLOWDOWN,
-                    duration,
-                    amplifier));
-            entity.addEffect(new MobEffectInstance(
-                    MobEffects.POISON,
-                    duration,
-                    amplifier));
-//        }
-    }
 
     @Override
     public void tick() {
         super.tick();
-
-        CMRAreaEffectCloud.timeCounter = tickCount;
 
         if(level().isClientSide)
             return;
 
         if (tickCount % this.cooldownTime == 0) {
             CMRAreaEffectCloud cmrAreaEffectCloud = new CMRAreaEffectCloud(level(), spellLevel);
+            cmrAreaEffectCloud.timeCounter = this.tickCount;
             cmrAreaEffectCloud.setPos(this.position());
             if (owner != null) {
                 cmrAreaEffectCloud.setMaster(owner.getUUID());
@@ -68,7 +47,6 @@ public class CoreMeltRing extends AbstractWaveRing{
     public void discardLogic() {
         if (this.owner != null) {
             this.owner.getPersistentData().putBoolean(NBTKeyHelper.CORE_MELT_SPAWN, false);
-            CMRAreaEffectCloud.timeCounter = 0;
         }else
             MikusVocalSpellIronsSpellsAddon.LOGGER.warn("CoreMeltRingHasNoOwner");
     }

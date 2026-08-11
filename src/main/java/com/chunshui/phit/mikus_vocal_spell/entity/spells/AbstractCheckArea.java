@@ -67,7 +67,6 @@ public abstract class AbstractCheckArea extends Entity implements TraceableEntit
      * 检测区域内的实体并施加效果
      */
     protected void checkEntitiesInArea() {
-        MikusVocalSpellIronsSpellsAddon.LOGGER.info("AbstractCheckArea.location{}", this.position());
         double radius = getDetectionRadius();
         double radiusSq = radius * radius;
 
@@ -82,7 +81,7 @@ public abstract class AbstractCheckArea extends Entity implements TraceableEntit
         }
     }
 
-    protected abstract void applyEffectToEntity(LivingEntity entity, int duration, int amplifier);
+    protected void applyEffectToEntity(LivingEntity entity, int duration, int amplifier) {}
 
     /*获取效果时间*/
     protected void setEffectDuration() {

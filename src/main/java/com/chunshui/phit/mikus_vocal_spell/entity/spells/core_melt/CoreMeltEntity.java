@@ -3,10 +3,12 @@ package com.chunshui.phit.mikus_vocal_spell.entity.spells.core_melt;
 import com.chunshui.phit.mikus_vocal_spell.registries.MVSEntityRegistry;
 import com.chunshui.phit.mikus_vocal_spell.registries.MVSSoundRegistry;
 import com.chunshui.phit.mikus_vocal_spell.utils.AnimationHelper;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.player.Player;
@@ -41,6 +43,8 @@ public class CoreMeltEntity extends Entity implements GeoEntity{
 
         if(!level().isClientSide) {
             if(this.tickCount >= entityData.get(LIFE_TIME)) {
+                if (level() instanceof ServerLevel serverLevel)
+                    serverLevel.sendParticles(ParticleTypes.SOUL_FIRE_FLAME, this.position().x, this.position().y + 0.5, this.position().z, 50, 0.3, 0.3, 0.3, 0.3);
                 discard();
             }
         }

@@ -6,6 +6,10 @@
   "item.mikus_vocal_spell.vocal_essence": "Vocal Essence",
   "fluid.mikus_vocal_spell.potion_fluid": "Mana Potion",
   "itemgroup.mikus_vocal_spell.main": "Miku's VocalSpell",
+  "entity.mikus_vocal_spell.core_melt": "Fusion Reactor",
+  "entity.mikus_vocal_spell.core_melt_ring": "Fusion Reactor's Wave",
+  "entity.mikus_vocal_spell.scallion": "Scallion Dancer",
+  "entity.mikus_vocal_spell.scallion_area": "Scallion Dancer Field",
 
   "school.mikus_vocalspell.vocal": "Vocal",
   "attribute.mikus_vocal_spell.vocal_spell_power" : "Vocal Spell Power",
@@ -16,6 +20,7 @@
   "spell.mikus_vocal_spell.reincarnation_seed": "Reincarnation Seed",
   "spell.mikus_vocal_spell.scallion_dance": "Scallion Dance",
   "spell.mikus_vocal_spell.mana_munch_melody": "Mana Munch Melody",
+  "spell.mikus_vocal_spell.core_melt": "Core Melt",
 
   "death.mikus_vocal_spell.revived": "Ugh, failed again.Let's reincarnate",
   "death.mikus_vocal_spell.revived.last": "Returned to my ordinary self",
@@ -29,6 +34,7 @@
   "effect.mikus_vocal_spell.scallion_effect": "Scallion Carnival",
   "effect.mikus_vocal_spell.mana_daze_effect": "Mana Daze",
   "effect.mikus_vocal_spell.melody_effect": "Mana Munch Melody",
+  "effect.mikus_vocal_spell.innocence_effect": "Innocence Field",
 
   "message.mikus_vocal_spell.performer_effect.effect": "The beloved comrades have departed",
   "message.mikus_vocal_spell.inventor_effect.effect": "A cruel rain of blood fell",
@@ -46,9 +52,12 @@
   "ui.mikus_vocal_spell.vsinger.luotianyi": "Blesser: LuoTianyi",
   "ui.mikus_vocal_spell.vsinger.miku": "Blesser: Miku",
   "ui.mikus_vocal_spell.vsinger.rin": "Blesser: Rin",
+  "ui.mikus_vocal_spell.core_melt.form1_damage":"Form① Damage: Total Damage *SpellLevel",
 
   "sounds.mikus_vocal_spell.eat_apple": "Reincarnation Start",
-  "sounds.mikus_vocal_spell.drink": "Restore Mana"
+  "sounds.mikus_vocal_spell.drink": "Restore Mana",
+  "sounds.mikus_vocal_spell.fall_down": "Heavy Object Falling",
+  "sounds.mikus_vocal_spell.break": "Youthfulness Fades"
 
 
 }

@@ -36,6 +36,11 @@ repositories {
         name = "Iron's Maven - Release"
         url = "https://code.redspace.io/releases"
     }
+    maven {
+        name = "Iron's Maven - Snapshots"
+        url = "https://code.redspace.io/snapshots"
+    }
+    maven { url = "https://maven.firstdark.dev/snapshots" }
     maven { url = "https://maven.theillusivec4.top" }
     maven { url = "https://cursemaven.com" }
     maven { url = "https://maven.kosmx.dev/" }
@@ -112,9 +117,8 @@ dependencies {
     implementation "vazkii.patchouli:Patchouli:${patchouli_version}-NEOFORGE"
 
     // Iron's SPELL ***********************************************************************************************
-    compileOnly "io.redspace:irons_spellbooks:${minecraft_version}-${irons_spells_version}"
-    localRuntime "io.redspace:irons_spellbooks:${minecraft_version}-${irons_spells_version}"
-
+    localRuntime "io.redspace:irons_lib:${irons_lib_version}"
+    implementation "io.redspace:irons_spellbooks:${minecraft_version}-${irons_spells_version}"
 }
 
 var generateModMetadata = tasks.register("generateModMetadata", ProcessResources) {

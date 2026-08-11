@@ -32,6 +32,7 @@ public class MikusVocalSpellIronsSpellsAddon {
         MVSEntityRegistry.register(modEventBus);
         MVSCreativeTab.register(modEventBus);
         MVSFluidRegistry.register(modEventBus);
+        AttachmentRegistry.register(modEventBus);
 
         NeoForge.EVENT_BUS.register(this);
     }

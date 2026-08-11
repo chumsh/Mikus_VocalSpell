@@ -1,7 +1,6 @@
 package com.chunshui.phit.mikus_vocal_spell.entity.spells.core_melt;
 
 import com.chunshui.phit.mikus_vocal_spell.registries.MVSEntityRegistry;
-import com.chunshui.phit.mikus_vocal_spell.registries.MVSSoundRegistry;
 import com.chunshui.phit.mikus_vocal_spell.utils.AnimationHelper;
 import com.chunshui.phit.mikus_vocal_spell.utils.NBTKeyHelper;
 import net.minecraft.nbt.CompoundTag;
@@ -10,7 +9,7 @@ import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
 
@@ -19,7 +18,6 @@ import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
 import software.bernie.geckolib.animation.AnimatableManager;
 import software.bernie.geckolib.animation.AnimationController;
 import software.bernie.geckolib.animation.PlayState;
-import software.bernie.geckolib.util.ClientUtil;
 import software.bernie.geckolib.util.GeckoLibUtil;
 
 
@@ -30,6 +28,8 @@ public class InnocenceShellEntity extends Entity implements GeoEntity {
         super(entityType, level);
     }
 
+    private LivingEntity host;
+
     static final EntityDataAccessor<Integer> LIFE_TIME =
             SynchedEntityData.defineId(InnocenceShellEntity.class, EntityDataSerializers.INT);
 
@@ -38,6 +38,8 @@ public class InnocenceShellEntity extends Entity implements GeoEntity {
         this.noPhysics = true;
         this.isNoGravity();
     }
+
+    public void setHost(LivingEntity host) { this.host = host; }
 
     @Override
     public void tick() {
@@ -59,21 +61,23 @@ public class InnocenceShellEntity extends Entity implements GeoEntity {
 
     @Override
     public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
-        Player player = ClientUtil.getClientPlayer();
         controllers.add(new AnimationController<>(this, "Rotate", state -> {
-            int duration = player.getPersistentData().getInt(NBTKeyHelper.INNOCENCE_DURATION);
-            if (duration > 30)
-                return state.setAndContinue(AnimationHelper.IN_ROTATE);
+            if (host != null) {
+                int duration = host.getPersistentData().getInt(NBTKeyHelper.INNOCENCE_DURATION);
+                if (duration > 30)
+                    return state.setAndContinue(AnimationHelper.IN_ROTATE);
+            }
             return PlayState.STOP;
         }));
         controllers.add(new AnimationController<>(this, "Explosion", state -> {
-            int duration = player.getPersistentData().getInt(NBTKeyHelper.INNOCENCE_DURATION);
-            if (duration <= 30)
-                return state.setAndContinue(AnimationHelper.IN_EXPLOSION);
+            if (host != null) {
+                int duration = host.getPersistentData().getInt(NBTKeyHelper.INNOCENCE_DURATION);
+                if (duration <= 30)
+                    return state.setAndContinue(AnimationHelper.IN_EXPLOSION);
+            }
             return PlayState.STOP;
-        }).setSoundKeyframeHandler(soundHandler -> player.playSound(MVSSoundRegistry.BREAK.get(), 5, 1)));
+        }));
     }
-
     @Override
     public AnimatableInstanceCache getAnimatableInstanceCache() { return geoCache; }
 

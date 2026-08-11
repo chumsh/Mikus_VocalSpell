@@ -3,6 +3,7 @@ package com.chunshui.phit.mikus_vocal_spell.spells.vocal;
 import com.chunshui.phit.mikus_vocal_spell.MikusVocalSpellIronsSpellsAddon;
 import com.chunshui.phit.mikus_vocal_spell.entity.spells.NoneCheckArea;
 import com.chunshui.phit.mikus_vocal_spell.entity.spells.core_melt.*;
+import com.chunshui.phit.mikus_vocal_spell.registries.AttachmentRegistry;
 import com.chunshui.phit.mikus_vocal_spell.registries.MVSEffectRegistry;
 import com.chunshui.phit.mikus_vocal_spell.registries.MVSSchoolRegistry;
 import com.chunshui.phit.mikus_vocal_spell.utils.ConvertibleSpell;
@@ -24,15 +25,14 @@ import net.minecraft.world.phys.Vec3;
 
 import java.util.List;
 
-@AutoSpellConfig
 public class CoreMelt extends AbstractSpell implements ConvertibleSpell {
 
     @Override
     public List<MutableComponent> getUniqueInfo(int spellLevel, LivingEntity caster) {
         return List.of(
-                Component.translatable("ui.mikus_vocal_spell.damage", Utils.stringTruncation(getDamage(spellLevel, caster), 2)),
+                Component.translatable("ui.mikus_vocal_spell.core_melt.form1_damage"),
                 Component.translatable("ui.mikus_vocal_spell.remaining", 20),
-                Component.translatable("ui.mikus_vocal_spell.vsinger.miku").withColor(getColor())
+                Component.translatable("ui.mikus_vocal_spell.vsinger.rin").withColor(getColor())
         );
     }
 
@@ -43,22 +43,23 @@ public class CoreMelt extends AbstractSpell implements ConvertibleSpell {
 
     public CoreMelt(){
         this.baseSpellPower = 1;
-        this.manaCostPerLevel = 10;
-        this.baseManaCost = 70;
+        this.manaCostPerLevel = 30;
+        this.baseManaCost = 100;
         this.spellPowerPerLevel = 1;
         this.castTime = 100;
     }
 
     private final DefaultConfig defaultConfig = new DefaultConfig()
             .setAllowCrafting(true)
-            .setCooldownSeconds(15)
-            .setMaxLevel(3)
-            .setMinRarity(SpellRarity.EPIC)
+            .setCooldownSeconds(40)
+            .setMaxLevel(5)
+            .setMinRarity(SpellRarity.RARE)
             .setSchoolResource(MVSSchoolRegistry.VOCAL_RESOURCE)
             .build();
 
     @Override
     public void onCast(Level world, int spellLevel, LivingEntity entity, CastSource castSource, MagicData playerMagicData) {
+        entity.setData(AttachmentRegistry.CORE_MELT_LEVEL, spellLevel);
         int index = MVSUtils.getCurrentForm();
         if (index == 1) {
             entity.addEffect(new MobEffectInstance(MVSEffectRegistry.INNOCENCE_EFFECT, 400));
@@ -71,8 +72,6 @@ public class CoreMelt extends AbstractSpell implements ConvertibleSpell {
             world.addFreshEntity(noneCheckArea);
         }
         if (index == 3) {
-            boolean hasCoreMelt = entity.getPersistentData().getBoolean(NBTKeyHelper.CORE_MELT_SPAWN);
-            MikusVocalSpellIronsSpellsAddon.LOGGER.debug("CoreMelt: {}", hasCoreMelt);
             if (!entity.getPersistentData().getBoolean(NBTKeyHelper.CORE_MELT_SPAWN)) {
                 Vec3 angel = new Vec3(entity.getLookAngle().x(), 0, entity.getLookAngle().z());
                 float angelRange = 25 * Mth.DEG_TO_RAD;
@@ -102,10 +101,6 @@ public class CoreMelt extends AbstractSpell implements ConvertibleSpell {
     @Override
     public CastType getCastType() {
         return CastType.LONG;
-    }
-
-    public float getDamage(int spellLevel, LivingEntity caster) {
-        return 1 + getSpellPower(spellLevel, caster) * .75f;
     }
 
     @Override

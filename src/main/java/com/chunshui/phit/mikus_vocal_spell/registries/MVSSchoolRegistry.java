@@ -4,15 +4,11 @@ import com.chunshui.phit.mikus_vocal_spell.MikusVocalSpellIronsSpellsAddon;
 import com.chunshui.phit.mikus_vocal_spell.utils.ModTags;
 import io.redspace.ironsspellbooks.api.spells.SchoolType;
 import io.redspace.ironsspellbooks.registries.SoundRegistry;
-import net.minecraft.core.Registry;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.Style;
-import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredRegister;
-import net.neoforged.neoforge.registries.NewRegistryEvent;
-import net.neoforged.neoforge.registries.RegistryBuilder;
 
 import java.util.function.Supplier;
 

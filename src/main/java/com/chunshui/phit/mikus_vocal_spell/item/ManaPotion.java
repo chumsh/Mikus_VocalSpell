@@ -5,6 +5,7 @@ import com.chunshui.phit.mikus_vocal_spell.registries.MVSItemRegistry;
 import com.chunshui.phit.mikus_vocal_spell.registries.MVSSoundRegistry;
 import com.chunshui.phit.mikus_vocal_spell.utils.NBTKeyHelper;
 import io.redspace.ironsspellbooks.api.magic.MagicData;
+import io.redspace.ironsspellbooks.api.registry.AttributeRegistry;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -13,6 +14,8 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
+
+import java.util.Objects;
 
 public class ManaPotion extends Item {
 
@@ -28,7 +31,16 @@ public class ManaPotion extends Item {
             int mana_change = player.getPersistentData().getInt(NBTKeyHelper.MANA_CHANGE);
             if (mana_change < 15 || has_melody) {
                 MagicData magicData = MagicData.getPlayerMagicData(player);
-                magicData.addMana(20);
+                float currentMana = magicData.getMana();
+                double maxMana = Objects.requireNonNull(player.getAttribute(AttributeRegistry.MAX_MANA)).getValue();
+                float gap = (float) (maxMana - currentMana);
+                if (gap >= 20) {
+                    magicData.addMana(20);
+                } else if (gap != 0){
+                    magicData.addMana(gap);
+                } else {
+                    return InteractionResultHolder.fail(itemStack);
+                }
                 if (!has_melody) {
                     player.getPersistentData().putInt(NBTKeyHelper.MANA_CHANGE, mana_change + 1);
                 }

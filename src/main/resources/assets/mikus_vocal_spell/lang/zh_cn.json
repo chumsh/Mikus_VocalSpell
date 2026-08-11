@@ -6,6 +6,10 @@
   "item.mikus_vocal_spell.vocal_essence": "声之精华",
   "fluid.mikus_vocal_spell.potion_fluid": "补魔药水",
   "itemgroup.mikus_vocal_spell.main": "Miku的声之魔法",
+  "entity.mikus_vocal_spell.core_melt": "核融合炉",
+  "entity.mikus_vocal_spell.core_melt_ring": "核融合炉冲击波",
+  "entity.mikus_vocal_spell.scallion": "大葱舞者",
+  "entity.mikus_vocal_spell.scallion_area": "大葱舞域",
 
   "attribute.mikus_vocal_spell.vocal_spell_power" : "声之法术强度",
 
@@ -29,6 +33,8 @@
   "effect.mikus_vocal_spell.scallion_effect": "大葱狂欢节",
   "effect.mikus_vocal_spell.mana_daze_effect": "魔力晕",
   "effect.mikus_vocal_spell.melody_effect": "投食歌",
+  "spell.mikus_vocal_spell.core_melt": "炉心融解",
+  "effect.mikus_vocal_spell.innocence_effect": "稚心力场",
 
   "message.mikus_vocal_spell.performer_effect.effect":"所爱的伙伴离我而去了",
   "message.mikus_vocal_spell.inventor_effect.effect": "卷起了残酷的血雨腥风",
@@ -44,11 +50,14 @@
   "ui.mikus_vocal_spell.reincarnation": "转生次数：3",
   "ui.mikus_vocal_spell.remaining": "持续时间: %d s",
   "ui.mikus_vocal_spell.vsinger.miku": "祝福者：初音",
-  "ui.mikus_vocal_spell.vsinger.rin": "祝福者：铃",
+  "ui.mikus_vocal_spell.vsinger.rin": "祝福者：镜音铃",
   "ui.mikus_vocal_spell.vsinger.luotianyi": "祝福者：洛天依",
+  "ui.mikus_vocal_spell.core_melt.form1_damage":"模式①伤害: 总承伤 * 法术等级",
 
   "sounds.mikus_vocal_spell.eat_apple": "转生开始",
-  "sounds.mikus_vocal_spell.drink": "补充魔力"
+  "sounds.mikus_vocal_spell.drink": "补充魔力",
+  "sounds.mikus_vocal_spell.fall_down": "重物落下",
+  "sounds.mikus_vocal_spell.break": "稚心褪去"
 
 
 }

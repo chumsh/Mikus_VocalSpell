@@ -9,7 +9,7 @@ public class CoreMeltModel extends GeoModel<CoreMeltEntity> {
             MikusVocalSpellIronsSpellsAddon.MODID, "geo/nuclear_reactor.geo.json"
     );
     private static final ResourceLocation TEXTURE = ResourceLocation.fromNamespaceAndPath(
-            MikusVocalSpellIronsSpellsAddon.MODID, "textures/entity/core_melt/texture.png"
+            MikusVocalSpellIronsSpellsAddon.MODID, "textures/entity/core_melt/core_melt.png"
     );
     private static final ResourceLocation ANIMATION = ResourceLocation.fromNamespaceAndPath(
             MikusVocalSpellIronsSpellsAddon.MODID, "animations/cm.json"

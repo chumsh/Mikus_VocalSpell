@@ -19,7 +19,6 @@ import net.minecraft.world.level.Level;
 
 import java.util.List;
 
-@AutoSpellConfig
 public class ReincarnationSeed extends AbstractSpell {
 
     @Override

@@ -2,10 +2,7 @@ package com.chunshui.phit.mikus_vocal_spell.registries;
 
 import com.chunshui.phit.mikus_vocal_spell.MikusVocalSpellIronsSpellsAddon;
 import com.chunshui.phit.mikus_vocal_spell.entity.spells.NoneCheckArea;
-import com.chunshui.phit.mikus_vocal_spell.entity.spells.core_melt.CMRAreaEffectCloud;
-import com.chunshui.phit.mikus_vocal_spell.entity.spells.core_melt.CoreMeltEntity;
-import com.chunshui.phit.mikus_vocal_spell.entity.spells.core_melt.CoreMeltRing;
-import com.chunshui.phit.mikus_vocal_spell.entity.spells.core_melt.InnocenceShellEntity;
+import com.chunshui.phit.mikus_vocal_spell.entity.spells.core_melt.*;
 import com.chunshui.phit.mikus_vocal_spell.entity.spells.scallion_dance.ScallionEffectArea;
 import com.chunshui.phit.mikus_vocal_spell.entity.spells.scallion_dance.ScallionProjectile;
 import net.minecraft.core.registries.Registries;
@@ -67,8 +64,15 @@ public class MVSEntityRegistry {
 
     public static final DeferredHolder<EntityType<?>, EntityType<CMRAreaEffectCloud>> CMR_AREA_EFFECT_CLOUD =
             ENTITIES.register("cmr_area_effect_cloud", ()-> EntityType.Builder.<CMRAreaEffectCloud>of(CMRAreaEffectCloud::new, MobCategory.MISC)
-                    .sized(0.4F, 0.2F)
+                    .sized(0, 0)
                     .clientTrackingRange(64)
                     .build(ResourceLocation.fromNamespaceAndPath(MikusVocalSpellIronsSpellsAddon.MODID,  "cmr_area_effect_cloud").toString())
+            );
+
+    public static final DeferredHolder<EntityType<?>, EntityType<PrismShardEntity>> PRISM_SHARD =
+            ENTITIES.register("prism_shard", ()-> EntityType.Builder.<PrismShardEntity>of(PrismShardEntity::new, MobCategory.MISC)
+                    .sized(1.0F, 1.0F)
+                    .clientTrackingRange(64)
+                    .build(ResourceLocation.fromNamespaceAndPath(MikusVocalSpellIronsSpellsAddon.MODID, "prism_shard").toString())
             );
 }

@@ -61,6 +61,7 @@ public class MikusVocalSpellIronsSpellsAddonClient {
         event.registerEntityRenderer(MVSEntityRegistry.INNOCENCE_SHELL.get(), InnocenceShellRender::new);
         event.registerEntityRenderer(MVSEntityRegistry.CORE_MELT_RING.get(), CMRingRender::new);
         event.registerEntityRenderer(MVSEntityRegistry.CMR_AREA_EFFECT_CLOUD.get(), NoopRenderer::new);
+        event.registerEntityRenderer(MVSEntityRegistry.PRISM_SHARD.get(), PrismShardRender::new);
     }
 
     private static void registerClientExtensions(RegisterClientExtensionsEvent event) {

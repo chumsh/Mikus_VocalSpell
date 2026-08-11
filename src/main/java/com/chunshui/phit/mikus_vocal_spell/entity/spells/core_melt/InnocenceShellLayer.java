@@ -9,6 +9,7 @@ import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.RenderLayerParent;
 import net.minecraft.client.renderer.entity.layers.RenderLayer;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.Nullable;
 import software.bernie.geckolib.renderer.layer.vanilla.AttachedAnimatableRenderLayer;
@@ -35,9 +36,11 @@ public class InnocenceShellLayer<T extends Entity, M extends EntityModel<T>> ext
     }
     @Override
     protected void renderAnimatableOnModel(T entity, InnocenceShellEntity animatable, M model, InnocenceShellRender renderer, PoseStack poseStack, MultiBufferSource bufferSource, float partialTick, int packedLight, float ageInTicks, float limbSwing, float limbSwingAmount, float netHeadYaw, float headPitch) {
-        // MikusVocalSpellIronsSpellsAddon.LOGGER.info("Rendering Innocence Shell");
-        poseStack.mulPose(Axis.YP.rotationDegrees(90));
-        poseStack.translate(0, -0.6, 0);
+        if (entity instanceof LivingEntity livingEntity) {
+            animatable.setHost(livingEntity);
+        }
+        poseStack.mulPose(Axis.XP.rotationDegrees(180));
+        poseStack.translate(0, -0.5, 0);
         renderer.render(animatable, netHeadYaw, partialTick, poseStack, bufferSource, packedLight);
         }
 

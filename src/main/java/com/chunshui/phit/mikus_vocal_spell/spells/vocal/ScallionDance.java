@@ -22,7 +22,6 @@ import net.minecraft.world.phys.Vec3;
 
 import java.util.List;
 
-@AutoSpellConfig
 public class ScallionDance extends AbstractSpell{
     public int scallionPoints;
 

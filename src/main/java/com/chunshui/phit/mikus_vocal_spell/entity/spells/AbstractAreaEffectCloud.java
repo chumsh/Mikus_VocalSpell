@@ -1,6 +1,5 @@
 package com.chunshui.phit.mikus_vocal_spell.entity.spells;
 
-import com.chunshui.phit.mikus_vocal_spell.MikusVocalSpellIronsSpellsAddon;
 import com.chunshui.phit.mikus_vocal_spell.entity.spells.core_melt.CoreMeltRing;
 import com.chunshui.phit.mikus_vocal_spell.utils.NBTKeyHelper;
 import net.minecraft.nbt.CompoundTag;
@@ -22,7 +21,7 @@ import java.util.List;
 import java.util.UUID;
 
 public abstract class AbstractAreaEffectCloud extends Entity {
-    public static int timeCounter;
+    public int timeCounter;
     protected Entity master;
     protected AABB aabb;
     protected int spellLevel;
@@ -38,15 +37,14 @@ public abstract class AbstractAreaEffectCloud extends Entity {
 
     public void checkEntitiesInArea() {
         List<LivingEntity> entities;
-        //MikusVocalSpellIronsSpellsAddon.LOGGER.info("AbstractAreaEffectCloud.location{}", this.position());
         entities = level().getEntitiesOfClass(LivingEntity.class, aabb);
+        if (entities.isEmpty())
+            return;
         for (LivingEntity entity : entities) {
-            applyEffectToEntity(entity);
-            entity.getPersistentData().putBoolean(NBTKeyHelper.AREA_EFFECT_FLAG, false);
+            if (!entity.getPersistentData().getBoolean(NBTKeyHelper.AREA_EFFECT_FLAG))
+                applyEffectToEntity(entity);
             if (CoreMeltRing.getLocalMaxLifeTime() - timeCounter < 20) {
-                MikusVocalSpellIronsSpellsAddon.LOGGER.debug("getMax...():{},timeCounter:{}", CoreMeltRing.getLocalMaxLifeTime(), timeCounter);
-                entity.getPersistentData().putBoolean(NBTKeyHelper.AREA_EFFECT_FLAG, true);
-                //MikusVocalSpellIronsSpellsAddon.LOGGER.info("AbstractAreaEffectCloud.checkEntitiesInArea()");
+                entity.getPersistentData().putBoolean(NBTKeyHelper.AREA_EFFECT_FLAG, false);
             }
         }
     }

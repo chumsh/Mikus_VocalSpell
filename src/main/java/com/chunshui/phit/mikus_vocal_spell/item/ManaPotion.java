@@ -6,6 +6,8 @@ import com.chunshui.phit.mikus_vocal_spell.registries.MVSSoundRegistry;
 import com.chunshui.phit.mikus_vocal_spell.utils.NBTKeyHelper;
 import io.redspace.ironsspellbooks.api.magic.MagicData;
 import io.redspace.ironsspellbooks.api.registry.AttributeRegistry;
+import io.redspace.ironsspellbooks.network.SyncManaPacket;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -13,6 +15,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import net.neoforged.neoforge.network.PacketDistributor;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Objects;
@@ -40,6 +43,9 @@ public class ManaPotion extends Item {
                     magicData.addMana(gap);
                 } else {
                     return InteractionResultHolder.fail(itemStack);
+                }
+                if (player instanceof ServerPlayer serverPlayer) {
+                    PacketDistributor.sendToPlayer(serverPlayer, new SyncManaPacket(magicData));
                 }
                 if (!has_melody) {
                     player.getPersistentData().putInt(NBTKeyHelper.MANA_CHANGE, mana_change + 1);

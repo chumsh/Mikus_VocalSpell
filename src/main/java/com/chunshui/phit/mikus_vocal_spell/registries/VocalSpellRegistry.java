@@ -2,10 +2,7 @@ package com.chunshui.phit.mikus_vocal_spell.registries;
 
 
 import com.chunshui.phit.mikus_vocal_spell.MikusVocalSpellIronsSpellsAddon;
-import com.chunshui.phit.mikus_vocal_spell.spells.vocal.CoreMelt;
-import com.chunshui.phit.mikus_vocal_spell.spells.vocal.ManaMunchMelody;
-import com.chunshui.phit.mikus_vocal_spell.spells.vocal.ReincarnationSeed;
-import com.chunshui.phit.mikus_vocal_spell.spells.vocal.ScallionDance;
+import com.chunshui.phit.mikus_vocal_spell.spells.vocal.*;
 import io.redspace.ironsspellbooks.api.spells.AbstractSpell;
 
 import net.neoforged.bus.api.IEventBus;
@@ -39,4 +36,6 @@ public class VocalSpellRegistry {
     public static final Supplier<AbstractSpell> MANA_MUNCH_MELODY = registerSpell(new ManaMunchMelody());
 
     public static final Supplier<AbstractSpell> CORE_MELT = registerSpell(new CoreMelt());
+
+    public static final Supplier<AbstractSpell> PRIMAL_RAMPAGE = registerSpell(new PrimalRampage());
 }

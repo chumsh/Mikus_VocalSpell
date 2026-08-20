@@ -21,6 +21,7 @@
   "spell.mikus_vocal_spell.scallion_dance": "Scallion Dance",
   "spell.mikus_vocal_spell.mana_munch_melody": "Mana Munch Melody",
   "spell.mikus_vocal_spell.core_melt": "Core Melt",
+  "spell.mikus_vocal_spell.primal_rampage": "Primal RamPage",
 
   "death.mikus_vocal_spell.revived": "Ugh, failed again.Let's reincarnate",
   "death.mikus_vocal_spell.revived.last": "Returned to my ordinary self",
@@ -35,6 +36,7 @@
   "effect.mikus_vocal_spell.mana_daze_effect": "Mana Daze",
   "effect.mikus_vocal_spell.melody_effect": "Mana Munch Melody",
   "effect.mikus_vocal_spell.innocence_effect": "Innocence Field",
+  "effect.mikus_vocal_spell.priaml_vanish_effect": "Primal Vanish",
 
   "message.mikus_vocal_spell.performer_effect.effect": "The beloved comrades have departed",
   "message.mikus_vocal_spell.inventor_effect.effect": "A cruel rain of blood fell",
@@ -44,6 +46,10 @@
   "message.mikus_vocal_spell.change_spell_form.core_melt_form1": "Melting Innocence",
   "message.mikus_vocal_spell.change_spell_form.core_melt_form2": "Leon Singularity",
   "message.mikus_vocal_spell.change_spell_form.core_melt_form3": "Prophetic Heart",
+  "message.mikus_vocal_spell.change_spell_form.primal_rampage_form1": "Primal Vanish",
+  "message.mikus_vocal_spell.change_spell_form.primal_rampage_form2": "Primal Poet",
+
+
   "message.mikus_vocal_spell.change_spell_form.base": "Current Form:",
 
   "ui.mikus_vocal_spell.damage": "%d Damage",
@@ -53,6 +59,9 @@
   "ui.mikus_vocal_spell.vsinger.miku": "Blesser: Miku",
   "ui.mikus_vocal_spell.vsinger.rin": "Blesser: Rin",
   "ui.mikus_vocal_spell.core_melt.form1_damage":"Form① Damage: Total Damage *SpellLevel",
+  "ui.mikus_vocal_spell.primal_rampage.form1":"Form①: Cancel Chanting",
+  "ui.mikus_vocal_spell.primal_rampage.form2":"Form②: Cancel CoolDown",
+
 
   "sounds.mikus_vocal_spell.eat_apple": "Reincarnation Start",
   "sounds.mikus_vocal_spell.drink": "Restore Mana",

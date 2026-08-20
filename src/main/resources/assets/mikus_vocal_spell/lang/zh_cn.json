@@ -6,22 +6,24 @@
   "item.mikus_vocal_spell.vocal_essence": "声之精华",
   "fluid.mikus_vocal_spell.potion_fluid": "补魔药水",
   "itemgroup.mikus_vocal_spell.main": "Miku的声之魔法",
+
   "entity.mikus_vocal_spell.core_melt": "核融合炉",
   "entity.mikus_vocal_spell.core_melt_ring": "核融合炉冲击波",
   "entity.mikus_vocal_spell.scallion": "大葱舞者",
   "entity.mikus_vocal_spell.scallion_area": "大葱舞域",
 
-  "attribute.mikus_vocal_spell.vocal_spell_power" : "声之法术强度",
-
+  "attribute.mikus_vocal_spell.vocal_spell_power": "声之法术强度",
 
   "death.attack.vocal_magic": "%1$s was slain by vocal magic",
   "death.attack.vocal_magic.player": "%1$s was slain by vocal magic whilst fighting %2$s",
-  
+
   "spell.mikus_vocal_spell.reincarnation_seed": "转生之果",
   "spell.mikus_vocal_spell.scallion_dance": "葱之舞",
   "spell.mikus_vocal_spell.mana_munch_melody": "投食歌",
+  "spell.mikus_vocal_spell.primal_rampage": "原初暴走",
+  "spell.mikus_vocal_spell.core_melt": "炉心融解",
 
-    "death.mikus_vocal_spell.revived.last": "又变回了平凡的自己",
+  "death.mikus_vocal_spell.revived.last": "又变回了平凡的自己",
   "death.mikus_vocal_spell.revived": "啊，又搞砸了，转生吧",
 
   "effect.mikus_vocal_spell.revive_buff": "转生",
@@ -33,10 +35,10 @@
   "effect.mikus_vocal_spell.scallion_effect": "大葱狂欢节",
   "effect.mikus_vocal_spell.mana_daze_effect": "魔力晕",
   "effect.mikus_vocal_spell.melody_effect": "投食歌",
-  "spell.mikus_vocal_spell.core_melt": "炉心融解",
   "effect.mikus_vocal_spell.innocence_effect": "稚心力场",
+  "effect.mikus_vocal_spell.priaml_vanish_effect": "消逝的原初",
 
-  "message.mikus_vocal_spell.performer_effect.effect":"所爱的伙伴离我而去了",
+  "message.mikus_vocal_spell.performer_effect.effect": "所爱的伙伴离我而去了",
   "message.mikus_vocal_spell.inventor_effect.effect": "卷起了残酷的血雨腥风",
   "message.mikus_vocal_spell.messiah_effect.effect": "因为过于纯真而被邪恶欺骗",
   "message.mikus_vocal_spell.revolutionary_effect.effect": "沉溺于自己得到的权力",
@@ -45,6 +47,8 @@
   "message.mikus_vocal_spell.change_spell_form.core_melt_form2": "里昂奇点",
   "message.mikus_vocal_spell.change_spell_form.core_melt_form3": "预言之心",
   "message.mikus_vocal_spell.change_spell_form.base": "当前形态:",
+  "message.mikus_vocal_spell.change_spell_form.primal_rampage_form1": "原初的消逝",
+  "message.mikus_vocal_spell.change_spell_form.primal_rampage_form2": "原初咏者",
 
   "ui.mikus_vocal_spell.damage": "伤害：%d",
   "ui.mikus_vocal_spell.reincarnation": "转生次数：3",
@@ -52,12 +56,14 @@
   "ui.mikus_vocal_spell.vsinger.miku": "祝福者：初音",
   "ui.mikus_vocal_spell.vsinger.rin": "祝福者：镜音铃",
   "ui.mikus_vocal_spell.vsinger.luotianyi": "祝福者：洛天依",
-  "ui.mikus_vocal_spell.core_melt.form1_damage":"模式①伤害: 总承伤 * 法术等级",
+  "ui.mikus_vocal_spell.core_melt.form1_damage": "模式①伤害: 总承伤 * 法术等级",
+  "ui.mikus_vocal_spell.primal_rampage.form1": "模式①: 取消咏唱",
+  "ui.mikus_vocal_spell.primal_rampage.form2": "模式②: 取消冷却",
 
   "sounds.mikus_vocal_spell.eat_apple": "转生开始",
   "sounds.mikus_vocal_spell.drink": "补充魔力",
   "sounds.mikus_vocal_spell.fall_down": "重物落下",
-  "sounds.mikus_vocal_spell.break": "稚心褪去"
+  "sounds.mikus_vocal_spell.break": "稚心褪去",
 
-
+  "school.mikus_vocalspell.vocal": "声韵"
 }

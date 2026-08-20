@@ -60,7 +60,8 @@ public class CoreMelt extends AbstractSpell implements ConvertibleSpell {
     @Override
     public void onCast(Level world, int spellLevel, LivingEntity entity, CastSource castSource, MagicData playerMagicData) {
         entity.setData(AttachmentRegistry.CORE_MELT_LEVEL, spellLevel);
-        int index = MVSUtils.getCurrentForm();
+        int index = MVSUtils.getCurrentForm(entity);
+        MikusVocalSpellIronsSpellsAddon.LOGGER.debug("index = {}", index);
         if (index == 1) {
             entity.addEffect(new MobEffectInstance(MVSEffectRegistry.INNOCENCE_EFFECT, 400));
             MobEffectInstance  effectInstance = new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN);

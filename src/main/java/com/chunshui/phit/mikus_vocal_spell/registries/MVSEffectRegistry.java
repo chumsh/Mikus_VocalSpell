@@ -4,6 +4,7 @@ import com.chunshui.phit.mikus_vocal_spell.MikusVocalSpellIronsSpellsAddon;
 import com.chunshui.phit.mikus_vocal_spell.effects.ManaDazeEffect;
 import com.chunshui.phit.mikus_vocal_spell.effects.vocal.core_melt.InnocenceEffect;
 import com.chunshui.phit.mikus_vocal_spell.effects.vocal.mana_munch_melody.MelodyEffect;
+import com.chunshui.phit.mikus_vocal_spell.effects.vocal.priaml_rampage.PrimalVanishEffect;
 import com.chunshui.phit.mikus_vocal_spell.effects.vocal.reincarnation.*;
 import com.chunshui.phit.mikus_vocal_spell.effects.vocal.scallon.ScallionEffect;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -71,6 +72,12 @@ public class MVSEffectRegistry {
    /*CoreMelt*/
     public static final DeferredHolder<MobEffect, MobEffect> INNOCENCE_EFFECT =
             EFFECTS.register("innocence_effect", () -> new InnocenceEffect(
+                    MobEffectCategory.BENEFICIAL,
+                    0x000000
+            ));
+    /*PrimalRampage*/
+    public static final DeferredHolder<MobEffect, MobEffect> PRIMAL_VANISH_EFFECT =
+            EFFECTS.register("primal_vanish_effect", () -> new PrimalVanishEffect(
                     MobEffectCategory.BENEFICIAL,
                     0x000000
             ));

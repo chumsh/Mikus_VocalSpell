@@ -1,6 +1,7 @@
 package com.chunshui.phit.mikus_vocal_spell.utils;
 
-import net.minecraft.client.Minecraft;
+import com.chunshui.phit.mikus_vocal_spell.client.MVSKeyBindings;
+import com.chunshui.phit.mikus_vocal_spell.registries.AttachmentRegistry;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.phys.AABB;
@@ -90,9 +91,24 @@ public class MVSUtils {
     }
 
     //获取多态法术的当前形态
-    public static int getCurrentForm() {
-        Player player = Minecraft.getInstance().player;
-        return player.getPersistentData().getInt(NBTKeyHelper.FORM_INDEX);
+    public static int getCurrentForm(LivingEntity entity) {
+        if (entity != null) {
+            return entity.getData(AttachmentRegistry.CURRENT_FORM);
+        }
+        return -1;
+    }
+
+    public static void updateCurrentForm(LivingEntity entity) {
+        if (entity != null) {
+            int oldForm = getCurrentForm(entity);
+            entity.setData(AttachmentRegistry.CURRENT_FORM, oldForm +1);
+        }
+    }
+
+    public static void resetCurrentForm(LivingEntity entity) {
+        if (entity != null) {
+            entity.setData(AttachmentRegistry.CURRENT_FORM, 1);
+        }
     }
 
     //获取玩家周围的实体

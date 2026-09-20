@@ -1,10 +1,11 @@
 {
   "item.mikus_vocal_spell.vocal_upgrade_orb": "Vocal Upgrade Orb",
   "item.mikus_vocal_spell.miku_staff": "Miku Staff",
-  "item.mikus_vocal_spell.mana_potion": "Mana Potion",
+  "item.mikus_vocal_spell.vocal_potion": "Vocal Potion",
   "item.mikus_vocal_spell.empty_mana_potion": "Empty Mana Potion",
   "item.mikus_vocal_spell.vocal_essence": "Vocal Essence",
-  "fluid.mikus_vocal_spell.potion_fluid": "Mana Potion",
+  "item.mikus_vocal_spell.vocal_flower": "Vocal Flower",
+  "fluid.mikus_vocal_spell.potion_fluid": "Vocal Magic Liquid",
   "itemgroup.mikus_vocal_spell.main": "Miku's VocalSpell",
   "entity.mikus_vocal_spell.core_melt": "Fusion Reactor",
   "entity.mikus_vocal_spell.core_melt_ring": "Fusion Reactor's Wave",
@@ -36,7 +37,9 @@
   "effect.mikus_vocal_spell.mana_daze_effect": "Mana Daze",
   "effect.mikus_vocal_spell.melody_effect": "Mana Munch Melody",
   "effect.mikus_vocal_spell.innocence_effect": "Innocence Field",
-  "effect.mikus_vocal_spell.priaml_vanish_effect": "Primal Vanish",
+  "effect.mikus_vocal_spell.primal_vanish_effect": "Primal Vanish",
+  "effect.mikus_vocal_spell.primal_chant_effect": "Primal Chanter",
+
 
   "message.mikus_vocal_spell.performer_effect.effect": "The beloved comrades have departed",
   "message.mikus_vocal_spell.inventor_effect.effect": "A cruel rain of blood fell",
@@ -54,7 +57,7 @@
 
   "ui.mikus_vocal_spell.damage": "%d Damage",
   "ui.mikus_vocal_spell.reincarnation": "3 Revive Times",
-  "ui.mikus_vocal_spell.remaining": "Remaining Time: %d s",
+  "ui.mikus_vocal_spell.remaining": "Remaining Time: ",
   "ui.mikus_vocal_spell.vsinger.luotianyi": "Blesser: LuoTianyi",
   "ui.mikus_vocal_spell.vsinger.miku": "Blesser: Miku",
   "ui.mikus_vocal_spell.vsinger.rin": "Blesser: Rin",

@@ -1,6 +1,7 @@
 package com.chunshui.phit.mikus_vocal_spell.effects.vocal.reincarnation;
 
 import io.redspace.ironsspellbooks.capabilities.magic.SummonManager;
+import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.effect.MobEffect;
@@ -8,6 +9,7 @@ import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.damagesource.DamageSource;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.HashSet;
 import java.util.List;
@@ -17,21 +19,22 @@ import java.util.stream.Collectors;
 
 public class InventorEffect extends MobEffect {
     int duration;
+    int sendTime = 0;
 
     public InventorEffect(MobEffectCategory category, int color) {
         super(category, color);
     }
 
     @Override
-    public boolean applyEffectTick(LivingEntity entity, int amplifier) {
-        if (entity instanceof Player player && entity.level().isClientSide()) {
-            if (duration > (amplifier + 1) * 200 - 80) {
-                player.displayClientMessage(
-                        net.minecraft.network.chat.Component.translatable("message.mikus_vocal_spell.inventor_effect.effect").withColor(16711680),
-                        true
-                );
-            }
+    public boolean applyEffectTick(@NotNull LivingEntity entity, int amplifier) {
+        if (entity instanceof Player clientPlayer && entity.level().isClientSide) {
+            sendTime++;
+            if (sendTime > 5) return true;
+            clientPlayer.displayClientMessage(Component.translatable("message.mikus_vocal_spell.inventor_effect.effect").withColor(16711680),
+                    true
+            );
         }
+
         if(entity instanceof ServerPlayer player){
                 Set<UUID> summonUUIDs = SummonManager.getSummons(player);
                 ServerLevel serverLevel = player.serverLevel();

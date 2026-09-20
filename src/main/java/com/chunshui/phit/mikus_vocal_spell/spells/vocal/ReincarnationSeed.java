@@ -9,6 +9,7 @@ import com.chunshui.phit.mikus_vocal_spell.utils.ParticleHelper;
 import io.redspace.ironsspellbooks.api.config.DefaultConfig;
 import io.redspace.ironsspellbooks.api.magic.MagicData;
 import io.redspace.ironsspellbooks.api.spells.*;
+import io.redspace.ironsspellbooks.api.util.Utils;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.resources.ResourceLocation;
@@ -25,7 +26,9 @@ public class ReincarnationSeed extends AbstractSpell {
     public List<MutableComponent> getUniqueInfo(int spellLevel, LivingEntity caster) {
         return List.of(
                 Component.translatable("ui.mikus_vocal_spell.reincarnation").withColor(16777215),
+                Component.translatable("ui.mikus_vocal_spell.remaining", getRemainingTime(spellLevel, getSpellPower(spellLevel,caster))).withColor(16777215),
                 Component.translatable("ui.mikus_vocal_spell.vsinger.miku").withColor(3786171)
+
         );
     }
 
@@ -36,7 +39,7 @@ public class ReincarnationSeed extends AbstractSpell {
 
     public ReincarnationSeed() {
         this.baseManaCost = 226;
-        this.baseSpellPower = 0;
+        this.baseSpellPower = 1;
         this.castTime = 40;
     }
 
@@ -62,7 +65,10 @@ public class ReincarnationSeed extends AbstractSpell {
         return CastType.LONG;
     }
 
-
+    public String getRemainingTime (int spellLevel, float spellPower) {
+        int durationTicks = (int) ((200 + ((spellLevel - 1) * 200)) * spellPower);
+        return Utils.timeFromTicks(durationTicks, 2);
+    }
 
 
 
@@ -70,7 +76,8 @@ public class ReincarnationSeed extends AbstractSpell {
     public void onCast(Level level, int spellLevel, LivingEntity entity,
                        CastSource castSource, MagicData playerMagicData) {
         if (entity instanceof ServerPlayer player) {
-            int durationTicks = 200 + ((spellLevel - 1) * 200);
+            float spellPower = getSpellPower(spellLevel, player);
+            int durationTicks = (int) ((200 + ((spellLevel - 1) * 200)) * spellPower);
 
 
             ReviveCapability capability = ReviveCapabilityManager.getReviveCapability(player);
@@ -91,11 +98,11 @@ public class ReincarnationSeed extends AbstractSpell {
                         player.getX(),
                         player.getY() + 1.5,
                         player.getZ(),
-                        24,     // 粒子数量
-                        0.03,     // X 扩散
-                        0.0,     // Y 扩散
-                        0.03,     // Z 扩散
-                        0.008      // 速度)
+                        24,
+                        0.03,
+                        0.0,
+                        0.03,
+                        0.008
                 );
 
             }

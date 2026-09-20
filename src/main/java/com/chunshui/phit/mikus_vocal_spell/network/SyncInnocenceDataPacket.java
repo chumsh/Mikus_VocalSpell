@@ -21,10 +21,10 @@ public class SyncInnocenceDataPacket implements CustomPacketPayload {
             MikusVocalSpellIronsSpellsAddon.MODID, "sync_innocence_data"));
 
 
-    public SyncInnocenceDataPacket(boolean hasInnocence, int duration/*, int id*/) {
+    public SyncInnocenceDataPacket(boolean hasInnocence, int duration/*, int ID*/) {
         this.hasInnocence = hasInnocence;
         this.duration = duration;
-        //this.id = id;
+        //this.ID = ID;
     }
 
     private  SyncInnocenceDataPacket(FriendlyByteBuf buf) {

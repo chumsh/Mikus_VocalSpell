@@ -27,34 +27,12 @@ public class ReviveCapabilityManager {
     public static void activateRevive(ServerPlayer player, int charges) {
         ReviveCapability capability = getReviveCapability(player);
         capability.activate(charges);
-
-        MikusVocalSpellIronsSpellsAddon.LOGGER.info(
-                "Activated revive for {} with {} charges | NBT: active={}, charges={}",
-                player.getName().getString(),
-                charges,
-                player.getPersistentData().getCompound(TAG_KEY).getBoolean("active"),
-                player.getPersistentData().getCompound(TAG_KEY).getInt("charges")
-        );
     }
 
     public static boolean consumeReviveCharge(ServerPlayer player) {
         ReviveCapability capability = getReviveCapability(player);
-        boolean consumed = capability.consumeCharge();
 
-        if (consumed) {
-            CompoundTag tag = player.getPersistentData().getCompound(TAG_KEY);
-            MikusVocalSpellIronsSpellsAddon.LOGGER.info(
-                    "Player {} used revive charge. Remaining: {} cache's cancellation: {} | NBT: active={}, charges={}, canceled={}",
-                    player.getName().getString(),
-                    capability.getCharges(),
-                    capability.hasCanceled(),
-                    tag.getBoolean("active"),
-                    tag.getInt("charges"),
-                    tag.getBoolean("messiah_cancel_revive")
-            );
-        }
-
-        return consumed;
+        return capability.consumeCharge();
     }
 
     public static boolean hasReviveCharges(ServerPlayer player) {
@@ -70,23 +48,11 @@ public class ReviveCapabilityManager {
         CompoundTag oldTag = oldPlayer.getPersistentData().getCompound(TAG_KEY);
         if (oldPlayer.getPersistentData().contains(TAG_KEY)) {
             newPlayer.getPersistentData().put(TAG_KEY, oldTag.copy());
-
-            MikusVocalSpellIronsSpellsAddon.LOGGER.info(
-                    "Cloned revive data from {} to {}: {} charges",
-                    oldPlayer.getName().getString(),
-                    newPlayer.getName().getString(),
-                    oldTag.getInt("charges")
-            );
         }
 
         ReviveCapabilityKey oldKey = new ReviveCapabilityKey(oldPlayer);
 
         CAPABILITY_CACHE.remove(oldKey);
-
-        MikusVocalSpellIronsSpellsAddon.LOGGER.debug(
-                "Cleared capability cache for player clone: {}",
-                newPlayer.getName().getString()
-        );
     }
 
     public static void refreshRevive(ServerPlayer player) {
@@ -98,10 +64,6 @@ public class ReviveCapabilityManager {
         if (messiahCanceled) {
             player.getPersistentData().putBoolean("messiah_cancel_revive", false);
         }
-        MikusVocalSpellIronsSpellsAddon.LOGGER.info(
-                "Refresh revive for {}",
-                player.getName().getString()
-        );
     }
 
     private static class ReviveCapabilityKey {

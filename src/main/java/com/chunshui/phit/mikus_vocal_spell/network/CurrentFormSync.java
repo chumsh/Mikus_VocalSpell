@@ -8,6 +8,7 @@ import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.resources.ResourceLocation;
 import net.neoforged.neoforge.network.handling.IPayloadContext;
+import org.jetbrains.annotations.NotNull;
 
 
 public record CurrentFormSync(int currentForm) implements CustomPacketPayload {
@@ -16,7 +17,7 @@ public record CurrentFormSync(int currentForm) implements CustomPacketPayload {
                     MikusVocalSpellIronsSpellsAddon.MODID, "current_forms_sync"));
 
     @Override
-    public Type<? extends CustomPacketPayload> type() {
+    public @NotNull Type<? extends CustomPacketPayload> type() {
         return TYPE;
     }
 

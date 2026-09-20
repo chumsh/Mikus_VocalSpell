@@ -1,14 +1,15 @@
 package com.chunshui.phit.mikus_vocal_spell;
 
+import com.chunshui.phit.mikus_vocal_spell.block.block_renderer.EchoAltarRenderer;
 import com.chunshui.phit.mikus_vocal_spell.entity.spells.core_melt.*;
 import com.chunshui.phit.mikus_vocal_spell.entity.spells.scallion_dance.ScallionRender;
 import com.chunshui.phit.mikus_vocal_spell.particle.ReincarnationParticle;
 import com.chunshui.phit.mikus_vocal_spell.particle.ScallionParticle;
+import com.chunshui.phit.mikus_vocal_spell.registries.MVSBlockRegistry;
 import com.chunshui.phit.mikus_vocal_spell.registries.MVSEntityRegistry;
 import com.chunshui.phit.mikus_vocal_spell.registries.MVSFluidRegistry;
 import com.chunshui.phit.mikus_vocal_spell.registries.ParticleRegistries;
 import io.redspace.ironsspellbooks.fluids.SimpleClientFluidType;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.renderer.entity.LivingEntityRenderer;
 import net.minecraft.client.renderer.entity.NoopRenderer;
@@ -44,8 +45,6 @@ public class MikusVocalSpellIronsSpellsAddonClient {
 
     @SubscribeEvent
     static void onClientSetup(FMLClientSetupEvent event) {
-        MikusVocalSpellIronsSpellsAddon.LOGGER.info("HELLO FROM CLIENT SETUP");
-        MikusVocalSpellIronsSpellsAddon.LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
     }
 
     private static void registerParticles(RegisterParticleProvidersEvent event) {
@@ -62,6 +61,7 @@ public class MikusVocalSpellIronsSpellsAddonClient {
         event.registerEntityRenderer(MVSEntityRegistry.CORE_MELT_RING.get(), CMRingRender::new);
         event.registerEntityRenderer(MVSEntityRegistry.CMR_AREA_EFFECT_CLOUD.get(), NoopRenderer::new);
         event.registerEntityRenderer(MVSEntityRegistry.PRISM_SHARD.get(), PrismShardRender::new);
+        event.registerBlockEntityRenderer(MVSBlockRegistry.ECHO_ALTAR_BE.get(), EchoAltarRenderer::new);
     }
 
     private static void registerClientExtensions(RegisterClientExtensionsEvent event) {

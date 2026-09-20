@@ -27,6 +27,9 @@ public class MVSCreativeTab {
                         output.accept(MVSItemRegistry.MANA_POTION.get());
                         output.accept(MVSItemRegistry.EMPTY_MANA_POTION.get());
                         output.accept(MVSItemRegistry.VOCAL_ESSENCE.get());
+                        output.accept(MVSItemRegistry.VOCAL_COLUMN_BLOCK_ITEM.get());
+                        output.accept(MVSItemRegistry.ECHO_ALTAR_BLOCK_ITEM.get());
+                        output.accept(MVSItemRegistry.VOCAL_FLOWER.get());
                     }))
                     .build()
     );

@@ -7,7 +7,6 @@ import com.mojang.math.Axis;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.RenderLayerParent;
-import net.minecraft.client.renderer.entity.layers.RenderLayer;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.Level;
@@ -17,12 +16,7 @@ import software.bernie.geckolib.renderer.layer.vanilla.AttachedAnimatableRenderL
 import java.util.function.Function;
 
 public class InnocenceShellLayer<T extends Entity, M extends EntityModel<T>> extends AttachedAnimatableRenderLayer<InnocenceShellEntity, T, M, InnocenceShellRender> {
-    /**
-     * Create a new {@link RenderLayer} instance
-     *
-     * @param renderer        The vanilla renderer instance that the layer is being added to
-     * @param instanceFactory A factory that creates a new GeoAnimatable instance for rendering
-     */
+
     public InnocenceShellLayer(RenderLayerParent<T, M> renderer, Function<Level, InnocenceShellEntity> instanceFactory) {
         super(renderer, instanceFactory);
         //MikusVocalSpellIronsSpellsAddon.LOGGER.info("Creating Innocence Shell Layer");

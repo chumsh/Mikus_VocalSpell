@@ -1,12 +1,18 @@
 package com.chunshui.phit.mikus_vocal_spell.utils;
 
-import com.chunshui.phit.mikus_vocal_spell.client.MVSKeyBindings;
 import com.chunshui.phit.mikus_vocal_spell.registries.AttachmentRegistry;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.core.NonNullList;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.ListTag;
+import net.minecraft.nbt.Tag;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec2;
 import net.minecraft.world.phys.Vec3;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -100,6 +106,7 @@ public class MVSUtils {
 
     public static void updateCurrentForm(LivingEntity entity) {
         if (entity != null) {
+//            MikusVocalSpellIronsSpellsAddon.LOGGER.debug("update side is client: {}", entity.level().isClientSide);
             int oldForm = getCurrentForm(entity);
             entity.setData(AttachmentRegistry.CURRENT_FORM, oldForm +1);
         }
@@ -107,6 +114,7 @@ public class MVSUtils {
 
     public static void resetCurrentForm(LivingEntity entity) {
         if (entity != null) {
+//            MikusVocalSpellIronsSpellsAddon.LOGGER.debug("reset side is client: {}", entity.level().isClientSide);
             entity.setData(AttachmentRegistry.CURRENT_FORM, 1);
         }
     }
@@ -116,8 +124,39 @@ public class MVSUtils {
         if (player != null) {
             Vec3 pos = player.position();
             AABB boundingBox = AABB.ofSize(pos, radius, radius, radius);
-            return player.level().getEntitiesOfClass(LivingEntity.class,  boundingBox);
+            return player.level().getEntitiesOfClass(LivingEntity.class, boundingBox);
         }
-        return  null;
+        return null;
+    }
+
+    //读写ItemStack到NBT(代码源自Iron' spells)
+    public static void saveAllItems(CompoundTag tag, NonNullList<ItemStack> inputItems, String key, HolderLookup.@NotNull Provider registries) {
+        ListTag listTag = new ListTag();
+        if (inputItems.isEmpty()) return;
+        for (int i = 0; i < inputItems.size(); i++) {
+            ItemStack itemStack = inputItems.get(i);
+            if (!itemStack.isEmpty()) {
+                CompoundTag myTag = new CompoundTag();
+                myTag.putByte("slot", (byte) i);
+                listTag.add(itemStack.save(registries, myTag));
+            }
+        }
+        if (listTag.isEmpty()) return;
+        tag.put(key, listTag);
+    }
+
+    public static void loadAllItems(CompoundTag tag,NonNullList<ItemStack> inputItems, String key, HolderLookup.@NotNull Provider registries) {
+        ListTag tags = tag.getList(key, Tag.TAG_COMPOUND);
+        if (tags.isEmpty()) return;
+        if (inputItems.isEmpty()) {
+            inputItems = NonNullList.withSize(tags.size(), ItemStack.EMPTY);
+        }
+        for (int i = 0; i < tags.size(); i++) {
+            CompoundTag compoundTag = tags.getCompound(i);
+            int slot = compoundTag.getByte("slot") & 255;
+            if (slot >= 0 && slot < inputItems.size()) {
+                inputItems.set(slot, ItemStack.parse(registries, compoundTag).orElse(ItemStack.EMPTY));
+            }
+        }
     }
 }

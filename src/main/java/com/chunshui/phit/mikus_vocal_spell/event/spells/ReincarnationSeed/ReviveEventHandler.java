@@ -25,6 +25,7 @@ public class ReviveEventHandler {
         
         if (messiahCanceled) {
             ReviveCapabilityManager.refreshRevive(player);
+            capability.ensureCanceled(false);
             return;
         }
 

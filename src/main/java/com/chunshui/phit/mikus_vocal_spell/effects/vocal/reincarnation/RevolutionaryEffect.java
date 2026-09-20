@@ -9,8 +9,10 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
+import org.jetbrains.annotations.NotNull;
 
 public class RevolutionaryEffect extends MobEffect {
+    int sendTime = 0;
     public RevolutionaryEffect(MobEffectCategory category, int color) {
         super(category, color);
 
@@ -21,16 +23,20 @@ public class RevolutionaryEffect extends MobEffect {
     }
 
     @Override
-    public boolean applyEffectTick(LivingEntity entity, int amplifier) {
-        if(entity instanceof Player Player && entity.level().isClientSide) {
-            Player.displayClientMessage(Component.translatable("message.mikus_vocal_spell.revolutionary_effect.effect").withColor(16711680), true);
+    public boolean applyEffectTick(@NotNull LivingEntity entity, int amplifier) {
+        if (entity instanceof Player clientPlayer && entity.level().isClientSide) {
+            sendTime++;
+            if (sendTime > 1) return true;
+            clientPlayer.displayClientMessage(Component.translatable("message.mikus_vocal_spell.inventor_effect.effect").withColor(16711680),
+                    true
+            );
         }
-
         return true;
     }
 
+
     @Override
     public boolean shouldApplyEffectTickThisTick(int duration, int amplifier) {
-        return duration > 200 * (amplifier + 1) - 80;
+        return true;
     }
 }

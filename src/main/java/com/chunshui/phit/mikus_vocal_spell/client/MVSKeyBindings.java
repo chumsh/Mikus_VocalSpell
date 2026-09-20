@@ -17,9 +17,10 @@ public class MVSKeyBindings {
     public final static KeyMapping CHANGE_FORM = new KeyMapping(
             KEY_CHANGE_FORM,
             InputConstants.Type.KEYSYM,
-            GLFW.GLFW_KEY_LEFT_SHIFT,
+            GLFW.GLFW_KEY_CAPS_LOCK,
             KEY_CATEGORY
             );
+
 
     @SubscribeEvent
     public static void registerKeyMappings(RegisterKeyMappingsEvent event) {

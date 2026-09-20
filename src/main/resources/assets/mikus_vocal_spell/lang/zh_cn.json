@@ -1,10 +1,11 @@
 {
   "item.mikus_vocal_spell.vocal_upgrade_orb": "声之法术升级球",
   "item.mikus_vocal_spell.miku_staff": "未来法杖",
-  "item.mikus_vocal_spell.mana_potion": "补魔瓶",
-  "item.mikus_vocal_spell.empty_mana_potion": "空的补魔瓶",
+  "item.mikus_vocal_spell.vocal_potion": "声之魔瓶",
+  "item.mikus_vocal_spell.empty_mana_potion": "空的特质药水瓶",
   "item.mikus_vocal_spell.vocal_essence": "声之精华",
-  "fluid.mikus_vocal_spell.potion_fluid": "补魔药水",
+  "item.mikus_vocal_spell.vocal_flower": "声之花",
+  "fluid.mikus_vocal_spell.potion_fluid": "声音魔力液",
   "itemgroup.mikus_vocal_spell.main": "Miku的声之魔法",
 
   "entity.mikus_vocal_spell.core_melt": "核融合炉",
@@ -36,7 +37,9 @@
   "effect.mikus_vocal_spell.mana_daze_effect": "魔力晕",
   "effect.mikus_vocal_spell.melody_effect": "投食歌",
   "effect.mikus_vocal_spell.innocence_effect": "稚心力场",
-  "effect.mikus_vocal_spell.priaml_vanish_effect": "消逝的原初",
+  "effect.mikus_vocal_spell.primal_vanish_effect": "消逝的原初",
+  "effect.mikus_vocal_spell.primal_chant_effect": "原初咏者",
+
 
   "message.mikus_vocal_spell.performer_effect.effect": "所爱的伙伴离我而去了",
   "message.mikus_vocal_spell.inventor_effect.effect": "卷起了残酷的血雨腥风",
@@ -50,9 +53,9 @@
   "message.mikus_vocal_spell.change_spell_form.primal_rampage_form1": "原初的消逝",
   "message.mikus_vocal_spell.change_spell_form.primal_rampage_form2": "原初咏者",
 
-  "ui.mikus_vocal_spell.damage": "伤害：%d",
+  "ui.mikus_vocal_spell.damage": "伤害：",
   "ui.mikus_vocal_spell.reincarnation": "转生次数：3",
-  "ui.mikus_vocal_spell.remaining": "持续时间: %d s",
+  "ui.mikus_vocal_spell.remaining": "持续时间: %d",
   "ui.mikus_vocal_spell.vsinger.miku": "祝福者：初音",
   "ui.mikus_vocal_spell.vsinger.rin": "祝福者：镜音铃",
   "ui.mikus_vocal_spell.vsinger.luotianyi": "祝福者：洛天依",

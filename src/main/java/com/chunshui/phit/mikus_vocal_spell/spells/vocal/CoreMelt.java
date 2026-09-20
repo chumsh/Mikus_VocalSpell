@@ -7,7 +7,6 @@ import com.chunshui.phit.mikus_vocal_spell.registries.AttachmentRegistry;
 import com.chunshui.phit.mikus_vocal_spell.registries.MVSEffectRegistry;
 import com.chunshui.phit.mikus_vocal_spell.registries.MVSSchoolRegistry;
 import com.chunshui.phit.mikus_vocal_spell.utils.ConvertibleSpell;
-import com.chunshui.phit.mikus_vocal_spell.utils.MVSUtils;
 import com.chunshui.phit.mikus_vocal_spell.utils.NBTKeyHelper;
 import io.redspace.ironsspellbooks.api.config.DefaultConfig;
 import io.redspace.ironsspellbooks.api.magic.MagicData;
@@ -31,7 +30,7 @@ public class CoreMelt extends AbstractSpell implements ConvertibleSpell {
     public List<MutableComponent> getUniqueInfo(int spellLevel, LivingEntity caster) {
         return List.of(
                 Component.translatable("ui.mikus_vocal_spell.core_melt.form1_damage"),
-                Component.translatable("ui.mikus_vocal_spell.remaining", 20),
+                Component.translatable("ui.mikus_vocal_spell.remaining", Utils.timeFromTicks(400, 2)),
                 Component.translatable("ui.mikus_vocal_spell.vsinger.rin").withColor(getColor())
         );
     }
@@ -60,8 +59,7 @@ public class CoreMelt extends AbstractSpell implements ConvertibleSpell {
     @Override
     public void onCast(Level world, int spellLevel, LivingEntity entity, CastSource castSource, MagicData playerMagicData) {
         entity.setData(AttachmentRegistry.CORE_MELT_LEVEL, spellLevel);
-        int index = MVSUtils.getCurrentForm(entity);
-        MikusVocalSpellIronsSpellsAddon.LOGGER.debug("index = {}", index);
+        int index =  entity.getData(AttachmentRegistry.CURRENT_FORM);
         if (index == 1) {
             entity.addEffect(new MobEffectInstance(MVSEffectRegistry.INNOCENCE_EFFECT, 400));
             MobEffectInstance  effectInstance = new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN);

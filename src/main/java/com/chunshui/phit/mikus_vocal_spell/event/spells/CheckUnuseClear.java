@@ -1,7 +1,11 @@
 package com.chunshui.phit.mikus_vocal_spell.event.spells;
 
 import com.chunshui.phit.mikus_vocal_spell.MikusVocalSpellIronsSpellsAddon;
+import com.chunshui.phit.mikus_vocal_spell.event.spells.primal_rampage.CancelCooldown;
 import com.chunshui.phit.mikus_vocal_spell.utils.NBTKeyHelper;
+import io.redspace.ironsspellbooks.api.registry.AttributeRegistry;
+import net.minecraft.world.entity.ai.attributes.AttributeInstance;
+import net.minecraft.world.entity.player.Player;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.EntityJoinLevelEvent;
@@ -25,5 +29,15 @@ public class CheckUnuseClear {
         if (needClear) {
             event.getEntity().getPersistentData().putBoolean(NBTKeyHelper.AREA_EFFECT_FLAG, false);
         }
+    }
+    /*------------------------------------------清除属性修改-------------------------------------------------------------*/
+    @SubscribeEvent
+    public static void onPlayerLeave(PlayerEvent.PlayerLoggedOutEvent event) {
+        Player player = event.getEntity();
+        AttributeInstance attribute = player.getAttribute(AttributeRegistry.CAST_TIME_REDUCTION);
+        if (attribute != null) {
+            attribute.removeModifier(CancelCooldown.ID);
+        }
+
     }
 }

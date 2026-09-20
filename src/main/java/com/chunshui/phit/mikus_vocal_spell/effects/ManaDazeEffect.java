@@ -54,6 +54,6 @@ public class ManaDazeEffect extends MagicMobEffect {
 
     @Override
     public void onEffectRemoved(LivingEntity livingEntity, int amplifier) {
-        livingEntity.getPersistentData().putInt(NBTKeyHelper.MANA_CHANGE, 0);
+        livingEntity.getPersistentData().putInt(NBTKeyHelper.POTION_CHANGE, 0);
     }
 }

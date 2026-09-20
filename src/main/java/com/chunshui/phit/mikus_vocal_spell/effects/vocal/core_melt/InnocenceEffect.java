@@ -69,13 +69,9 @@ public class InnocenceEffect extends MagicMobEffect {
             Vec3 lookAngle = entity.getLookAngle();
             Vec3 spawnBasicDir = entity.getEyePosition().add(0, -.5, 0);
             PrismShardEntity prismShardEntity1 = new PrismShardEntity(entity.level(), entity);
-            FireArrowProjectile fireArrowProjectile = new FireArrowProjectile(entity.level(), entity);
-            fireArrowProjectile.setPos(spawnBasicDir);
-            fireArrowProjectile.shoot(lookAngle.x, lookAngle.y, lookAngle.z, 0.8F, 0);
             prismShardEntity1.setPos(spawnBasicDir);
             prismShardEntity1.shoot(lookAngle);
             entity.level().addFreshEntity(prismShardEntity1);
-            entity.level().addFreshEntity(fireArrowProjectile);
         }
     }
 }

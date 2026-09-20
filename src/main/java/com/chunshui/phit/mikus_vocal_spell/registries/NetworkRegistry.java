@@ -28,13 +28,10 @@ public class NetworkRegistry {
             SyncInnocenceDataPacket::handle
         );
 
-        registries.playBidirectional(
+        registries.playToServer(
                 CurrentFormSync.TYPE,
                 CurrentFormSync.STREAM_CODEC,
-                new DirectionalPayloadHandler<>(
-                        CurrentFormSync::nullHandler,
-                        CurrentFormSync::handler
-                )
+                CurrentFormSync::handler
         );
     }
 

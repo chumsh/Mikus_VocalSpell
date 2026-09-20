@@ -1,6 +1,5 @@
 package com.chunshui.phit.mikus_vocal_spell.entity.spells.core_melt;
 
-import com.chunshui.phit.mikus_vocal_spell.MikusVocalSpellIronsSpellsAddon;
 import com.chunshui.phit.mikus_vocal_spell.registries.AttachmentRegistry;
 import com.chunshui.phit.mikus_vocal_spell.registries.MVSDamageType;
 import com.chunshui.phit.mikus_vocal_spell.registries.MVSEntityRegistry;
@@ -44,15 +43,11 @@ public class PrismShardEntity extends Projectile implements GeoEntity {
         yRotO = owner.getYRot();
         setXRot(owner.getXRot());
         setYRot(owner.getYRot());
-        MikusVocalSpellIronsSpellsAddon.LOGGER.info("PrismShardEntity tick{}{}",this.getYRot(), owner.getYRot());
     }
 
     @Override
     public void tick() {
         super.tick();
-
-        if (getOwner() != null)
-            MikusVocalSpellIronsSpellsAddon.LOGGER.info("PrismShardEntity created{}{}",this.getYRot(), getOwner().getYRot());
 
         if (this.tickCount >= MAX_LIFETIME) {
             this.discard();

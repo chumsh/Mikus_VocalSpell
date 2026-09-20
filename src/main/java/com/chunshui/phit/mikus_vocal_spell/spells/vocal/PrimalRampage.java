@@ -1,11 +1,12 @@
 package com.chunshui.phit.mikus_vocal_spell.spells.vocal;
 
 import com.chunshui.phit.mikus_vocal_spell.MikusVocalSpellIronsSpellsAddon;
+import com.chunshui.phit.mikus_vocal_spell.registries.AttachmentRegistry;
 import com.chunshui.phit.mikus_vocal_spell.registries.MVSEffectRegistry;
 import com.chunshui.phit.mikus_vocal_spell.registries.MVSSchoolRegistry;
+import com.chunshui.phit.mikus_vocal_spell.utils.AntiCancelChanting;
 import com.chunshui.phit.mikus_vocal_spell.utils.AntiCancelCooldown;
 import com.chunshui.phit.mikus_vocal_spell.utils.ConvertibleSpell;
-import com.chunshui.phit.mikus_vocal_spell.utils.MVSUtils;
 import io.redspace.ironsspellbooks.api.config.DefaultConfig;
 import io.redspace.ironsspellbooks.api.magic.MagicData;
 import io.redspace.ironsspellbooks.api.spells.AbstractSpell;
@@ -22,7 +23,7 @@ import net.minecraft.world.level.Level;
 
 import java.util.List;
 
-public class PrimalRampage extends AbstractSpell implements ConvertibleSpell, AntiCancelCooldown {
+public class PrimalRampage extends AbstractSpell implements ConvertibleSpell, AntiCancelCooldown, AntiCancelChanting {
 
     private final ResourceLocation SPELL_ID = ResourceLocation.fromNamespaceAndPath(
             MikusVocalSpellIronsSpellsAddon.MODID,
@@ -30,6 +31,7 @@ public class PrimalRampage extends AbstractSpell implements ConvertibleSpell, An
     );
 
     public PrimalRampage() {
+        this.baseSpellPower = 1;
         this.baseManaCost = 300;
         this.castTime = 60;
     }
@@ -47,7 +49,7 @@ public class PrimalRampage extends AbstractSpell implements ConvertibleSpell, An
             .setAllowCrafting(true)
             .setMinRarity(SpellRarity.EPIC)
             .setSchoolResource(MVSSchoolRegistry.VOCAL_RESOURCE)
-            .setMaxLevel(1)
+            .setMaxLevel(3)
             .setCooldownSeconds(300)
             .build();
 
@@ -85,18 +87,29 @@ public class PrimalRampage extends AbstractSpell implements ConvertibleSpell, An
         if (!(entity instanceof Player)) {
             return;
         }
-        int currentForm = MVSUtils.getCurrentForm(entity);
+        int currentForm = entity.getData(AttachmentRegistry.CURRENT_FORM);
         if (currentForm == 1) {
             entity.addEffect(new MobEffectInstance(
                     MVSEffectRegistry.PRIMAL_VANISH_EFFECT,
-                    600,
+                    spellLevel * (int) (300 * (getSpellPower(spellLevel, entity))),
                     0,
                     false,
                     true,
                     true
-                    ));
+            ));
+        }
+        if (currentForm == 2) {
+            entity.addEffect(new MobEffectInstance(
+                    MVSEffectRegistry.PRIMAL_CHANT_EFFECT,
+                    spellLevel * (int) (100 * (getSpellPower(spellLevel, entity))),
+                    0,
+                    false,
+                    true,
+                    true
+            ));
         }
     }
-
-
 }
+
+
+

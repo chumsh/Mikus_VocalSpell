@@ -4,6 +4,7 @@ import com.chunshui.phit.mikus_vocal_spell.MikusVocalSpellIronsSpellsAddon;
 import com.chunshui.phit.mikus_vocal_spell.effects.ManaDazeEffect;
 import com.chunshui.phit.mikus_vocal_spell.effects.vocal.core_melt.InnocenceEffect;
 import com.chunshui.phit.mikus_vocal_spell.effects.vocal.mana_munch_melody.MelodyEffect;
+import com.chunshui.phit.mikus_vocal_spell.effects.vocal.priaml_rampage.PrimalChantEffect;
 import com.chunshui.phit.mikus_vocal_spell.effects.vocal.priaml_rampage.PrimalVanishEffect;
 import com.chunshui.phit.mikus_vocal_spell.effects.vocal.reincarnation.*;
 import com.chunshui.phit.mikus_vocal_spell.effects.vocal.scallon.ScallionEffect;
@@ -81,7 +82,12 @@ public class MVSEffectRegistry {
                     MobEffectCategory.BENEFICIAL,
                     0x000000
             ));
-    //其他效果
+    public static final DeferredHolder<MobEffect, MobEffect> PRIMAL_CHANT_EFFECT =
+            EFFECTS.register("primal_chant_effect", () -> new PrimalChantEffect(
+                    MobEffectCategory.BENEFICIAL,
+                    0x000000
+            ));
+    //药水效果
     public static final DeferredHolder<MobEffect, MobEffect> MANA_DAZE_EFFECT =
             EFFECTS.register("mana_daze_effect", ()-> new ManaDazeEffect(
                     MobEffectCategory.HARMFUL,

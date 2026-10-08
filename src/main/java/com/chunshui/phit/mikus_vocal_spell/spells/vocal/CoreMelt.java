@@ -7,6 +7,7 @@ import com.chunshui.phit.mikus_vocal_spell.registries.AttachmentRegistry;
 import com.chunshui.phit.mikus_vocal_spell.registries.MVSEffectRegistry;
 import com.chunshui.phit.mikus_vocal_spell.registries.MVSSchoolRegistry;
 import com.chunshui.phit.mikus_vocal_spell.utils.ConvertibleSpell;
+import com.chunshui.phit.mikus_vocal_spell.utils.MVSUtils;
 import com.chunshui.phit.mikus_vocal_spell.utils.NBTKeyHelper;
 import io.redspace.ironsspellbooks.api.config.DefaultConfig;
 import io.redspace.ironsspellbooks.api.magic.MagicData;
@@ -29,7 +30,8 @@ public class CoreMelt extends AbstractSpell implements ConvertibleSpell {
     @Override
     public List<MutableComponent> getUniqueInfo(int spellLevel, LivingEntity caster) {
         return List.of(
-                Component.translatable("ui.mikus_vocal_spell.core_melt.form1_damage"),
+                Component.translatable("ui.mikus_vocal_spell.current_form").append(Component
+                         .translatable("message.mikus_vocal_spell.change_spell_form.core_melt_form" + MVSUtils.getCurrentForm(caster))),
                 Component.translatable("ui.mikus_vocal_spell.remaining", Utils.timeFromTicks(400, 2)),
                 Component.translatable("ui.mikus_vocal_spell.vsinger.rin").withColor(getColor())
         );
@@ -42,10 +44,10 @@ public class CoreMelt extends AbstractSpell implements ConvertibleSpell {
 
     public CoreMelt(){
         this.baseSpellPower = 1;
-        this.manaCostPerLevel = 30;
-        this.baseManaCost = 100;
+        this.manaCostPerLevel = 5;
+        this.baseManaCost = 40;
         this.spellPowerPerLevel = 1;
-        this.castTime = 100;
+        this.castTime = 30;
     }
 
     private final DefaultConfig defaultConfig = new DefaultConfig()

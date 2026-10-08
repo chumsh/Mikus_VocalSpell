@@ -1,6 +1,6 @@
 package com.chunshui.phit.mikus_vocal_spell.recipe;
 
-import com.chunshui.phit.mikus_vocal_spell.registries.RecipeRegistries;
+import com.chunshui.phit.mikus_vocal_spell.registries.RecipeRegistry;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.advancements.Criterion;
@@ -62,12 +62,12 @@ public record EchoAltarRecipe(NonNullList<Ingredient> inputItem, ItemStack resul
 
     @Override
     public @NotNull RecipeSerializer<?> getSerializer() {
-        return RecipeRegistries.ECHO_ALTAR_RECIPE_SERIALIZER.get();
+        return RecipeRegistry.ECHO_ALTAR_RECIPE_SERIALIZER.get();
     }
 
     @Override
     public @NotNull RecipeType<?> getType() {
-        return RecipeRegistries.ECHO_ALTAR_TYPE.get();
+        return RecipeRegistry.ECHO_ALTAR_TYPE.get();
     }
 
     public record EchoAltarInput(NonNullList<ItemStack> stacks) implements RecipeInput {

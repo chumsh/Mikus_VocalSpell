@@ -7,6 +7,7 @@ import com.chunshui.phit.mikus_vocal_spell.registries.MVSSchoolRegistry;
 import com.chunshui.phit.mikus_vocal_spell.utils.AntiCancelChanting;
 import com.chunshui.phit.mikus_vocal_spell.utils.AntiCancelCooldown;
 import com.chunshui.phit.mikus_vocal_spell.utils.ConvertibleSpell;
+import com.chunshui.phit.mikus_vocal_spell.utils.MVSUtils;
 import io.redspace.ironsspellbooks.api.config.DefaultConfig;
 import io.redspace.ironsspellbooks.api.magic.MagicData;
 import io.redspace.ironsspellbooks.api.spells.AbstractSpell;
@@ -39,14 +40,13 @@ public class PrimalRampage extends AbstractSpell implements ConvertibleSpell, An
     @Override
     public List<MutableComponent> getUniqueInfo(int spellLevel, LivingEntity caster) {
         return List.of(
-                Component.translatable("ui.mikus_vocal_spell.primal_rampage.form1").withColor(16777215),
-                Component.translatable("ui.mikus_vocal_spell.primal_rampage.form2").withColor(16777215),
+                Component.translatable("ui.mikus_vocal_spell.current_form").append(Component
+                         .translatable("message.mikus_vocal_spell.change_spell_form.primal_rampage_form" + MVSUtils.getCurrentForm(caster))),
                 Component.translatable("ui.mikus_vocal_spell.vsinger.miku").withColor(3786171)
         );
     }
 
     private final DefaultConfig CONFIG = new DefaultConfig()
-            .setAllowCrafting(true)
             .setMinRarity(SpellRarity.EPIC)
             .setSchoolResource(MVSSchoolRegistry.VOCAL_RESOURCE)
             .setMaxLevel(3)

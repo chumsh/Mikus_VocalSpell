@@ -1,9 +1,10 @@
 package com.chunshui.phit.mikus_vocal_spell.entity.spells.core_melt;
 
 import com.chunshui.phit.mikus_vocal_spell.registries.AttachmentRegistry;
-import com.chunshui.phit.mikus_vocal_spell.registries.MVSDamageType;
 import com.chunshui.phit.mikus_vocal_spell.registries.MVSEntityRegistry;
+import com.chunshui.phit.mikus_vocal_spell.registries.VocalSpellRegistry;
 import com.chunshui.phit.mikus_vocal_spell.utils.AnimationHelper;
+import io.redspace.ironsspellbooks.damage.DamageSources;
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.syncher.SynchedEntityData;
@@ -86,7 +87,7 @@ public class PrismShardEntity extends Projectile implements GeoEntity {
     protected void onHitEntity(EntityHitResult result) {
         int spellLevel = Objects.requireNonNull(getOwner()).getData(AttachmentRegistry.CORE_MELT_LEVEL);
         float damage = Objects.requireNonNull(getOwner()).getData(AttachmentRegistry.TOTAL_DAMAGE) * spellLevel;
-        result.getEntity().hurt(this.damageSources().source(MVSDamageType.VOCAL_MAGIC), damage);
+        DamageSources.applyDamage(result.getEntity(), damage, VocalSpellRegistry.CORE_MELT.get().getDamageSource(this, getOwner()));
     }
 
     @Override

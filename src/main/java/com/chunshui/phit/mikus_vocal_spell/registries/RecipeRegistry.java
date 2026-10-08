@@ -11,7 +11,7 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 
 import java.util.function.Supplier;
 
-public class RecipeRegistries {
+public class RecipeRegistry {
     //----------------Recipe-Types--------------------
     private static final DeferredRegister<RecipeType<?>> RECIPE_TYPES = DeferredRegister.create(Registries.RECIPE_TYPE, MikusVocalSpellIronsSpellsAddon.MODID);
 

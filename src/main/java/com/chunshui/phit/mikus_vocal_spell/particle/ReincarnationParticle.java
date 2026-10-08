@@ -54,9 +54,7 @@ public class ReincarnationParticle extends TextureSheetParticle {
 
         //设置精灵图
 
-                this.setSpriteFromAge(sprites);
-
-
+         this.setSpriteFromAge(sprites);
 
         // 逐渐淡出
         if (this.age++ >= this.lifetime) {
@@ -66,6 +64,8 @@ public class ReincarnationParticle extends TextureSheetParticle {
             this.alpha = 1.0f - (float) this.age/ this.lifetime; // 渐隐效果
         }
     }
+
+
 
     @Override
     public @NotNull ParticleRenderType getRenderType() {

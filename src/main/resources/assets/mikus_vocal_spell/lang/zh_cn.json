@@ -14,6 +14,7 @@
   "entity.mikus_vocal_spell.scallion_area": "大葱舞域",
 
   "attribute.mikus_vocal_spell.vocal_spell_power": "声之法术强度",
+  "attribute.mikus_vocal_spell.vocal_spell_resist" : "声之法术抗性",
 
   "death.attack.vocal_magic": "%1$s was slain by vocal magic",
   "death.attack.vocal_magic.player": "%1$s was slain by vocal magic whilst fighting %2$s",
@@ -28,7 +29,7 @@
   "death.mikus_vocal_spell.revived": "啊，又搞砸了，转生吧",
 
   "effect.mikus_vocal_spell.revive_buff": "转生",
-  "effect.mikus_vocal_spell.performer_effect": "孤傲的表演者",
+  "effect.mikus_vocal_spell.performer_effect": "孤傲的艺术家",
   "effect.mikus_vocal_spell.inventor_effect": "被背叛的发明家",
   "effect.mikus_vocal_spell.messiah_effect": "被欺骗的救世主",
   "effect.mikus_vocal_spell.revolutionary_effect": "堕落的革命家",
@@ -39,6 +40,7 @@
   "effect.mikus_vocal_spell.innocence_effect": "稚心力场",
   "effect.mikus_vocal_spell.primal_vanish_effect": "消逝的原初",
   "effect.mikus_vocal_spell.primal_chant_effect": "原初咏者",
+  "effect.mikus_vocal_spell.real_me_effect": "真我",
 
 
   "message.mikus_vocal_spell.performer_effect.effect": "所爱的伙伴离我而去了",
@@ -53,15 +55,20 @@
   "message.mikus_vocal_spell.change_spell_form.primal_rampage_form1": "原初的消逝",
   "message.mikus_vocal_spell.change_spell_form.primal_rampage_form2": "原初咏者",
 
-  "ui.mikus_vocal_spell.damage": "伤害：",
-  "ui.mikus_vocal_spell.reincarnation": "转生次数：3",
+  "ui.mikus_vocal_spell.damage": "伤害: %d",
+  "ui.mikus_vocal_spell.reincarnation": "转生次数：",
   "ui.mikus_vocal_spell.remaining": "持续时间: %d",
   "ui.mikus_vocal_spell.vsinger.miku": "祝福者：初音",
   "ui.mikus_vocal_spell.vsinger.rin": "祝福者：镜音铃",
   "ui.mikus_vocal_spell.vsinger.luotianyi": "祝福者：洛天依",
-  "ui.mikus_vocal_spell.core_melt.form1_damage": "模式①伤害: 总承伤 * 法术等级",
-  "ui.mikus_vocal_spell.primal_rampage.form1": "模式①: 取消咏唱",
-  "ui.mikus_vocal_spell.primal_rampage.form2": "模式②: 取消冷却",
+  "ui.mikus_vocal_spell.introduction": "当前效果: ",
+  "ui.mikus_vocal_spell.introduction.1": "孤傲的艺术家",
+  "ui.mikus_vocal_spell.introduction.2": "被背叛的发明家",
+  "ui.mikus_vocal_spell.introduction.3": "被欺骗的救世主",
+  "ui.mikus_vocal_spell.introduction.4": "堕落的革命家",
+  "ui.mikus_vocal_spell.introduction.5": "自私的冒险者",
+  "ui.mikus_vocal_spell.introduction.realme": "真我",
+  "ui.mikus_vocal_spell.current_form": "当前形态 ",
 
   "sounds.mikus_vocal_spell.eat_apple": "转生开始",
   "sounds.mikus_vocal_spell.drink": "补充魔力",

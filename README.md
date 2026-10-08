@@ -7,23 +7,23 @@
 🌐 **语言 / Language:**  
 [🇺🇸 English](README.md) | [🇨🇳 简体中文](README.zh-CN.md)
 ---
-> ❗❗❗Note: This Mod is currently in early construction.
+> Note: This Mod is currently in early construction.
 
 ---
 
-## ✨ Mod's Feature
+## Mod's Feature
 
 - Polymorphic Spells Added  
 - Spells are inspired by songs performed by multiple virtual singers.
 - Added a new spell school: Vocal.
 
-## 📸 Screenshot
+## Screenshot
 
 ---
 
-- ~💀-Coming Soon !-💀~
+- Coming Soon!
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Requirements
 

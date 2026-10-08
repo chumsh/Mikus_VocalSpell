@@ -14,6 +14,7 @@
 
   "school.mikus_vocalspell.vocal": "Vocal",
   "attribute.mikus_vocal_spell.vocal_spell_power" : "Vocal Spell Power",
+  "attribute.mikus_vocal_spell.vocal_spell_resist" : "Vocal Spell Resist",
 
   "death.attack.vocal_magic": "%1$s was slain by vocal magic",
   "death.attack.vocal_magic.player": "%1$s was slain by vocal magic whilst fighting %2$s",
@@ -39,13 +40,14 @@
   "effect.mikus_vocal_spell.innocence_effect": "Innocence Field",
   "effect.mikus_vocal_spell.primal_vanish_effect": "Primal Vanish",
   "effect.mikus_vocal_spell.primal_chant_effect": "Primal Chanter",
+  "effect.mikus_vocal_spell.real_me_effect": "Real Me",
 
 
-  "message.mikus_vocal_spell.performer_effect.effect": "The beloved comrades have departed",
-  "message.mikus_vocal_spell.inventor_effect.effect": "A cruel rain of blood fell",
-  "message.mikus_vocal_spell.messiah_effect.effect": "Too pure for his own good, easily deceived by evil",
-  "message.mikus_vocal_spell.revolutionary_effect.effect": "Drowning in the power I've obtained",
-  "message.mikus_vocal_spell.adventurer_effect.effect": "Innocent people fell victim",
+  "message.mikus_vocal_spell.performer_effect.effect": "The Beloved Comrades Have Departed",
+  "message.mikus_vocal_spell.inventor_effect.effect": "A Cruel Rain of Blood Fell",
+  "message.mikus_vocal_spell.messiah_effect.effect": "Too Pure For His Own Good, Easily Deceived By Evil",
+  "message.mikus_vocal_spell.revolutionary_effect.effect": "Drowning in The Power I've Obtained",
+  "message.mikus_vocal_spell.adventurer_effect.effect": "Innocent People Fell Victim",
   "message.mikus_vocal_spell.change_spell_form.core_melt_form1": "Melting Innocence",
   "message.mikus_vocal_spell.change_spell_form.core_melt_form2": "Leon Singularity",
   "message.mikus_vocal_spell.change_spell_form.core_melt_form3": "Prophetic Heart",
@@ -56,20 +58,26 @@
   "message.mikus_vocal_spell.change_spell_form.base": "Current Form:",
 
   "ui.mikus_vocal_spell.damage": "%d Damage",
-  "ui.mikus_vocal_spell.reincarnation": "3 Revive Times",
-  "ui.mikus_vocal_spell.remaining": "Remaining Time: ",
+  "ui.mikus_vocal_spell.reincarnation": "Revive Times: ",
+  "ui.mikus_vocal_spell.remaining": "Remaining Time: %d",
   "ui.mikus_vocal_spell.vsinger.luotianyi": "Blesser: LuoTianyi",
   "ui.mikus_vocal_spell.vsinger.miku": "Blesser: Miku",
   "ui.mikus_vocal_spell.vsinger.rin": "Blesser: Rin",
-  "ui.mikus_vocal_spell.core_melt.form1_damage":"Form① Damage: Total Damage *SpellLevel",
-  "ui.mikus_vocal_spell.primal_rampage.form1":"Form①: Cancel Chanting",
-  "ui.mikus_vocal_spell.primal_rampage.form2":"Form②: Cancel CoolDown",
+  "ui.mikus_vocal_spell.introduction": "Current Effect: ",
+  "ui.mikus_vocal_spell.introduction.1": "Arrogant Performer",
+  "ui.mikus_vocal_spell.introduction.2": "Betrayed Inventor",
+  "ui.mikus_vocal_spell.introduction.3": "Deceived Messiah",
+  "ui.mikus_vocal_spell.introduction.4": "Fallen Revolutionary",
+  "ui.mikus_vocal_spell.introduction.5": "Selfish Adventurer",
+  "ui.mikus_vocal_spell.introduction.realme": "Real Me",
+  "ui.mikus_vocal_spell.current_form": "Form ",
 
 
   "sounds.mikus_vocal_spell.eat_apple": "Reincarnation Start",
   "sounds.mikus_vocal_spell.drink": "Restore Mana",
   "sounds.mikus_vocal_spell.fall_down": "Heavy Object Falling",
   "sounds.mikus_vocal_spell.break": "Youthfulness Fades"
+
 
 
 }

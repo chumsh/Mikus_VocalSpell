@@ -57,12 +57,10 @@ public class CancelCooldown {
         if (cachedSpell != spell) {
             cachedSpell = spell;
 
-            if (cachedSpell instanceof AntiCancelChanting
-                            || cachedSpell.getCastType() == CastType.CONTINUOUS
-                            || cachedSpell.getCastType() == CastType.INSTANT
-            ) {
+            if (cachedSpell instanceof AntiCancelChanting || cachedSpell.getCastType() == CastType.CONTINUOUS || cachedSpell.getCastType() == CastType.INSTANT) {
                 attribute.removeModifier(modifier);
-            } else attribute.addTransientModifier(modifier);
+            } else
+                attribute.addTransientModifier(modifier);
         }
     }
 }

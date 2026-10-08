@@ -1,9 +1,7 @@
 package com.chunshui.phit.mikus_vocal_spell.registries;
 
 import com.chunshui.phit.mikus_vocal_spell.MikusVocalSpellIronsSpellsAddon;
-import com.chunshui.phit.mikus_vocal_spell.effects.ManaDazeEffect;
 import com.chunshui.phit.mikus_vocal_spell.effects.vocal.core_melt.InnocenceEffect;
-import com.chunshui.phit.mikus_vocal_spell.effects.vocal.mana_munch_melody.MelodyEffect;
 import com.chunshui.phit.mikus_vocal_spell.effects.vocal.priaml_rampage.PrimalChantEffect;
 import com.chunshui.phit.mikus_vocal_spell.effects.vocal.priaml_rampage.PrimalVanishEffect;
 import com.chunshui.phit.mikus_vocal_spell.effects.vocal.reincarnation.*;
@@ -57,6 +55,12 @@ public class MVSEffectRegistry {
             0x000000
     ));
 
+    public static final DeferredHolder<MobEffect, MobEffect> REAL_ME_EFFECT =
+            EFFECTS.register("real_me_effect", () -> new RealMeEffect(
+                    MobEffectCategory.BENEFICIAL,
+                    0x39c5bb
+            ));
+
     /*Scallion*/
     public static final DeferredHolder<MobEffect, MobEffect> SCALLION_EFFECT =
             EFFECTS.register("scallion_effect", ()-> new ScallionEffect(
@@ -64,12 +68,6 @@ public class MVSEffectRegistry {
             0x000000
     ));
 
-    /*ManaMunchMelody*/
-    public static final DeferredHolder<MobEffect, MobEffect> MELODY_EFFECT =
-            EFFECTS.register("melody_effect", () -> new MelodyEffect(
-                    MobEffectCategory.BENEFICIAL,
-                    0x000000
-            ));
    /*CoreMelt*/
     public static final DeferredHolder<MobEffect, MobEffect> INNOCENCE_EFFECT =
             EFFECTS.register("innocence_effect", () -> new InnocenceEffect(
@@ -87,10 +85,5 @@ public class MVSEffectRegistry {
                     MobEffectCategory.BENEFICIAL,
                     0x000000
             ));
-    //药水效果
-    public static final DeferredHolder<MobEffect, MobEffect> MANA_DAZE_EFFECT =
-            EFFECTS.register("mana_daze_effect", ()-> new ManaDazeEffect(
-                    MobEffectCategory.HARMFUL,
-                    0x000000
-            ));
+
 }

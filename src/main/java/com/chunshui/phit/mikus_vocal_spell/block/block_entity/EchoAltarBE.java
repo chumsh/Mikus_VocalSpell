@@ -2,7 +2,7 @@ package com.chunshui.phit.mikus_vocal_spell.block.block_entity;
 
 import com.chunshui.phit.mikus_vocal_spell.recipe.EchoAltarRecipe;
 import com.chunshui.phit.mikus_vocal_spell.registries.MVSBlockRegistry;
-import com.chunshui.phit.mikus_vocal_spell.registries.RecipeRegistries;
+import com.chunshui.phit.mikus_vocal_spell.registries.RecipeRegistry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.HolderLookup;
@@ -105,7 +105,7 @@ public class EchoAltarBE extends BlockEntity implements GeoBlockEntity, WorldlyC
             return ItemStack.EMPTY;
         RecipeManager recipes = serverLevel.getRecipeManager();
         EchoAltarRecipe.EchoAltarInput input = new EchoAltarRecipe.EchoAltarInput(this.inputItems);
-        Optional<RecipeHolder<EchoAltarRecipe>> recipeMap = recipes.getRecipeFor(RecipeRegistries.ECHO_ALTAR_TYPE.get(), input, serverLevel);
+        Optional<RecipeHolder<EchoAltarRecipe>> recipeMap = recipes.getRecipeFor(RecipeRegistry.ECHO_ALTAR_TYPE.get(), input, serverLevel);
 
         ItemStack result = recipeMap.map(RecipeHolder::value).map(map -> map.assemble(input, level.registryAccess())).orElse(ItemStack.EMPTY);
         if (!result.isEmpty()) clearContent();

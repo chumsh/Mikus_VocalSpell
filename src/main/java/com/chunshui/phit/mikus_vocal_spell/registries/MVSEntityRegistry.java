@@ -3,6 +3,7 @@ package com.chunshui.phit.mikus_vocal_spell.registries;
 import com.chunshui.phit.mikus_vocal_spell.MikusVocalSpellIronsSpellsAddon;
 import com.chunshui.phit.mikus_vocal_spell.entity.spells.NoneCheckArea;
 import com.chunshui.phit.mikus_vocal_spell.entity.spells.core_melt.*;
+import com.chunshui.phit.mikus_vocal_spell.entity.spells.nom_nom_song.LuoTianYiProjectile;
 import com.chunshui.phit.mikus_vocal_spell.entity.spells.scallion_dance.ScallionEffectArea;
 import com.chunshui.phit.mikus_vocal_spell.entity.spells.scallion_dance.ScallionProjectile;
 import net.minecraft.core.registries.Registries;
@@ -75,4 +76,10 @@ public class MVSEntityRegistry {
                     .clientTrackingRange(64)
                     .build(ResourceLocation.fromNamespaceAndPath(MikusVocalSpellIronsSpellsAddon.MODID, "prism_shard").toString())
             );
+
+    public static final DeferredHolder<EntityType<?>, EntityType<LuoTianYiProjectile>> LTY_EATING =
+            ENTITIES.register("lty_eating", () -> EntityType.Builder.<LuoTianYiProjectile>of(LuoTianYiProjectile::new, MobCategory.MISC)
+                    .sized(1.0F, 1.0F)
+                    .clientTrackingRange(64)
+                    .build(MikusVocalSpellIronsSpellsAddon.id("lty_eating").toString()));
 }

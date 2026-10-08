@@ -1,10 +1,10 @@
 package com.chunshui.phit.mikus_vocal_spell.spells.vocal;
 
 import com.chunshui.phit.mikus_vocal_spell.MikusVocalSpellIronsSpellsAddon;
+import com.chunshui.phit.mikus_vocal_spell.registries.AttachmentRegistry;
 import com.chunshui.phit.mikus_vocal_spell.registries.MVSEffectRegistry;
 import com.chunshui.phit.mikus_vocal_spell.registries.MVSSchoolRegistry;
-import com.chunshui.phit.mikus_vocal_spell.server.component.generated.ReviveCapability;
-import com.chunshui.phit.mikus_vocal_spell.server.component.generated.ReviveCapabilityManager;
+import com.chunshui.phit.mikus_vocal_spell.utils.NBTKeyHelper;
 import com.chunshui.phit.mikus_vocal_spell.utils.ParticleHelper;
 import io.redspace.ironsspellbooks.api.config.DefaultConfig;
 import io.redspace.ironsspellbooks.api.magic.MagicData;
@@ -25,11 +25,18 @@ public class ReincarnationSeed extends AbstractSpell {
     @Override
     public List<MutableComponent> getUniqueInfo(int spellLevel, LivingEntity caster) {
         return List.of(
-                Component.translatable("ui.mikus_vocal_spell.reincarnation").withColor(16777215),
-                Component.translatable("ui.mikus_vocal_spell.remaining", getRemainingTime(spellLevel, getSpellPower(spellLevel,caster))).withColor(16777215),
+                Component.translatable("ui.mikus_vocal_spell.reincarnation").append("3"),
+                Component.translatable("ui.mikus_vocal_spell.remaining", getRemainingTime(spellLevel, getSpellPower(spellLevel,caster))),
+                Component.translatable("ui.mikus_vocal_spell.introduction").append(Component.translatable(getEffectKey(spellLevel))),
                 Component.translatable("ui.mikus_vocal_spell.vsinger.miku").withColor(3786171)
-
         );
+    }
+
+    private String getEffectKey(int spellLevel) {
+        if (spellLevel <= 5) {
+            return "ui.mikus_vocal_spell.introduction." + spellLevel;
+        } else return "ui.mikus_vocal_spell.introduction.realme";
+
     }
 
     private static final ResourceLocation spellId = ResourceLocation.fromNamespaceAndPath(
@@ -38,15 +45,16 @@ public class ReincarnationSeed extends AbstractSpell {
     );
 
     public ReincarnationSeed() {
-        this.baseManaCost = 226;
+        this.baseManaCost = 46;
+        this.manaCostPerLevel = 30;
         this.baseSpellPower = 1;
         this.castTime = 40;
     }
 
     private final DefaultConfig defaultConfig = new DefaultConfig()
-            .setMinRarity(SpellRarity.EPIC)
+            .setMinRarity(SpellRarity.UNCOMMON)
             .setSchoolResource(MVSSchoolRegistry.VOCAL_RESOURCE)
-            .setMaxLevel(5)
+            .setMaxLevel(6)
             .setCooldownSeconds(300)
             .build();
 
@@ -70,29 +78,30 @@ public class ReincarnationSeed extends AbstractSpell {
         return Utils.timeFromTicks(durationTicks, 2);
     }
 
-
-
     @Override
     public void onCast(Level level, int spellLevel, LivingEntity entity,
                        CastSource castSource, MagicData playerMagicData) {
         if (entity instanceof ServerPlayer player) {
             float spellPower = getSpellPower(spellLevel, player);
+            player.getPersistentData().putFloat(NBTKeyHelper.REVIVE_SPELL_POWER, spellPower);
             int durationTicks = (int) ((200 + ((spellLevel - 1) * 200)) * spellPower);
 
+            int chance = player.getData(AttachmentRegistry.REVIVE_CHANCE);
+            if (chance <= 0) {
+                if (spellLevel <= 5) {
 
-            ReviveCapability capability = ReviveCapabilityManager.getReviveCapability(player);
-            if (!capability.isActive()) {
-                ReviveCapabilityManager.activateRevive(player, ReviveCapability.MAX_CHARGES);
-                int buffAmplifier = Math.min(spellLevel-1,4);
-
-                player.addEffect(new MobEffectInstance(
-                        MVSEffectRegistry.REVIVE_BUFF,
-                        durationTicks,
-                        buffAmplifier,
-                        false,
-                        true,
-                        true
-                ));
+                    player.addEffect(new MobEffectInstance(
+                            MVSEffectRegistry.REVIVE_BUFF,
+                            durationTicks,
+                            spellLevel - 1,
+                            false,
+                            true,
+                            true
+                    ));
+                } else {
+                    int time = (int) ((600 * getSpellPower(spellLevel, entity)));
+                    player.addEffect(new MobEffectInstance(MVSEffectRegistry.REAL_ME_EFFECT, time, spellLevel - 6, false, true));
+                }
 
                 player.serverLevel().sendParticles(ParticleHelper.REINCARNATION,
                         player.getX(),
@@ -104,7 +113,6 @@ public class ReincarnationSeed extends AbstractSpell {
                         0.03,
                         0.008
                 );
-
             }
 
             super.onCast(level, spellLevel, entity, castSource, playerMagicData);

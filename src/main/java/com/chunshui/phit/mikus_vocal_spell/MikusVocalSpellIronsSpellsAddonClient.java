@@ -2,13 +2,14 @@ package com.chunshui.phit.mikus_vocal_spell;
 
 import com.chunshui.phit.mikus_vocal_spell.block.block_renderer.EchoAltarRenderer;
 import com.chunshui.phit.mikus_vocal_spell.entity.spells.core_melt.*;
+import com.chunshui.phit.mikus_vocal_spell.entity.spells.nom_nom_song.LuoTianYiRenderer;
 import com.chunshui.phit.mikus_vocal_spell.entity.spells.scallion_dance.ScallionRender;
 import com.chunshui.phit.mikus_vocal_spell.particle.ReincarnationParticle;
 import com.chunshui.phit.mikus_vocal_spell.particle.ScallionParticle;
 import com.chunshui.phit.mikus_vocal_spell.registries.MVSBlockRegistry;
 import com.chunshui.phit.mikus_vocal_spell.registries.MVSEntityRegistry;
 import com.chunshui.phit.mikus_vocal_spell.registries.MVSFluidRegistry;
-import com.chunshui.phit.mikus_vocal_spell.registries.ParticleRegistries;
+import com.chunshui.phit.mikus_vocal_spell.registries.ParticleRegistry;
 import io.redspace.ironsspellbooks.fluids.SimpleClientFluidType;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.renderer.entity.LivingEntityRenderer;
@@ -48,8 +49,8 @@ public class MikusVocalSpellIronsSpellsAddonClient {
     }
 
     private static void registerParticles(RegisterParticleProvidersEvent event) {
-        event.registerSpriteSet(ParticleRegistries.REINCARNATION_PARTICLE.get(), ReincarnationParticle.Provider::new);
-        event.registerSpriteSet(ParticleRegistries.SCALLION_PARTICLE.get(), ScallionParticle.Provider::new);
+        event.registerSpriteSet(ParticleRegistry.REINCARNATION_PARTICLE.get(), ReincarnationParticle.Provider::new);
+        event.registerSpriteSet(ParticleRegistry.SCALLION_PARTICLE.get(), ScallionParticle.Provider::new);
     }
 
     private static void renderRegister(EntityRenderersEvent.RegisterRenderers event) {
@@ -61,6 +62,7 @@ public class MikusVocalSpellIronsSpellsAddonClient {
         event.registerEntityRenderer(MVSEntityRegistry.CORE_MELT_RING.get(), CMRingRender::new);
         event.registerEntityRenderer(MVSEntityRegistry.CMR_AREA_EFFECT_CLOUD.get(), NoopRenderer::new);
         event.registerEntityRenderer(MVSEntityRegistry.PRISM_SHARD.get(), PrismShardRender::new);
+        event.registerEntityRenderer(MVSEntityRegistry.LTY_EATING.get(), LuoTianYiRenderer::new);
         event.registerBlockEntityRenderer(MVSBlockRegistry.ECHO_ALTAR_BE.get(), EchoAltarRenderer::new);
     }
 

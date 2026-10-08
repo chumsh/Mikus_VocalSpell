@@ -1,12 +1,12 @@
 package com.chunshui.phit.mikus_vocal_spell.entity.spells;
 
 import com.chunshui.phit.mikus_vocal_spell.entity.spells.core_melt.CoreMeltRing;
+import com.chunshui.phit.mikus_vocal_spell.utils.MVSUtils;
 import com.chunshui.phit.mikus_vocal_spell.utils.NBTKeyHelper;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
-import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
@@ -14,7 +14,6 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.AABB;
-import net.neoforged.neoforge.server.ServerLifecycleHooks;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
@@ -40,7 +39,8 @@ public abstract class AbstractAreaEffectCloud extends Entity {
         entities = level().getEntitiesOfClass(LivingEntity.class, aabb);
         if (entities.isEmpty())
             return;
-        for (LivingEntity entity : entities) {
+        List<LivingEntity> targets = entities.stream().filter(livingEntity -> livingEntity != master).toList();
+        for (LivingEntity entity : targets) {
             if (!entity.getPersistentData().getBoolean(NBTKeyHelper.AREA_EFFECT_FLAG))
                 applyEffectToEntity(entity);
             if (CoreMeltRing.getLocalMaxLifeTime() - timeCounter < 20) {
@@ -56,31 +56,15 @@ public abstract class AbstractAreaEffectCloud extends Entity {
 
     protected  abstract void setAmplifier();
 
-    protected void applyEffectToEntity(Entity entity) {
-        LivingEntity livingEntity;
-        if (entity instanceof LivingEntity)
-            livingEntity = (LivingEntity) entity;
-        else
-            return;
-        if (isPvP()) {
-            if (level().isClientSide)
-                return;
-            if (entity != master) {
-                addEffect(livingEntity);
-            }
-        }else if (master instanceof Player && ! (entity instanceof Player)){
-                addEffect(livingEntity);
-        }else if (!(entity instanceof Player))
-            addEffect(livingEntity);
-        else
-            addEffect(livingEntity);
+    protected void applyEffectToEntity(LivingEntity entity) {
+
+        if (MVSUtils.isPvP(entity)) {
+            addEffect(entity);
+        } else {
+            if (!(entity instanceof Player)) addEffect(entity);
         }
-    protected boolean isPvP() {
-        MinecraftServer server = ServerLifecycleHooks.getCurrentServer();
-        if (server == null)
-            return false;
-        return server.isPvpAllowed();
     }
+
 
     public void setMaster(UUID master) {
         if (level().isClientSide)

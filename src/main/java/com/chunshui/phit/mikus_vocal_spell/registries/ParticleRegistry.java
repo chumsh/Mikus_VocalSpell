@@ -9,7 +9,7 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 
 import java.util.function.Supplier;
 
-public class ParticleRegistries {
+public class ParticleRegistry {
 
     public static final DeferredRegister<ParticleType<?>> PARTICLE_TYPES = DeferredRegister.create(Registries.PARTICLE_TYPE, MikusVocalSpellIronsSpellsAddon.MODID);
 
@@ -20,6 +20,7 @@ public class ParticleRegistries {
     public static final Supplier<SimpleParticleType> REINCARNATION_PARTICLE = PARTICLE_TYPES.register("reincarnation", () -> new SimpleParticleType(false));
 
     public static final Supplier<SimpleParticleType> SCALLION_PARTICLE = PARTICLE_TYPES.register("scallion", () -> new SimpleParticleType(false));
+
 
 
 }

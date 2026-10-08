@@ -11,7 +11,7 @@ public class InnocenceShellModel extends GeoModel<InnocenceShellEntity> {
     private static final ResourceLocation MODEL = ResourceLocation.fromNamespaceAndPath(
             MikusVocalSpellIronsSpellsAddon.MODID, "geo/innocence_shell.geo.json"
     );
-    private  static final ResourceLocation TEXTURE_OWN = ResourceLocation.fromNamespaceAndPath(
+    public static final ResourceLocation TEXTURE_OWN = ResourceLocation.fromNamespaceAndPath(
             MikusVocalSpellIronsSpellsAddon.MODID, "textures/entity/innocence_shell/in_rotate.png"
     );
     private static final ResourceLocation TEXTURE_TWO = ResourceLocation.fromNamespaceAndPath(

@@ -12,8 +12,8 @@ import org.jetbrains.annotations.NotNull;
 //官方简写形式无效，尝试常规方法
 //TODO::未来尝试把数据包简化为最简形式
 public class SyncInnocenceDataPacket implements CustomPacketPayload {
-    private boolean hasInnocence;
-    private int duration;
+    private final boolean hasInnocence;
+    private final int duration;
     private boolean shouldRelease;
 
     public static final Type<SyncInnocenceDataPacket> TYPE =
@@ -21,10 +21,10 @@ public class SyncInnocenceDataPacket implements CustomPacketPayload {
             MikusVocalSpellIronsSpellsAddon.MODID, "sync_innocence_data"));
 
 
-    public SyncInnocenceDataPacket(boolean hasInnocence, int duration/*, int ID*/) {
+    public SyncInnocenceDataPacket(boolean hasInnocence, int duration/*, int SUMMON_ID*/) {
         this.hasInnocence = hasInnocence;
         this.duration = duration;
-        //this.ID = ID;
+        //this.SUMMON_ID = SUMMON_ID;
     }
 
     private  SyncInnocenceDataPacket(FriendlyByteBuf buf) {

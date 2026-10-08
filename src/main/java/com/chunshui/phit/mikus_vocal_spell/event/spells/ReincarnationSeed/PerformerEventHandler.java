@@ -22,13 +22,11 @@ public class PerformerEventHandler {
         float totalDamage = newDamage + baseDamage;
         player.getPersistentData().putFloat(NBTKeyHelper.PERFORMER_DAMAGE, totalDamage);
         MagicData magicData = MagicData.getPlayerMagicData(player);
-        int castingSpellLevel = magicData.getCastingSpellLevel();
+        float spellPower = player.getPersistentData().getFloat(NBTKeyHelper.REVIVE_SPELL_POWER);
         float mana = magicData.getMana();
-        if (totalDamage > castingSpellLevel * mana * 0.05 && castingSpellLevel> 0) {
-            event.setNewDamage((float) (newDamage + totalDamage * 0.3));
-            player.getPersistentData().putFloat(NBTKeyHelper.PERFORMER_DAMAGE, 0);
-        } else if (totalDamage > mana * 0.2) {
-            event.setNewDamage((float) (newDamage + totalDamage * 0.3));
+        float adjustTaget = Math.min(spellPower * mana * 0.1F, 10000);
+        if (totalDamage > adjustTaget) {
+            event.setNewDamage((newDamage + totalDamage * 0.2F) * spellPower);
             player.getPersistentData().putFloat(NBTKeyHelper.PERFORMER_DAMAGE, 0);
         }
     }

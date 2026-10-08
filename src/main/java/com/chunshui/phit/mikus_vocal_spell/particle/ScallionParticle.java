@@ -48,8 +48,6 @@ public class ScallionParticle extends TextureSheetParticle {
 
         this.setSpriteFromAge(sprites);
 
-
-
         // 逐渐淡出
         if (this.age++ >= this.lifetime) {
             this.remove();

@@ -33,7 +33,7 @@ public class VocalSpellRegistry {
 
     public static final Supplier<AbstractSpell> SCALLION_DANCE = registerSpell(new ScallionDance());
 
-    public static final Supplier<AbstractSpell> MANA_MUNCH_MELODY = registerSpell(new ManaMunchMelody());
+    public static final Supplier<AbstractSpell> NOM_NOM_SONG = registerSpell(new NomNomSong());
 
     public static final Supplier<AbstractSpell> CORE_MELT = registerSpell(new CoreMelt());
 

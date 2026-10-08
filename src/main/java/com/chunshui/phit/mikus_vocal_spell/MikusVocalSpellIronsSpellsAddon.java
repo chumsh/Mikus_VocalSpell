@@ -28,13 +28,13 @@ public class MikusVocalSpellIronsSpellsAddon {
         VocalSpellRegistry.register(modEventBus);
         MVSEffectRegistry.register(modEventBus);
         MVSSoundRegistry.register(modEventBus);
-        ParticleRegistries.register(modEventBus);
+        ParticleRegistry.register(modEventBus);
         MVSEntityRegistry.register(modEventBus);
         MVSCreativeTab.register(modEventBus);
         MVSFluidRegistry.register(modEventBus);
         AttachmentRegistry.register(modEventBus);
         MVSBlockRegistry.register(modEventBus);
-        RecipeRegistries.register(modEventBus);
+        RecipeRegistry.register(modEventBus);
 
         NeoForge.EVENT_BUS.register(this);
     }

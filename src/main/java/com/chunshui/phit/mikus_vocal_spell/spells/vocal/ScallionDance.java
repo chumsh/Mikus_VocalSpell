@@ -44,14 +44,14 @@ public class ScallionDance extends AbstractSpell{
         this.manaCostPerLevel = 10;
         this.baseManaCost = 70;
         this.spellPowerPerLevel = 1;
-        this.castTime = 100;
+        this.castTime = 60;
     }
 
     private final DefaultConfig defaultConfig = new DefaultConfig()
             .setAllowCrafting(true)
             .setCooldownSeconds(15)
             .setMaxLevel(10)
-            .setMinRarity(SpellRarity.RARE)
+            .setMinRarity(SpellRarity.UNCOMMON)
             .setSchoolResource(MVSSchoolRegistry.VOCAL_RESOURCE)
             .build();
 
